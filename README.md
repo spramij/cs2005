@@ -18,3 +18,7 @@ More extras
 - view and compare friends statitics
 - track and set goals
 
+
+## Platforms:
+Eclipse
+IntelliJ Idea
