@@ -19,6 +19,10 @@ More extras
 - track and set goals
 
 
+### Friends
+Unique db file with all usernames, able to add individually
+
+
 ## Platforms:
 Eclipse
 IntelliJ Idea
