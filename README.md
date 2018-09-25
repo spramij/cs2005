@@ -22,12 +22,12 @@ More extras
 
 
 ### Friends
-- Unique db file with all usernames
 - The user can select a user from its usernamen and add it to his friends list
+Unique database file with all usernames, register new users in said files, and nicely output it when researching users.
 
 ## IDE of choice:
-Eclipse (as per the instructions from the professor)
-JetBrains IntelliJ Idea 
+- Eclipse (as per the instructions from the professor)
+- JetBrains IntelliJ Idea 
 
 ## Use-case description
 
