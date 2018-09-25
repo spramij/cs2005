@@ -1,7 +1,9 @@
-# cs2005
-## Final project for CS 2005
+# Computer Science 2005 - Software Engineering
+## Final project for COMP2005
 
-Our goal is to create a fitness tracker app
+Create a GUI for a fitness tracker app that feeds off data input from the user. 
+
+## Objectives
 
 Main functionalities: 
 - create profiles: different users
@@ -20,9 +22,19 @@ More extras
 
 
 ### Friends
-Unique db file with all usernames, able to add individually
+- Unique db file with all usernames
+- The user can select a user from its usernamen and add it to his friends list
+
+## IDE of choice:
+Eclipse (as per the instructions from the professor)
+JetBrains IntelliJ Idea 
+
+## Use-case description
+
+#### Functionality one
+This functionality allows us to do x thing
+
+#### Functionality two
+This one allows us to do y thing
 
 
-## Platforms:
-Eclipse
-IntelliJ Idea
