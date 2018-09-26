@@ -1,4 +1,5 @@
 # Computer Science 2005 - Software Engineering
+
 ## Final project for COMP2005
 
 #### Students involved
@@ -7,9 +8,9 @@
 - Demetri Rumbolt 201608460
 - Sohil Pramij
 
-Create a GUI for a fitness tracker app that feeds off data input from the user. 
+***
 
-## Objectives
+## Objective : Create a fitness tracker app
 Main functionalities: 
 - profiles: allow different users
 - import/sync data
