@@ -4,7 +4,7 @@
 #### Students involved
 - Rahman Simanto
 - Zahin Hasan
-- Demetri Rumbold
+- Demetri Rumbolt 201608460
 - Sohil Pramij
 
 Create a GUI for a fitness tracker app that feeds off data input from the user. 
