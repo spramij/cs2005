@@ -169,7 +169,7 @@ public class fitnessTracker {
                 {"Sohil", "Friend"},
                 {"Demetri", "not friend"},
                 {"Simanto", "not friend"},
-                {"Zayn", "friend"},
+                {"Zahin", "friend"},
         };
 
         JTable friendData = new JTable(data, columnName);
