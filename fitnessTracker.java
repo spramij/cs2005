@@ -75,19 +75,22 @@ public class fitnessTracker {
         GUI.add(body);
 
         JMenuBar sidebarMenu = new JMenuBar();
-        sidebarMenu.setLayout(new GridLayout(3, 0));
+        sidebarMenu.setLayout(new GridLayout(4, 0));
 
         JMenu item1 = new JMenu("Stats");
         JMenu item2 = new JMenu("Runs");
         JMenu item3 = new JMenu("Friends");
+        JMenu item4 = new JMenu("Daily Challenge");
         sidebarMenu.add(item1);
         sidebarMenu.add(item2);
         sidebarMenu.add(item3);
+        sidebarMenu.add(item4);
 
         //along with its event listeners
         item1.addMenuListener(new statListener());
         item2.addMenuListener(new runListener());
         item3.addMenuListener(new friendListener());
+        item4.addMenuListener(new challengeListener());
 
         sidebar.add(sidebarMenu);
         GUI.setVisible(true);
@@ -169,7 +172,7 @@ public class fitnessTracker {
                 {"Sohil", "Friend"},
                 {"Demetri", "not friend"},
                 {"Simanto", "not friend"},
-                {"Zahin", "friend"},
+                {"Zayn", "friend"},
         };
 
         JTable friendData = new JTable(data, columnName);
@@ -181,6 +184,31 @@ public class fitnessTracker {
         GUI.add(body);
         GUI.setVisible(true);
     }
+
+    private static void challengePage() {
+        mainMenu();
+        body.removeAll();
+
+        String[] columnName = {"Challenge", "Completed"};
+
+        Object[][] data = {
+                {"Wake up and get breakfast", "Yes"},
+                {"Went for a morning run ", "No"},
+                {"Ate a homemade meal", "Yes"}
+        };
+
+        JTable challengeData = new JTable(data, columnName);
+
+        JScrollPane challengedataPane = new JScrollPane(challengeData);
+        challengeData.setFillsViewportHeight(true);
+
+        body.add(challengedataPane);
+        GUI.add(body);
+
+
+        GUI.setVisible(true);
+    }
+
 
 //    private static void persoPage() {
 //        GUI.removeAll();
@@ -281,4 +309,20 @@ public class fitnessTracker {
         public void menuCanceled(MenuEvent e) {
         }
     }
+
+    static class challengeListener implements MenuListener {
+        @Override
+        public void menuSelected(MenuEvent e) {
+            challengePage();
+        }
+
+        @Override
+        public void menuDeselected(MenuEvent e) {
+        }
+
+        @Override
+        public void menuCanceled(MenuEvent e) {
+        }
+    }
+
 }
