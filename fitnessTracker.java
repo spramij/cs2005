@@ -197,6 +197,7 @@ public class fitnessTracker {
                 {"Ate a homemade meal", "Yes"}
         };
 
+
         JTable challengeData = new JTable(data, columnName);
 
         JScrollPane challengedataPane = new JScrollPane(challengeData);
@@ -204,9 +205,9 @@ public class fitnessTracker {
 
         body.add(challengedataPane);
         GUI.add(body);
-
-
         GUI.setVisible(true);
+
+        JOptionPane.showMessageDialog(null, "You missed your chance! Try to go for a run in the afternoon!");
     }
 
 
