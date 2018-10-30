@@ -1,7 +1,5 @@
 # Computer Science 2005 - Software Engineering
 
-## Final project for COMP2005
-
 #### Students involved
 - Rahman Simanto 201655255
 - Zahin Hasan 201656741
@@ -10,18 +8,28 @@
 
 ***
 
-## Objective : Create a fitness tracker app
-Main functionalities: 
-- profiles: allow different users
-- import/sync data
-- display stats
+## Executable design
+is defined as 
+> a partial implementation of the system, built to demonstrate that the architectural design will be able to support 
+the key functionality and, more importantly, to exhibit the right properties in terms of performance, throughput, 
+capacity, reli- ability, scalability, and other “-ilities”
 
-Additional
-- edit/remove runs
-- find and add friends
+such as it should
+> ideally be of sufficient quality to serve as the foundation of an evolutionary architecture
 
-More extras
-- graphical UI
-- track more than just runs
-- view and compare friends statitics
-- track and set goals
+Hence, this repo is going to contain the basic behind-the-scene code for our system.
+It will be heavily inspired from the modules discussed in Assign2.
+
+The key aspects of it at this point are profiles, and run_data.
+
+
+***
+
+
+TL;DR: an architecture is:
+- the structure of the system
+- the most important components of the system
+- the relationship between said components
+- the reason a particular component was chosen, or the representation between aformentioned components
+-  the design pattern used
+
