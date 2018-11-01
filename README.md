@@ -17,10 +17,9 @@ capacity, reli- ability, scalability, and other “-ilities”
 such as it should
 > ideally be of sufficient quality to serve as the foundation of an evolutionary architecture
 
-Hence, this repo is going to contain the basic behind-the-scene code for our system.
-It will be heavily inspired from the modules discussed in Assign2.
-
-The key aspects of it at this point are profiles, and run_data.
+Hence, this branch contains the basic behind-the-scenes framework for our system. 
+It implements the Profile class, the (run)Data class, a basic system for Challenges.
+These are to be considered as the "base core functionality" of the system.
 
 
 ***
@@ -32,4 +31,3 @@ TL;DR: an architecture is:
 - the relationship between said components
 - the reason a particular component was chosen, or the representation between aformentioned components
 -  the design pattern used
-
