@@ -18,28 +18,28 @@ public class Data {
     }
 
     // retrieves individual entries
-    private String getName() {
+    public String getName() {
         return this.name;
     }
 
-    private int getDistance() {
+    public int getDistance() {
         return this.distance;
     }
 
-    private int getDuration() {
+    public int getDuration() {
         return this.duration;
     }
 
     // allows to edit every entry
-    private void setName(String newName) {
+    public void setName(String newName) {
         this.name = newName;
     }
 
-    private void setDuration(int newDuration) {
+    public void setDuration(int newDuration) {
         this.duration = newDuration;
     }
 
-    private void setDistance(int newDistance) {
+    public void setDistance(int newDistance) {
         this.distance = newDistance;
     }
 

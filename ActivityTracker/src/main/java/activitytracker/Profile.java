@@ -10,8 +10,11 @@ public class Profile {
     private List<Profile> friendsList;
     private Challenge myChallenges;
 
+    // security configuration for the user
+    private Object securityConfig;
+
     // constructor method
-    public Profile(String inName, List inRuns, Boolean inPrivacy) {
+    public Profile(String inName, List<Data> inRuns, Boolean inPrivacy) {
         this.name = inName;
         this.runData = inRuns;
         this.shareMyData = inPrivacy;
@@ -78,19 +81,4 @@ public class Profile {
         this.friendsList.add(newFriend);
         System.out.println("You have successfully added " + newFriend.getName() + " as your friend!");
     }
-
-    // main method, for testing purposes
-
-    /*
-     * public static void main(String[] args){ Data run1 = new
-     * Data("East Coast Trail",10,104); Data run2 = new
-     * Data("somethingelse Trail",7,73);
-     * 
-     * List<Data> list1 = new ArrayList<Data>(); list1.add(run1); list1.add(run2);
-     * 
-     * Profile profile1 = new Profile("Sohil",list1,true);
-     * 
-     * profile1.getProfile(); }
-     */
-
 }
