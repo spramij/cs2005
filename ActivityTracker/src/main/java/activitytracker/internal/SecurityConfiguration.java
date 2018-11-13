@@ -1,7 +1,9 @@
-package activitytracker.internal;
+package ActivityTracker.src.main.java.activitytracker.internal;
+
+import ActivityTracker.src.main.java.activitytracker.Profile;
+
 
 import java.util.List;
-import activitytracker.Profile;
 
 // class to hold security configuration of user
 public class SecurityConfiguration {
