@@ -22,6 +22,10 @@ public class Profile {
         this.myChallenges = new Challenge("default", "default", "default");
     }
 
+    public Profile(String inName) {
+        this.name = inName;
+    }
+
     // prints out all the info from the profile
     public void getProfile() {
         System.out.println("Name: " + this.name + "\nYou have been on the following runs: ");
