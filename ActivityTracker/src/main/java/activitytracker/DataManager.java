@@ -14,7 +14,7 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 public class DataManager {
 
     private String folderPath;
-    private CsvSchema profileSchema;    // This needs to be defined based on profile data
+    private CsvSchema profileSchema;    // This needs to be defined based on profile data structure
     private CsvSchema dataSchema = CsvSchema.builder().addColumn("name").addColumn("distance").addColumn("duration")
             .build();
     private CsvMapper mapper;
