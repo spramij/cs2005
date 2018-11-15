@@ -1,4 +1,4 @@
-package ActivityTracker.src.main.java.activitytracker;
+package ActivityTracker.src;
 
 
 public class Data {

@@ -1,7 +1,6 @@
-package ActivityTracker.src.main.java.activitytracker;
+package ActivityTracker.src;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 

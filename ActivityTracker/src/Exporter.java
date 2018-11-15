@@ -1,5 +1,4 @@
-package ActivityTracker.src.main.java.activitytracker;
-// package activitytracker;
+package ActivityTracker.src;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;

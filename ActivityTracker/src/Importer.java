@@ -1,5 +1,4 @@
-package ActivityTracker.src.main.java.activitytracker;
-// package activitytracker;
+package ActivityTracker.src;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

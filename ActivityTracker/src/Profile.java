@@ -1,4 +1,4 @@
-package ActivityTracker.src.main.java.activitytracker;
+package ActivityTracker.src;
 
 import java.util.ArrayList;
 import java.util.List;
