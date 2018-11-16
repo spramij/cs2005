@@ -8,10 +8,12 @@ import java.nio.file.Paths;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
+import activitytracker.interfaces.*;
+
 /**
  * Class to manage saving and loading of data
  */
-public class DataManager {
+public class DataManager implements IExporter, IImporter {
 
     private String folderPath;
     private CsvSchema profileSchema;    // This needs to be defined based on profile data structure
