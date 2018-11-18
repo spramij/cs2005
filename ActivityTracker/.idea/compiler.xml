@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ActivityTracker" target="1.7" />
+      <module name="ActivityTracker" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

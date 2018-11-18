@@ -1,47 +1,56 @@
 // package ActivityTracker.src.main.java.activitytracker;
 package activitytracker;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class App {
+public class App extends JFrame {
+    static private JFrame landing;
+    static private JTextField username;
     public static void main(String[] args) {
+        landing = new JFrame("Authenticator");
+        landing.setSize(720,480);
+        landing.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        // creates a temporary DB as a list
-        Profile sohil = new Profile("Sohil");
-        Profile zahin = new Profile("Zahin");
-        Profile demetri = new Profile("Demetri");
-        Profile simanto = new Profile("Simanto");
+        landingPanel welcome = new landingPanel();
+        landing.add(welcome);
 
-        List<Profile> tempDB = new ArrayList<Profile>();
-        tempDB.add(sohil);
-        tempDB.add(zahin);
-        tempDB.add(demetri);
-        tempDB.add(simanto);
-        // and adds some temporary profiles in it
+        landing.setVisible(true);
+    }
 
-        System.out.println("Hello ! Welcome to our Activity Tracker program");
-        System.out.println("Here, you will be able to keep track of any runs you do in your free time!");
 
-        System.out.println("Please, start by typing in your username: ");
+    private static class landingPanel extends JPanel{
+        private landingPanel(){
+            JPanel welcome = this;
+            welcome.setLayout(new GridLayout(2,1));
+            JLabel message = new JLabel("<html> <h1>Hello! Welcome to our Activity Tracker app!</h1><br><h2> Here, you will be able to add, edit, see and remove any data from " +
+                    "runs you've been on recently!</h2> <br><h4>To get started, please enter your ID</h4></html>");
 
-        Scanner reader = new Scanner(System.in);
-        String usrInput = reader.next();
-        boolean present = false;
+            JPanel auth = new JPanel();
+            JLabel id = new JLabel("Username: ");
+            username = new JTextField();
+            username.setPreferredSize(new Dimension(100,50));
+            JButton validate = new JButton("OK");
+            validate.addActionListener(new doValidation());
 
-        for (Profile i : tempDB) {
-            if (i.getName().equals(usrInput)) {
-                present = true;
-                break;
-            }
+            auth.add(id);
+            auth.add(username);
+            auth.add(validate);
+
+            welcome.add(message);
+            welcome.add(auth);
         }
-        if (present) {
-            System.out.println("Connected!");
-        } else {
-            System.out.println("Your profile isnt present on our system!");
+    }
+    private static class doValidation implements ActionListener {
+        public void actionPerformed(ActionEvent validateUsername){
+            String usrInput = username.getText();
+            System.out.println(usrInput);
+            landing.setVisible(false);
+            landing.dispose();
+            MainApp.main();
         }
 
-        reader.close();
     }
 }
