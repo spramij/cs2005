@@ -6,12 +6,15 @@ public class Data {
     private String name;
     private int distance;
     private int duration;
+    private int altitude;
+    private String date;
 
     // constructor method
-    public Data(String name, int distance, int duration) {
-        this.name = name;
-        this.distance = distance;
+    public Data(int duration, int distance, int altitude, String date) {
         this.duration = duration;
+        this.distance = distance;
+        this.altitude = altitude;
+        this.date = date;
     }
 
     // retrieves all the info about a run, and prints it out
@@ -20,30 +23,30 @@ public class Data {
     }
 
     // retrieves individual entries
-    public String getName() {
-        return this.name;
-    }
-
-    public int getDistance() {
-        return this.distance;
-    }
-
     public int getDuration() {
         return this.duration;
     }
+    public int getDistance() {
+        return this.distance;
+    }
+    public int getAltitude() {
+        return this.altitude;
+    }
+    public String getDate() { return this.date; }
 
     // allows to edit every entry
-    public void setName(String newName) {
-        this.name = newName;
-    }
-
-    public void setDuration(int newDuration) {
-        this.duration = newDuration;
-    }
-
     public void setDistance(int newDistance) {
         this.distance = newDistance;
     }
+    public void setDuration(int newDuration) {
+        this.duration = newDuration;
+    }
+    public void setAltitude(int newAltitude) {
+        this.altitude = newAltitude;
+    }
+    public void setDate(String newDate) { this.date = newDate; }
+
+
 
     // [Simanto]: conversion of data to string should always be done through 'toString' method
     @Override

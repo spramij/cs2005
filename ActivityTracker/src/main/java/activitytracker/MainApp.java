@@ -5,7 +5,7 @@ import sun.applet.Main;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainApp {
+public  class MainApp {
     private static MainAppMenu navbarTop;
     private static MainAppSideBar sidebar;
     private static JPanel body;
@@ -13,10 +13,12 @@ public class MainApp {
     private static int mainX;
     private static int mainY;
     private static String name;
+    private static Profile activeProfile;
 
     private static JMenuBar sidebarMenu;
 
-    public static void main() {
+    public static void main(Profile active) {
+        activeProfile = active;
         name = "Sohil";
         mainX = 720;
         mainY = 480;

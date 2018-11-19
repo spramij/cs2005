@@ -5,10 +5,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App extends JFrame {
     static private JFrame landing;
     static private JTextField username;
+    static public List<Profile> allUsers;
+
     public static void main(String[] args) {
         landing = new JFrame("Authenticator");
         landing.setSize(720,480);
@@ -18,7 +24,33 @@ public class App extends JFrame {
         landing.add(welcome);
 
         landing.setVisible(true);
+
+//        DataManager sohilData = new DataManager();
+//        Data[] sohilRuns = sohilData.loadRuns("sohil");
+//        System.out.println(sohilRuns);
+
+        Data run1 = new Data(10,10,10,"2018/1/1");
+        Data run2 = new Data(12,12,12,"2011");
+        List<Data> list1 = new ArrayList<Data>();
+        list1.add(run1);
+        list1.add(run2);
+        Profile sohil = new Profile("sohil", list1,true);
+
+        Data run3 = new Data(10,10,10,"2018/1/1");
+        Data run4 = new Data(12,12,12,"2011");
+        List<Data> list2 = new ArrayList<Data>();
+        list2.add(run1);
+        list2.add(run2);
+        Profile zahin = new Profile("zahin", list2,true);
+
+
+        allUsers = new ArrayList<Profile>();
+        allUsers.add(sohil);
+        allUsers.add(zahin);
     }
+
+
+
 
 
     private static class landingPanel extends JPanel{
@@ -46,10 +78,24 @@ public class App extends JFrame {
     private static class doValidation implements ActionListener {
         public void actionPerformed(ActionEvent validateUsername){
             String usrInput = username.getText();
+            Boolean existent = false;
+            Profile current = null;
+
+            for (Profile i:allUsers){
+                if (usrInput.equals(i.getName())){
+                    existent=true;
+                    current=i;
+                }
+            }
+            if (existent){
+                JOptionPane.showMessageDialog(landing, "Congratulations! You have been logged in!");
+                landing.setVisible(false);
+                landing.dispose();
+                MainApp.main(current);
+            }
+
             System.out.println(usrInput);
-            landing.setVisible(false);
-            landing.dispose();
-            MainApp.main();
+
         }
 
     }
