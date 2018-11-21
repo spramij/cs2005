@@ -1,4 +1,3 @@
-// package ActivityTracker.src.main.java.activitytracker;
 package activitytracker;
 
 import javax.swing.*;
@@ -39,17 +38,11 @@ public class App extends JFrame {
         list1.add(run3);
         Profile sohil = new Profile("sohil", list1,true);
 
-        Data run4 = new Data(10,10,10,"2018/1/1");
-        Data run5 = new Data(12,12,12,"2011");
-        List<Data> list2 = new ArrayList<Data>();
-        list2.add(run1);
-        list2.add(run2);
-        Profile zahin = new Profile("zahin", list2,true);
-
+        sohil.addFriend(new Profile("haha"));
+        sohil.addFriend(new Profile("blabla"));
 
         allUsers = new ArrayList<Profile>();
         allUsers.add(sohil);
-        allUsers.add(zahin);
     }
 
 
@@ -99,7 +92,6 @@ public class App extends JFrame {
             }
 
             System.out.println(usrInput);
-
         }
 
     }

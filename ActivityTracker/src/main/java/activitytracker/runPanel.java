@@ -14,10 +14,11 @@ public class runPanel extends JPanel implements ActionListener {
 
     public runPanel(Profile current, JFrame input) {
         activeProfile = current;
-        viewing();
+        GUI = input;
+        main=this;
         int runs = activeProfile.getAllRunsList().size() + 1;
         main.setLayout(new GridLayout(runs, 0));
-        GUI= input;
+        viewing();
     }
 
     public void viewing() {

@@ -48,6 +48,7 @@ public class Profile {
     public List<Data> getAllRunsList() {
         return this.runData;
     }
+    public List<Profile> getAllFriendsList() { return this.friendsList;}
 
     public Boolean getPrivacy() {
         return this.shareMyData;

@@ -87,14 +87,14 @@ public class MainApp {
 
         public void actionPerformed(ActionEvent actionEvent) {
             if (actionEvent.getSource() == item1) {
-                body = new runPanel(activeProfile,  GUI);
+                body = new runPanel(activeProfile, GUI);
             }
 //            else if (actionEvent.getSource() == item2) {
 //                body = new goalsPanel();
 //            }
-//            else if (actionEvent.getSource() == item3) {
-//                body = new friendsPanel();
-//            }
+            else if (actionEvent.getSource() == item3) {
+                body = new friendPanel(activeProfile, GUI);
+            }
 
             GUI.add(body);
             GUI.setVisible(true);
