@@ -1,47 +1,72 @@
 package activitytracker;
 
-import sun.applet.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class runPanel extends JPanel  {
-    private JPanel main;
-    private Profile activeProfile;
-    JButton edit;
-    JButton save;
+public class runPanel extends JPanel implements ActionListener {
+    public JPanel main;
+    public Profile activeProfile;
+    public JButton edit;
+    public JButton save;
+    JFrame GUI;
 
-
-    public runPanel(Profile current /*, String action*/) {
+    public runPanel(Profile current, JFrame input) {
         activeProfile = current;
-        main = this;
-        int runs = current.getAllRunsList().size();
+        viewing();
+        int runs = activeProfile.getAllRunsList().size() + 1;
         main.setLayout(new GridLayout(runs, 0));
-        System.out.println("heyyy");
-        JPanel run;
+        GUI= input;
+    }
 
-//        if (action.equals("view")) {
+    public void viewing() {
+        main=this;
+        main.removeAll();
+        JPanel run;
 
         for (Data eachRun : activeProfile.getAllRunsList()) {
             run = new viewPanel(eachRun);
             main.add(run);
         }
-//        } else {
-//            for (Data eachRun : activeProfile.getAllRunsList()) {
-//                run = new editPanel(eachRun);
-//                main.add(run);
-//            }
-//        }
+        edit = new JButton("Edit data?");
+        edit.addActionListener(this);
+        main.add(edit);
+        main.setVisible(true);
+    }
+    public void editing() {
+        main=this;
+        main.removeAll();
+        JPanel run;
+
+        for (Data eachRun : activeProfile.getAllRunsList()) {
+            run = new editPanel(eachRun);
+            main.add(run);
+        }
+        save = new JButton("Save changes");
+        save.addActionListener(this);
+        main.add(save);
+        main.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == edit) {
+            editing();
+            GUI.setVisible(true);
+        }
+        else if (actionEvent.getSource() == save) {
+            viewing();
+            GUI.setVisible(true);
+        }
     }
 
 
-    public class viewPanel extends JPanel /*implements ActionListener*/ {
+    public class viewPanel extends JPanel {
         JPanel run;
         Data runData;
 
-        private viewPanel(Data data) {
+        public viewPanel(Data data) {
             run = this;
             runData = data;
             JLabel durationTXT = new JLabel("Duration: ");
@@ -52,9 +77,6 @@ public class runPanel extends JPanel  {
             JLabel altitude = new JLabel(String.valueOf(runData.getAltitude()));
             JLabel dateTXT = new JLabel("Distance: ");
             JLabel date = new JLabel(runData.getDate());
-//            edit = new JButton("Edit ?");
-//            edit.addActionListener(this);
-
             run.add(durationTXT);
             run.add(duration);
             run.add(distanceTXT);
@@ -63,16 +85,10 @@ public class runPanel extends JPanel  {
             run.add(altitude);
             run.add(dateTXT);
             run.add(date);
-//            run.add(edit);
         }
-
-//        @Override
-//        public void actionPerformed(ActionEvent actionEvent) {
-//            run = new editPanel(runData);
-//        }
     }
 
-    public class editPanel extends JPanel /*implements ActionListener*/ {
+    public class editPanel extends JPanel {
         JPanel run;
         Data runData;
 
@@ -88,7 +104,6 @@ public class runPanel extends JPanel  {
             JTextField altitude = new JTextField(String.valueOf(runData.getAltitude()));
             JLabel dateTXT = new JLabel("Distance: ");
             JTextField date = new JTextField(runData.getDate());
-//            save = new JButton("Save your changes");
 
             run.add(durationTXT);
             run.add(duration);
@@ -98,13 +113,6 @@ public class runPanel extends JPanel  {
             run.add(altitude);
             run.add(dateTXT);
             run.add(date);
-//            run.add(save);
         }
-
-//        @Override
-//        public void actionPerformed(ActionEvent actionEvent) {
-//            run = new viewPanel(runData);
-//        }
     }
-
 }

@@ -87,7 +87,7 @@ public class MainApp {
 
         public void actionPerformed(ActionEvent actionEvent) {
             if (actionEvent.getSource() == item1) {
-                body = new runPanel(activeProfile /*, "ha"*/);
+                body = new runPanel(activeProfile,  GUI);
             }
 //            else if (actionEvent.getSource() == item2) {
 //                body = new goalsPanel();
