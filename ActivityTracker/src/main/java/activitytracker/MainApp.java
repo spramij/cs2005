@@ -96,7 +96,7 @@ public class MainApp {
 //                body = new friendsPanel();
 //            }
 
-            GUI.add(body, BorderLayout.CENTER);
+            GUI.add(body);
             GUI.setVisible(true);
         }
     }
