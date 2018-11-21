@@ -15,6 +15,7 @@ public class App extends JFrame {
     static public List<Profile> allUsers;
 
     public static void main(String[] args) {
+        //basic JFrame containing the rest of the stuff
         landing = new JFrame("Authenticator");
         landing.setSize(720,480);
         landing.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -28,6 +29,8 @@ public class App extends JFrame {
 //        Data[] sohilRuns = sohilData.loadRuns("sohil");
 //        System.out.println(sohilRuns);
 
+        //this will be replaced with the .csv loading code later,
+        //only for dev env
         Data run1 = new Data(10,10,10,"2018/1/1");
         Data run2 = new Data(12,12,12,"2011");
         Data run3 = new Data(12,12,12,"2011");
@@ -45,10 +48,10 @@ public class App extends JFrame {
         allUsers.add(sohil);
     }
 
-
-
+    // JPanel with welcome message and a usrInput field to enter his name
     private static class landingPanel extends JPanel{
-        private landingPanel(){
+        //
+        private landingPanel() {
             JPanel welcome = this;
             welcome.setLayout(new GridLayout(2,1));
             JLabel message = new JLabel("<html> <h1>Hello! Welcome to our Activity Tracker app!</h1><br><h2> Here, you will be able to add, edit, see and remove any data from " +
@@ -69,6 +72,8 @@ public class App extends JFrame {
             welcome.add(auth);
         }
     }
+
+    // input validate: checks if the username given by user is in db,
     private static class doValidation implements ActionListener {
         public void actionPerformed(ActionEvent validateUsername){
             String usrInput = username.getText();
@@ -81,6 +86,7 @@ public class App extends JFrame {
                     current=i;
                 }
             }
+            //if yes, then gets rid of current window and creates a new one from `MainApp.java`
             if (existent){
                 JOptionPane.showMessageDialog(landing, "Congratulations! You have been logged in!");
                 landing.setVisible(false);

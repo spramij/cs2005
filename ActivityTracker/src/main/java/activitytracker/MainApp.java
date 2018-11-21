@@ -18,7 +18,9 @@ public class MainApp {
 
     private static JMenuBar sidebarMenu;
 
+    // takes Profile from super(), to know what the current active profile is
     public static void main(Profile active) {
+        //basic JFrame, calls resepctive methods to populate
         activeProfile = active;
         name = "Sohil";
         mainX = 720;
@@ -40,7 +42,8 @@ public class MainApp {
         GUI.setVisible(true);
     }
 
-
+    // the navbar from up top
+    //TO-DO: add ActionListeners for every action
     private static class MainAppMenu extends JMenuBar {
         private MainAppMenu() {
             JMenuBar navbarTop = this;
@@ -57,6 +60,7 @@ public class MainApp {
         }
     }
 
+    // creates the side panel, using buttons
     private static class MainAppSideBar extends JPanel implements ActionListener {
         JButton item1;
         JButton item2;
@@ -85,8 +89,11 @@ public class MainApp {
             sidebarPanel.add(sidebarMenu);
         }
 
+        // init setup for ActionListeners
         public void actionPerformed(ActionEvent actionEvent) {
+            //creates the `body` JPanel according to user input
             if (actionEvent.getSource() == item1) {
+                //passes GUI as a parameter as we need to refer to it to update the JFrame
                 body = new runPanel(activeProfile, GUI);
             }
 //            else if (actionEvent.getSource() == item2) {

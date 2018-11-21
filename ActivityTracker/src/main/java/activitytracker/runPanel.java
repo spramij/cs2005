@@ -12,6 +12,7 @@ public class runPanel extends JPanel implements ActionListener {
     public JButton save;
     JFrame GUI;
 
+    //sets the layoutmanager to have space at the bottom for and extra button as well as every friend
     public runPanel(Profile current, JFrame input) {
         activeProfile = current;
         GUI = input;
@@ -21,6 +22,7 @@ public class runPanel extends JPanel implements ActionListener {
         viewing();
     }
 
+    //makes sure the JPanel is empty, and populates it with sub-JPanels for every runData
     public void viewing() {
         main=this;
         main.removeAll();
@@ -30,11 +32,13 @@ public class runPanel extends JPanel implements ActionListener {
             run = new viewPanel(eachRun);
             main.add(run);
         }
+        //adds an edit button at the end of the JPanel, so that we can switch every runData into an editable one
         edit = new JButton("Edit data?");
         edit.addActionListener(this);
         main.add(edit);
         main.setVisible(true);
     }
+    //same thing, but uses JTextFields instead of JLabel, to edit
     public void editing() {
         main=this;
         main.removeAll();
@@ -50,12 +54,15 @@ public class runPanel extends JPanel implements ActionListener {
         main.setVisible(true);
     }
 
+    //if the button is pressed...
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
+        //...from edit, make the entries editable
         if (actionEvent.getSource() == edit) {
             editing();
             GUI.setVisible(true);
         }
+        //...from save, save the new entries and switch back to non-editable
         else if (actionEvent.getSource() == save) {
             viewing();
             GUI.setVisible(true);
@@ -63,6 +70,7 @@ public class runPanel extends JPanel implements ActionListener {
     }
 
 
+    //creates the individual JPanels for viewing, using JLabels
     public class viewPanel extends JPanel {
         JPanel run;
         Data runData;
@@ -89,6 +97,7 @@ public class runPanel extends JPanel implements ActionListener {
         }
     }
 
+    //creates the individual JPanels for edit, using JTextFields
     public class editPanel extends JPanel {
         JPanel run;
         Data runData;

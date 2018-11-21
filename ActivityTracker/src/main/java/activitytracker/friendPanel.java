@@ -12,9 +12,10 @@ public class friendPanel extends JPanel {
     public JButton save;
     JFrame GUI;
 
+    // sets the panel's layout manager to have place for each friend
     public friendPanel(Profile current, JFrame input) {
         activeProfile = current;
-        int friends = activeProfile.getAllFriendsList().size() + 1;
+        int friends = activeProfile.getAllFriendsList().size();
 
         friendList();
         main.setLayout(new GridLayout(friends, 0));
@@ -22,6 +23,7 @@ public class friendPanel extends JPanel {
 
     }
 
+    //creates a JPanel that contains sub-JPanels with every friend
     public void friendList() {
         main=this;
         main.removeAll();
@@ -35,7 +37,7 @@ public class friendPanel extends JPanel {
         main.setVisible(true);
     }
 
-
+    //creates the sub-JPanels for each friend, having the name and a button to view their run data
     private class viewFriends extends JPanel {
         JPanel friendPanel;
         Profile friend;
