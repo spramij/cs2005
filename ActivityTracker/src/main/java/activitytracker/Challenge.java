@@ -12,8 +12,8 @@ public class Challenge {
         this.challenge3 = chall3;
     }
 
-    public void getChallenges() {
-        System.out.println("Your challenges are this week are:\n" + this.challenge1 + "\n" + this.challenge2 + "\n"
+    public String getChallenges() {
+       return("Your challenges are this week are:\n" + this.challenge1 + "\n" + this.challenge2 + "\n"
                 + this.challenge3);
     }
 
