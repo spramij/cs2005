@@ -31,13 +31,16 @@ public class App extends JFrame {
 
         Data run1 = new Data(10,10,10,"2018/1/1");
         Data run2 = new Data(12,12,12,"2011");
+        Data run3 = new Data(12,12,12,"2011");
+
         List<Data> list1 = new ArrayList<Data>();
         list1.add(run1);
         list1.add(run2);
+        list1.add(run3);
         Profile sohil = new Profile("sohil", list1,true);
 
-        Data run3 = new Data(10,10,10,"2018/1/1");
-        Data run4 = new Data(12,12,12,"2011");
+        Data run4 = new Data(10,10,10,"2018/1/1");
+        Data run5 = new Data(12,12,12,"2011");
         List<Data> list2 = new ArrayList<Data>();
         list2.add(run1);
         list2.add(run2);
@@ -48,8 +51,6 @@ public class App extends JFrame {
         allUsers.add(sohil);
         allUsers.add(zahin);
     }
-
-
 
 
 
@@ -92,6 +93,9 @@ public class App extends JFrame {
                 landing.setVisible(false);
                 landing.dispose();
                 MainApp.main(current);
+            }
+            else {
+                JOptionPane.showMessageDialog(landing, "Sorry! We couldn't recognize your username!");
             }
 
             System.out.println(usrInput);

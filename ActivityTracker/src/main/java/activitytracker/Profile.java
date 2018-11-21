@@ -45,6 +45,9 @@ public class Profile {
             x.getData();
         }
     }
+    public List<Data> getAllRunsList() {
+        return this.runData;
+    }
 
     public Boolean getPrivacy() {
         return this.shareMyData;

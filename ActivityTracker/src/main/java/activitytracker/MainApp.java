@@ -1,11 +1,12 @@
 package activitytracker;
 
-import sun.applet.Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public  class MainApp {
+public class MainApp {
     private static MainAppMenu navbarTop;
     private static MainAppSideBar sidebar;
     private static JPanel body;
@@ -30,14 +31,10 @@ public  class MainApp {
 
         GUI.setLayout(new BorderLayout());
 
-        body = new JPanel();
-
         navbarTop = new MainAppMenu();
         sidebar = new MainAppSideBar();
 
         GUI.add(sidebar, BorderLayout.WEST);
-        GUI.add(body, BorderLayout.EAST);
-
         GUI.setJMenuBar(navbarTop);
 
         GUI.setVisible(true);
@@ -60,7 +57,10 @@ public  class MainApp {
         }
     }
 
-    private static class MainAppSideBar extends JPanel {
+    private static class MainAppSideBar extends JPanel implements ActionListener {
+        JButton item1;
+        JButton item2;
+        JButton item3;
         private MainAppSideBar() {
             int sidebarX = (int) Math.round(mainX * 0.2);
 
@@ -71,14 +71,33 @@ public  class MainApp {
             JMenuBar sidebarMenu = new JMenuBar();
             sidebarMenu.setLayout(new GridLayout(3, 0));
 
-            JMenu item1 = new JMenu("Run information");
-            JMenu item2 = new JMenu("Goals and Objectives");
-            JMenu item3 = new JMenu("Friends");
+            item1 = new JButton("Run information");
+            item2 = new JButton("Goals and Objectives");
+            item3 = new JButton("Friends");
+
+            item1.addActionListener(this);
+            item2.addActionListener(this);
+            item3.addActionListener(this);
             sidebarMenu.add(item1);
             sidebarMenu.add(item2);
             sidebarMenu.add(item3);
 
             sidebarPanel.add(sidebarMenu);
+        }
+
+        public void actionPerformed(ActionEvent actionEvent) {
+            if (actionEvent.getSource() == item1) {
+                body = new runPanel(activeProfile /*, "ha"*/);
+            }
+//            else if (actionEvent.getSource() == item2) {
+//                body = new goalsPanel();
+//            }
+//            else if (actionEvent.getSource() == item3) {
+//                body = new friendsPanel();
+//            }
+
+            GUI.add(body, BorderLayout.EAST);
+            GUI.setVisible(true);
         }
     }
 }
