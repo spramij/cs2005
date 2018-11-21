@@ -6,11 +6,11 @@ public class Data {
     private String name;
     private int distance;
     private int duration;
-    private int altitude;
+    private float altitude;
     private String date;
 
     // constructor method
-    public Data(int duration, int distance, int altitude, String date) {
+    public Data(int duration, int distance, float altitude, String date) {
         this.duration = duration;
         this.distance = distance;
         this.altitude = altitude;
@@ -29,7 +29,7 @@ public class Data {
     public int getDistance() {
         return this.distance;
     }
-    public int getAltitude() {
+    public float getAltitude() {
         return this.altitude;
     }
     public String getDate() { return this.date; }
@@ -41,7 +41,7 @@ public class Data {
     public void setDuration(int newDuration) {
         this.duration = newDuration;
     }
-    public void setAltitude(int newAltitude) {
+    public void setAltitude(float newAltitude) {
         this.altitude = newAltitude;
     }
     public void setDate(String newDate) { this.date = newDate; }

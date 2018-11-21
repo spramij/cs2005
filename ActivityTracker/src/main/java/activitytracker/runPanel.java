@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class runPanel extends JPanel implements ActionListener {
     public JPanel main;
@@ -17,6 +18,7 @@ public class runPanel extends JPanel implements ActionListener {
         activeProfile = current;
         GUI = input;
         main=this;
+
         int runs = activeProfile.getAllRunsList().size() + 1;
         main.setLayout(new GridLayout(runs, 0));
         viewing();

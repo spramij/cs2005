@@ -8,7 +8,7 @@ public class Profile {
     private String name;
     private List<Data> runData;
     private boolean shareMyData;
-    private List<Profile> friendsList;
+    private List<String> friendsList;
     private Challenge myChallenges;
 
     public Profile(String name) {
@@ -16,12 +16,12 @@ public class Profile {
     }
 
     // constructor method
-    public Profile(String inName, List<Data> inRuns, Boolean inPrivacy) {
+    public Profile(String inName, List<Data> inRuns, Boolean inPrivacy, List<String> friends, String[] challenges) {
         this.name = inName;
         this.runData = inRuns;
         this.shareMyData = inPrivacy;
-        this.friendsList = new ArrayList<Profile>();
-        this.myChallenges = new Challenge("default", "default", "default");
+        this.friendsList = friends;
+        this.myChallenges = new Challenge(challenges[0], challenges[1], challenges[2]);
     }
 
     // prints out all the info from the profile
@@ -45,10 +45,14 @@ public class Profile {
             x.getData();
         }
     }
+
     public List<Data> getAllRunsList() {
         return this.runData;
     }
-    public List<Profile> getAllFriendsList() { return this.friendsList;}
+
+    public List<String> getAllFriendsList() {
+        return this.friendsList;
+    }
 
     public Boolean getPrivacy() {
         return this.shareMyData;
@@ -59,10 +63,12 @@ public class Profile {
     }
 
     public void getFriends() {
-        System.out.println("You are friends with: \n");
-        for (Profile friend : friendsList) {
-            System.out.println(friend.getName());
-        }
+        //fix
+
+//        System.out.println("You are friends with: \n");
+//        for (Profile friend : friendsList) {
+//            System.out.println(friend.getName());
+//        }
     }
 
     // individual set method for Profile objects
@@ -78,13 +84,16 @@ public class Profile {
         this.shareMyData = newPrivacy;
     }
 
+    public void setFriendsList(ArrayList<String> newFriendsList) { this.friendsList = newFriendsList;}
     // uses the method implemented in the Challenge class
     public void setMyChallenges(String chall1, String chall2, String chall3) {
         this.myChallenges.setChallenge(chall1, chall2, chall3);
     }
 
     public void addFriend(Profile newFriend) {
-        this.friendsList.add(newFriend);
-        System.out.println("You have successfully added " + newFriend.getName() + " as your friend!");
+        //fix
+
+//        this.friendsList.add(newFriend);
+//        System.out.println("You have successfully added " + newFriend.getName() + " as your friend!");
     }
 }

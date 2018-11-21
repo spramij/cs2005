@@ -2,14 +2,11 @@ package activitytracker;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class friendPanel extends JPanel {
     public JPanel main;
     public Profile activeProfile;
-    public JButton edit;
-    public JButton save;
     JFrame GUI;
 
     // sets the panel's layout manager to have place for each friend
@@ -29,10 +26,10 @@ public class friendPanel extends JPanel {
         main.removeAll();
         JPanel friend;
 
-        for (Profile eachFriend:activeProfile.getAllFriendsList()) {
-            friend = new viewFriends(eachFriend);
-            main.add(friend);
-        }
+//        for (String eachFriend:activeProfile.getAllFriendsList()) {
+//            friend = new viewFriends(eachFriend);
+//            main.add(friend);
+//        }
 
         main.setVisible(true);
     }

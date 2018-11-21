@@ -4,17 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class App extends JFrame {
     static private JFrame landing;
     static private JTextField username;
     static public List<Profile> allUsers;
+    static public List<String> userlist;
+    static dataImport dataImporter;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         //basic JFrame containing the rest of the stuff
         landing = new JFrame("Authenticator");
         landing.setSize(720,480);
@@ -25,27 +31,8 @@ public class App extends JFrame {
 
         landing.setVisible(true);
 
-//        DataManager sohilData = new DataManager();
-//        Data[] sohilRuns = sohilData.loadRuns("sohil");
-//        System.out.println(sohilRuns);
-
-        //this will be replaced with the .csv loading code later,
-        //only for dev env
-        Data run1 = new Data(10,10,10,"2018/1/1");
-        Data run2 = new Data(12,12,12,"2011");
-        Data run3 = new Data(12,12,12,"2011");
-
-        List<Data> list1 = new ArrayList<Data>();
-        list1.add(run1);
-        list1.add(run2);
-        list1.add(run3);
-        Profile sohil = new Profile("sohil", list1,true);
-
-        sohil.addFriend(new Profile("haha"));
-        sohil.addFriend(new Profile("blabla"));
-
-        allUsers = new ArrayList<Profile>();
-        allUsers.add(sohil);
+        dataImporter = new dataImport();
+        userlist = dataImporter.userlistDB();
     }
 
     // JPanel with welcome message and a usrInput field to enter his name
@@ -78,14 +65,23 @@ public class App extends JFrame {
         public void actionPerformed(ActionEvent validateUsername){
             String usrInput = username.getText();
             Boolean existent = false;
-            Profile current = null;
+            Profile current=null;
 
-            for (Profile i:allUsers){
-                if (usrInput.equals(i.getName())){
-                    existent=true;
-                    current=i;
+            if (userlist.contains(usrInput)){
+                existent=true;
+                try {
+                    ArrayList<Data> runs = dataImporter.ProfileRuns(usrInput);
+                    ArrayList<String> friends = dataImporter.ProfileFriends(usrInput);
+                    current = new Profile(usrInput);
+                    current.setRuns(runs);
+                    current.setFriendsList(friends);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                 }
+
             }
+
             //if yes, then gets rid of current window and creates a new one from `MainApp.java`
             if (existent){
                 JOptionPane.showMessageDialog(landing, "Congratulations! You have been logged in!");
@@ -96,9 +92,7 @@ public class App extends JFrame {
             else {
                 JOptionPane.showMessageDialog(landing, "Sorry! We couldn't recognize your username!");
             }
-
             System.out.println(usrInput);
         }
-
     }
 }
