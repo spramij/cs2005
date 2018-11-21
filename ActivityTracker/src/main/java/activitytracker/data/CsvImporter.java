@@ -12,7 +12,6 @@ import activitytracker.interfaces.IImporter;
 
 public class CsvImporter implements IImporter {
     private Path folderPath;
-    private CsvSchema profileSchema;
     private CsvSchema dataSchema = CsvSchema.builder().addColumn("name").addColumn("distance").addColumn("duration")
             .build();
     private CsvMapper mapper;

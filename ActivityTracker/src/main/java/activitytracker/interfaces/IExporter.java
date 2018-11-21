@@ -8,6 +8,5 @@ import activitytracker.Profile;
  */
 public interface IExporter {
 
-    void saveRuns(String userName, Data[] data);
-    void saveProfile(Profile profile);
+    void saveRuns(Profile profile);
 }
