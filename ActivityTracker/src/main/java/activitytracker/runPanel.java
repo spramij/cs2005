@@ -86,7 +86,7 @@ public class runPanel extends JPanel implements ActionListener {
             JLabel distance = new JLabel(String.valueOf(runData.getDistance()));
             JLabel altitudeTXT = new JLabel("Change in altitude: ");
             JLabel altitude = new JLabel(String.valueOf(runData.getAltitude()));
-            JLabel dateTXT = new JLabel("Distance: ");
+            JLabel dateTXT = new JLabel("Date: ");
             JLabel date = new JLabel(runData.getDate());
             run.add(durationTXT);
             run.add(duration);
@@ -114,8 +114,9 @@ public class runPanel extends JPanel implements ActionListener {
             JTextField distance = new JTextField(String.valueOf(runData.getDistance()));
             JLabel altitudeTXT = new JLabel("Change in altitude: ");
             JTextField altitude = new JTextField(String.valueOf(runData.getAltitude()));
-            JLabel dateTXT = new JLabel("Distance: ");
+            JLabel dateTXT = new JLabel("Date: ");
             JTextField date = new JTextField(runData.getDate());
+
 
             run.add(durationTXT);
             run.add(duration);
@@ -125,6 +126,7 @@ public class runPanel extends JPanel implements ActionListener {
             run.add(altitude);
             run.add(dateTXT);
             run.add(date);
+
         }
     }
 }
