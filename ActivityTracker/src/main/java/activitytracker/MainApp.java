@@ -96,12 +96,14 @@ public class MainApp {
                 //passes GUI as a parameter as we need to refer to it to update the JFrame
                 body = new runPanel(activeProfile, GUI);
             }
-//            else if (actionEvent.getSource() == item2) {
-//                body = new goalsPanel();
+            else if (actionEvent.getSource() == item2) {
+                body = new challengePanel(GUI);
+            }
 //            }
             else if (actionEvent.getSource() == item3) {
                 body = new friendPanel(activeProfile, GUI);
             }
+
 
             GUI.add(body);
             GUI.setVisible(true);
