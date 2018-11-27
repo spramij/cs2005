@@ -343,9 +343,10 @@ public class Home extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+		int totalDistance = currentProfile.getAllRunDistance();
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel8.setText("500 kms");
+        jLabel8.setText(totalDistance);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(96, 83, 150));
@@ -397,9 +398,10 @@ public class Home extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+		double totalTime = currentProfile.getAllTimeRan();
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel9.setText("5000 ");
+        jLabel9.setText(totalTime);
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 22, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -426,15 +428,16 @@ public class Home extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel10.setText("Total Calories Burnt");
+        jLabel10.setText("Total Time Ran");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 102, 124, 41));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+		double averageIncli = currentProfile.getAverageInclination();
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel11.setText("5.5");
+        jLabel11.setText(averageIncli);
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 75, -1));
 
         jPanel12.setBackground(new java.awt.Color(232, 201, 232));
@@ -473,17 +476,20 @@ public class Home extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+		List<Data> runData = currentProfile.getAllRuns();
         jTable1.setBackground(new java.awt.Color(247, 247, 247));
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Allan", "XLS", "2hrs", "$200"},
-                {"Brian", "React", "1hr", "$100 per hr"},
-                {"Romeo", "C#", "3 Days", "$1000"},
-                {"Alex", "C++ ", "10 hrs", "$50 per hr"}
+                {runData[0].getDate(), runData[0].getDuration(), runData[0].getDistance(), runData[0].getAltitude()},
+                {runData[1].getDate(), runData[1].getDuration(), runData[1].getDistance(), runData[1].getAltitude()},
+                {runData[2].getDate(), runData[2].getDuration(), runData[2].getDistance(), runData[2].getAltitude()},
+                {runData[3].getDate(), runData[3].getDuration(), runData[3].getDistance(), runData[3].getAltitude()},
+				{runData[4].getDate(), runData[4].getDuration(), runData[4].getDistance(), runData[4].getAltitude()},
+
             },
             new String [] {
-                "Date", "Distance Covered", "Caloried Burnt", "Inclination"
+                "Date", "Duration", "Distance Covered", "Inclination"
             }
         ) {
             Class[] types = new Class [] {
@@ -696,6 +702,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+	private Profile currentProfile;
     private javax.swing.JPanel Button1;
     private javax.swing.JPanel Button2;
     private javax.swing.JPanel Button3;
