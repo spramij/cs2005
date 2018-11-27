@@ -1,3 +1,4 @@
+package activitytracker;
 
 import java.util.List;
 
@@ -6,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class Profile {
     private String name;
+    private String password;
     private List<Data> runData;
     private boolean shareMyData;
     private List<String> friendsList;
@@ -43,6 +45,10 @@ public class Profile {
     @JsonGetter("name")
     public String getName() {
         return this.name;
+    }
+
+    public String getPassword() {
+        return this.password;
     }
 
     @JsonGetter("runs")
@@ -109,39 +115,41 @@ public class Profile {
             this.friendsList.add(friend);
         }
     }
-	
-	// return the total distance ran by the Profile user
-	public double getAllRunDistance() {
-		double totalDist = 0;
-		for (Data runs : this.runData) {
-			totalDist+=runs.getDistance();
-		}
-		return totalDist;
-	}
-	// return the total time ran by the Profile user
-	public double getAllTimeRan() {
-		double totalTime = 0;
-		for (Data runs : this.runData) {
-			totalTime+= runs.getDuration();
-		}
-		return totalTime;
-	}
-	// return the average inclination of runs 
-	public double getAverageInclination() {
-		double averageIncli = 0;
-		int numRuns = 0;
-		for (Data runs : this.runData) {
-			averageIncli+= runs.getAltitude();
-			numRuns++;
-		}
-		averageIncli /= numRuns;
-		return averageIncli;
-	}
-	//return the entire array of run data
-	public List<Data> getAllRuns() {
-		return this.runData;
-	}
-	
+
+    // return the total distance ran by the Profile user
+    public double getAllRunDistance() {
+        double totalDist = 0;
+        for (Data runs : this.runData) {
+            totalDist += runs.getDistance();
+        }
+        return totalDist;
+    }
+
+    // return the total time ran by the Profile user
+    public double getAllTimeRan() {
+        double totalTime = 0;
+        for (Data runs : this.runData) {
+            totalTime += runs.getDuration();
+        }
+        return totalTime;
+    }
+
+    // return the average inclination of runs
+    public double getAverageInclination() {
+        double averageIncli = 0;
+        int numRuns = 0;
+        for (Data runs : this.runData) {
+            averageIncli += runs.getAltitude();
+            numRuns++;
+        }
+        averageIncli /= numRuns;
+        return averageIncli;
+    }
+
+    // return the entire array of run data
+    public List<Data> getAllRuns() {
+        return this.runData;
+    }
 
     // uses the method implemented in the Challenge class
     public void setMyChallenges(String chall1, String chall2, String chall3) {

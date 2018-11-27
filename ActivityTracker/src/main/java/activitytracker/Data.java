@@ -1,4 +1,4 @@
-
+package activitytracker; 
 public class Data {
     private String name;
     private int distance;

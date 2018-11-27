@@ -1,3 +1,4 @@
+package activitytracker;
 
 import java.util.ArrayList;
 import java.util.List;
