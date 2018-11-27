@@ -343,14 +343,14 @@ public class Home extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-		int totalDistance = currentProfile.getAllRunDistance();
+        int totalDistance = currentProfile.getAllRunDistance();
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(96, 83, 150));
         jLabel8.setText(totalDistance);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel6.setText("Total");
+        jLabel6.setText("km");
 
         jPanel11.setBackground(new java.awt.Color(232, 201, 232));
 
@@ -374,7 +374,7 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
@@ -398,7 +398,7 @@ public class Home extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		double totalTime = currentProfile.getAllTimeRan();
+        double totalTime = currentProfile.getAllTimeRan();
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(96, 83, 150));
         jLabel9.setText(totalTime);
@@ -406,8 +406,8 @@ public class Home extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel19.setText("Total");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 30, 10));
+        jLabel19.setText("hour:min");
+        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 10));
 
         jPanel10.setBackground(new java.awt.Color(232, 201, 232));
 
@@ -434,7 +434,7 @@ public class Home extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		double averageIncli = currentProfile.getAverageInclination();
+        double averageIncli = currentProfile.getAverageInclination();
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(96, 83, 150));
         jLabel11.setText(averageIncli);
@@ -476,7 +476,7 @@ public class Home extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-		List<Data> runData = currentProfile.getAllRuns();
+        List<Data> runData = currentProfile.getAllRuns();
         jTable1.setBackground(new java.awt.Color(247, 247, 247));
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -485,11 +485,10 @@ public class Home extends javax.swing.JFrame {
                 {runData[1].getDate(), runData[1].getDuration(), runData[1].getDistance(), runData[1].getAltitude()},
                 {runData[2].getDate(), runData[2].getDuration(), runData[2].getDistance(), runData[2].getAltitude()},
                 {runData[3].getDate(), runData[3].getDuration(), runData[3].getDistance(), runData[3].getAltitude()},
-				{runData[4].getDate(), runData[4].getDuration(), runData[4].getDistance(), runData[4].getAltitude()},
-
+                {runData[4].getDate(), runData[4].getDuration(), runData[4].getDistance(), runData[4].getAltitude()}
             },
             new String [] {
-                "Date", "Duration", "Distance Covered", "Inclination"
+                "Date", "Distance Covered", "Caloried Burnt", "Inclination"
             }
         ) {
             Class[] types = new Class [] {
@@ -702,7 +701,6 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-	private Profile currentProfile;
     private javax.swing.JPanel Button1;
     private javax.swing.JPanel Button2;
     private javax.swing.JPanel Button3;

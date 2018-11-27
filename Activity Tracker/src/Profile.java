@@ -1,5 +1,3 @@
-// package ActivityTracker.src.main.java.activitytracker;
-package activitytracker;
 
 import java.util.List;
 

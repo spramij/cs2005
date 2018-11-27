@@ -504,7 +504,7 @@
                           <Component id="jLabel6" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Component id="jPanel11" alignment="1" max="32767" attributes="0"/>
               </Group>
@@ -531,8 +531,13 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="96" green="53" red="60" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="500 kms"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="totalDistance" type="code"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="int totalDistance = currentProfile.getAllRunDistance();"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -542,7 +547,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="96" green="53" red="60" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Total"/>
+                <Property name="text" type="java.lang.String" value="km"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel11">
@@ -607,8 +612,13 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="96" green="53" red="60" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="5000 "/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="totalTime" type="code"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="double totalTime = currentProfile.getAllTimeRan();"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="22" y="22" width="-1" height="-1"/>
@@ -623,11 +633,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="96" green="53" red="60" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Total"/>
+                <Property name="text" type="java.lang.String" value="hour:min"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="60" width="30" height="10"/>
+                  <AbsoluteConstraints x="20" y="60" width="70" height="10"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -666,7 +676,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="96" green="53" red="60" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Total Calories Burnt"/>
+            <Property name="text" type="java.lang.String" value="Total Time Ran"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -698,8 +708,13 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="96" green="53" red="60" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="5.5"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="averageIncli" type="code"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="double averageIncli = currentProfile.getAverageInclination();"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="19" y="21" width="75" height="-1"/>
@@ -801,33 +816,8 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="11" style="0"/>
                 </Property>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Date" type="java.lang.String">
-                      <Data value="Allan"/>
-                      <Data value="Brian"/>
-                      <Data value="Romeo"/>
-                      <Data value="Alex"/>
-                    </Column>
-                    <Column editable="true" title="Distance Covered" type="java.lang.String">
-                      <Data value="XLS"/>
-                      <Data value="React"/>
-                      <Data value="C#"/>
-                      <Data value="C++ "/>
-                    </Column>
-                    <Column editable="true" title="Caloried Burnt" type="java.lang.String">
-                      <Data value="2hrs"/>
-                      <Data value="1hr"/>
-                      <Data value="3 Days"/>
-                      <Data value="10 hrs"/>
-                    </Column>
-                    <Column editable="true" title="Inclination" type="java.lang.String">
-                      <Data value="$200"/>
-                      <Data value="$100 per hr"/>
-                      <Data value="$1000"/>
-                      <Data value="$50 per hr"/>
-                    </Column>
-                  </Table>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {runData[0].getDate(), runData[0].getDuration(), runData[0].getDistance(), runData[0].getAltitude()},&#xa;        {runData[1].getDate(), runData[1].getDuration(), runData[1].getDistance(), runData[1].getAltitude()},&#xa;        {runData[2].getDate(), runData[2].getDuration(), runData[2].getDistance(), runData[2].getAltitude()},&#xa;        {runData[3].getDate(), runData[3].getDuration(), runData[3].getDistance(), runData[3].getAltitude()},&#xa;        {runData[4].getDate(), runData[4].getDuration(), runData[4].getDistance(), runData[4].getAltitude()}&#xa;    },&#xa;    new String [] {&#xa;        &quot;Date&quot;, &quot;Distance Covered&quot;, &quot;Caloried Burnt&quot;, &quot;Inclination&quot;&#xa;    }&#xa;) {&#xa;    Class[] types = new Class [] {&#xa;        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class&#xa;    };&#xa;&#xa;    public Class getColumnClass(int columnIndex) {&#xa;        return types [columnIndex];&#xa;    }&#xa;}" type="code"/>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
@@ -864,6 +854,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="List&lt;Data&gt; runData = currentProfile.getAllRuns();"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

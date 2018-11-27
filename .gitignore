@@ -1,3 +1,2 @@
-/Activity Tracker/build/
 *.class
-Activity Tracker/build/classes/Home$1.class
+Activity Tracker/build/*
