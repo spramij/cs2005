@@ -23,10 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" max="32767" attributes="0"/>
+          <Component id="topPanel" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="mainPanel" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -34,15 +34,15 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="topPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="mainPanel" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="topPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="96" green="53" red="60" type="rgb"/>
@@ -54,7 +54,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="381" max="-2" attributes="0"/>
+                  <Component id="title" min="-2" pref="381" max="-2" attributes="0"/>
                   <EmptySpace pref="674" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -62,14 +62,14 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" pref="65" max="-2" attributes="0"/>
+                  <Component id="title" min="-2" pref="65" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="title">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -82,7 +82,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="mainPanel">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -93,26 +93,26 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sidePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="contentPanel" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+              <Component id="sidePanel" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="contentPanel" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="sidePanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e8" green="c9" red="e8" type="rgb"/>
@@ -125,11 +125,11 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" pref="202" max="32767" attributes="0"/>
+                          <Component id="removeFriend" pref="202" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" pref="152" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addFriend" min="-2" pref="152" max="-2" attributes="0"/>
+                                  <Component id="viewFriend" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -142,18 +142,18 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="viewFriend" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="addFriend" min="-2" pref="43" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="removeFriend" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace pref="226" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="viewFriend">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
@@ -164,7 +164,7 @@
                 <Property name="text" type="java.lang.String" value="View Friends"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="addFriend">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
@@ -175,7 +175,7 @@
                 <Property name="text" type="java.lang.String" value="Add Friends"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="removeFriend">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
@@ -183,35 +183,25 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Remove Freinds"/>
+                <Property name="text" type="java.lang.String" value="Remove Friends"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Container class="javax.swing.JPanel" name="contentPanel">
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel5" min="-2" pref="197" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel5" min="-2" pref="176" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Images/index.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel5"/>
-              </Properties>
-            </Component>
-          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

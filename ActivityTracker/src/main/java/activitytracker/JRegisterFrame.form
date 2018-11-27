@@ -24,22 +24,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+          <Component id="topPanel" min="-2" max="-2" attributes="0"/>
+          <Component id="mainPanel" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="topPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="jPanel2" max="32767" attributes="0"/>
+              <Component id="mainPanel" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="topPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="6" green="94" red="f8" type="rgb"/>
@@ -59,7 +59,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="JRegisterLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="title" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="302" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -78,7 +78,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JRegisterLabel" pref="38" max="32767" attributes="0"/>
+                      <Component id="title" pref="38" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -103,7 +103,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelCloseMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="JRegisterLabel">
+        <Component class="javax.swing.JLabel" name="title">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -133,7 +133,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="mainPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="50" green="3e" red="2c" type="rgb"/>
@@ -157,24 +157,24 @@
                               <Group type="102" attributes="0">
                                   <Component id="JLastNameLabel" min="-2" pref="92" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField3" min="-2" pref="188" max="-2" attributes="0"/>
+                                  <Component id="inputLastName" min="-2" pref="188" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="JFirstNameLabel" min="-2" pref="92" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="JFirstNameField" min="-2" pref="188" max="-2" attributes="0"/>
+                                  <Component id="inputFirstName" min="-2" pref="188" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Component id="JUsernameLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField1" min="-2" pref="188" max="-2" attributes="0"/>
+                                  <Component id="inputUsername" min="-2" pref="188" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-                          <Component id="JLabelLogin" min="-2" max="-2" attributes="0"/>
+                          <Component id="switchToLogin" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="103" max="32767" attributes="0"/>
@@ -187,25 +187,25 @@
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JFirstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JFirstNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="inputFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JLastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="inputLastName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JUsernameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="inputUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="268" max="32767" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JButtonCancel" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="jButtonRegister" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="JLabelLogin" min="-2" max="-2" attributes="0"/>
+                  <Component id="switchToLogin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -223,7 +223,7 @@
             <Property name="text" type="java.lang.String" value="Username:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="inputUsername">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="7a" red="6c" type="rgb"/>
@@ -267,7 +267,7 @@
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="JLabelLogin">
+        <Component class="javax.swing.JLabel" name="switchToLogin">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -281,7 +281,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JLabelLoginMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="switchToLoginMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="JFirstNameLabel">
@@ -295,7 +295,7 @@
             <Property name="text" type="java.lang.String" value="First Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="JFirstNameField">
+        <Component class="javax.swing.JTextField" name="inputFirstName">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="7a" red="6c" type="rgb"/>
@@ -319,7 +319,7 @@
             <Property name="text" type="java.lang.String" value="Last Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="inputLastName">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="7a" red="6c" type="rgb"/>
