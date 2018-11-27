@@ -23,7 +23,7 @@
             "stopOnEntry": false,
             "mainClass": "activitytracker.App",
             "args": "",
-            "projectName": "activitytracker"
+            "projectName": "ActivityTracker"
         },
         {
             "type": "java",
@@ -34,7 +34,7 @@
             "stopOnEntry": false,
             "mainClass": "activitytracker.Home",
             "args": "",
-            "projectName": "activitytracker"
+            "projectName": "ActivityTracker"
         },
         {
             "type": "java",
@@ -56,7 +56,7 @@
             "stopOnEntry": false,
             "mainClass": "activitytracker.JFriendsFrame",
             "args": "",
-            "projectName": "activitytracker"
+            "projectName": "ActivityTracker"
         },
         {
             "type": "java",

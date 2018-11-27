@@ -50,13 +50,13 @@ public class DataManager {
      */
     public void saveProfile(Profile profile) {
         try {
-            OutputStream outStream = new FileOutputStream(Paths.get(folderPath, profile.getName() + ".profile").toFile());
+            OutputStream outStream = new FileOutputStream(Paths.get(folderPath, profile.getUserName() + ".profile").toFile());
 
             mapper.writeValue(outStream, profile);
 
             outStream.close();
         } catch (Exception e) {
-            System.err.println("Error saving profile " + profile.getName() + " :" + e.getMessage());
+            System.err.println("Error saving profile " + profile.getUserName() + " :" + e.getMessage());
         }
     }
 

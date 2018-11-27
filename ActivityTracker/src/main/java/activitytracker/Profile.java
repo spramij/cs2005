@@ -1,25 +1,55 @@
 package activitytracker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class Profile {
-    private String name;
+    private String userName;
+    private String firstName;
+    private String lastName;
     private String password;
     private List<Data> runData;
     private boolean shareMyData;
     private List<String> friendsList;
     private Challenge myChallenges;
 
-    public Profile(String name) {
-        this.name = name;
+    public Profile(String userName) {
+        this.userName = userName;
+    }
+
+    public Profile(String userName, String firstName, String lastName, String password, Data[] runData, boolean privacy,
+            String[] friends, Challenge challenges) {
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.runData = new ArrayList<Data>();
+
+        if (runData != null) {
+            for (Data data : runData) {
+                this.runData.add(data);
+            }
+        }
+
+        this.shareMyData = privacy;
+
+        this.friendsList = new ArrayList<String>();
+
+        if (friends != null) {
+            for (String user : friends) {
+                this.friendsList.add(user);
+            }
+        }
+
+        this.myChallenges = challenges;
     }
 
     // constructor method
     public Profile(String inName, List<Data> inRuns, Boolean inPrivacy, List<String> friends, String[] challenges) {
-        this.name = inName;
+        this.userName = inName;
         this.runData = inRuns;
         this.shareMyData = inPrivacy;
         this.friendsList = friends;
@@ -29,9 +59,9 @@ public class Profile {
     @Override
     public String toString() {
         StringBuilder strBuilder = new StringBuilder();
-        strBuilder.append("Name: " + this.name + "\n");
+        strBuilder.append("Name: " + this.userName + "\n");
         strBuilder.append("Runs:\n");
-        System.out.println("Name: " + this.name + "\nYou have been on the following runs: ");
+        System.out.println("Name: " + this.userName + "\nYou have been on the following runs: ");
         for (Data x : this.runData) {
             strBuilder.append("\t" + x.toString());
         }
@@ -43,8 +73,8 @@ public class Profile {
 
     // individual get methods for a Profile object
     @JsonGetter("name")
-    public String getName() {
-        return this.name;
+    public String getUserName() {
+        return this.userName;
     }
 
     public String getPassword() {
@@ -90,7 +120,7 @@ public class Profile {
     // individual set method for Profile objects
     @JsonSetter("name")
     public void setName(String newName) {
-        this.name = newName;
+        this.userName = newName;
     }
 
     @JsonSetter("runs")
@@ -163,6 +193,6 @@ public class Profile {
         // System.out.println("You have successfully added " + newFriend.getName() + "
         // as your friend!");
 
-        this.friendsList.add(newFriend.getName());
+        this.friendsList.add(newFriend.getUserName());
     }
 }
