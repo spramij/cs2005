@@ -483,7 +483,7 @@ public class Home extends javax.swing.JFrame {
                 {"Alex", "C++ ", "10 hrs", "$50 per hr"}
             },
             new String [] {
-                "Name", "Project", "Time", "Cost"
+                "Date", "Distance Covered", "Caloried Burnt", "Inclination"
             }
         ) {
             Class[] types = new Class [] {

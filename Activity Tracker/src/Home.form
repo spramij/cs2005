@@ -803,25 +803,25 @@
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Name" type="java.lang.String">
+                    <Column editable="true" title="Date" type="java.lang.String">
                       <Data value="Allan"/>
                       <Data value="Brian"/>
                       <Data value="Romeo"/>
                       <Data value="Alex"/>
                     </Column>
-                    <Column editable="true" title="Project" type="java.lang.String">
+                    <Column editable="true" title="Distance Covered" type="java.lang.String">
                       <Data value="XLS"/>
                       <Data value="React"/>
                       <Data value="C#"/>
                       <Data value="C++ "/>
                     </Column>
-                    <Column editable="true" title="Time" type="java.lang.String">
+                    <Column editable="true" title="Caloried Burnt" type="java.lang.String">
                       <Data value="2hrs"/>
                       <Data value="1hr"/>
                       <Data value="3 Days"/>
                       <Data value="10 hrs"/>
                     </Column>
-                    <Column editable="true" title="Cost" type="java.lang.String">
+                    <Column editable="true" title="Inclination" type="java.lang.String">
                       <Data value="$200"/>
                       <Data value="$100 per hr"/>
                       <Data value="$1000"/>
