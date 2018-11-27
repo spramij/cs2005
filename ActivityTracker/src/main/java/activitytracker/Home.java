@@ -1,8 +1,24 @@
 package activitytracker; 
 
-import java.awt.event.*;
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+
+import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.LayoutStyle;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.WindowConstants;
 
 public class Home extends JFrame {
 
@@ -344,10 +360,10 @@ public class Home extends JFrame {
 
         jPanel3.setBackground(new Color(255, 255, 255));
 
-        int totalDistance = currentProfile.getAllRunDistance();
+        double totalDistance = Singleton.loadedProfile.getAllRunDistance();
         jLabel8.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setForeground(new Color(96, 83, 150));
-        jLabel8.setText(totalDistance);
+        jLabel8.setText(String.valueOf(totalDistance));
 
         jLabel6.setFont(new Font("Segoe UI", 0, 12)); // NOI18N
         jLabel6.setForeground(new Color(96, 83, 150));
@@ -399,10 +415,10 @@ public class Home extends JFrame {
         jPanel4.setBackground(new Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        double totalTime = currentProfile.getAllTimeRan();
+        double totalTime = Singleton.loadedProfile.getAllTimeRan();
         jLabel9.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setForeground(new Color(96, 83, 150));
-        jLabel9.setText(totalTime);
+        jLabel9.setText(String.valueOf(totalTime));
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 22, -1, -1));
 
         jLabel19.setFont(new Font("Segoe UI", 0, 12)); // NOI18N
@@ -435,10 +451,10 @@ public class Home extends JFrame {
         jPanel5.setBackground(new Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        double averageIncli = currentProfile.getAverageInclination();
+        double averageIncli = Singleton.loadedProfile.getAverageInclination();
         jLabel11.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new Color(96, 83, 150));
-        jLabel11.setText(averageIncli);
+        jLabel11.setText(String.valueOf(averageIncli));
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 75, -1));
 
         jPanel12.setBackground(new Color(232, 201, 232));
@@ -477,10 +493,10 @@ public class Home extends JFrame {
         jScrollPane1.setBackground(new Color(247, 247, 247));
         jScrollPane1.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        List<Data> runData = currentProfile.getAllRuns();
+        Data[] runData = Singleton.loadedProfile.getAllRuns();
         jTable1.setBackground(new Color(247, 247, 247));
         jTable1.setFont(new Font("Segoe UI", 0, 11)); // NOI18N
-        jTable1.setModel(new table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {runData[0].getDate(), runData[0].getDuration(), runData[0].getDistance(), runData[0].getAltitude()},
                 {runData[1].getDate(), runData[1].getDuration(), runData[1].getDistance(), runData[1].getAltitude()},

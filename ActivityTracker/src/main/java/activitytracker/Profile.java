@@ -176,8 +176,8 @@ public class Profile {
     }
 
     // return the entire array of run data
-    public List<Data> getAllRuns() {
-        return this.runData;
+    public Data[] getAllRuns() {
+        return this.runData.toArray(new Data[this.runData.size()]);
     }
 
     // uses the method implemented in the Challenge class

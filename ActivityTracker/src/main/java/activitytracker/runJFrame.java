@@ -61,8 +61,8 @@ public class runJFrame extends JFrame {
 
         jTable1.setBackground(new java.awt.Color(247, 247, 247));
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTable1.setModel(new table.DefaultTableModel(
-            new Object [][] {
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new String [][] {
                 {"Allan", "", "2hrs", ""},
                 {"Brian", "", "1hr", ""},
                 {"Romeo", "", "3 Days", ""},
@@ -72,11 +72,11 @@ public class runJFrame extends JFrame {
                 "Date", "Distance Covered", "Caloried Burnt", "Inclination"
             }
         ) {
-            Class[] types = new Class [] {
+            Class<String>[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
-            public Class getColumnClass(int columnIndex) {
+            public Class<String> getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
