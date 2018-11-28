@@ -12,6 +12,8 @@ public class ClassChallenge {
     @JsonProperty("chall3")
     public String challenge3;
 
+    private boolean isCompleted;
+
     public ClassChallenge() {
         challenge1 = null;
         challenge2 = null;
@@ -24,9 +26,16 @@ public class ClassChallenge {
         this.challenge3 = chall3;
     }
 
+    public boolean getIsCompleted() {
+        return this.isCompleted;
+    }
+
+    public void setIsCompleted(boolean bool) {
+        this.isCompleted = bool;
+    }
+
     @Override
     public String toString() {
-        return "Your challenges this week are:\n" + this.challenge1 + "\n" + this.challenge2 + "\n"
-        + this.challenge3;
+        return "Your challenges this week are:\n" + this.challenge1 + "\n" + this.challenge2 + "\n" + this.challenge3;
     }
 }
