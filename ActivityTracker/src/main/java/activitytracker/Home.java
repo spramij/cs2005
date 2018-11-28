@@ -44,8 +44,10 @@ public class Home extends JFrame {
         btn_close = new javax.swing.JLabel();
         prettyThing = new javax.swing.JPanel();
         recentPanel = new javax.swing.JPanel();
-        runDataTable = new javax.swing.JTable();
-        recentTitleLabel = new javax.swing.JLabel();
+        JRecentDisplayLabel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jImportButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -100,9 +102,10 @@ public class Home extends JFrame {
         jIconLabel.setText("");
         sidebarPanel.add(jIconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 160));
 
-        getContentPane().add(sidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 490));
+        getContentPane().add(sidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 510));
 
         mainPanel.setBackground(new java.awt.Color(247, 247, 247));
+        mainPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.darkGray));
         mainPanel.setPreferredSize(new java.awt.Dimension(780, 200));
         mainPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -172,7 +175,7 @@ public class Home extends JFrame {
                 .addGroup(contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(incliUnit)
                     .addComponent(averageIncliLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,15 +186,15 @@ public class Home extends JFrame {
                     .addComponent(totalDistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(totalTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(averageIncliLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(distUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(timeUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(incliUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(343, 343, 343))
         );
 
-        mainPanel.add(contentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 530, -1));
+        mainPanel.add(contentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 530, 110));
 
         distLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         distLabel.setForeground(new java.awt.Color(96, 83, 150));
@@ -220,6 +223,7 @@ public class Home extends JFrame {
         mainPanel.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 20, 30));
 
         prettyThing.setBackground(new java.awt.Color(96, 83, 150));
+        prettyThing.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout prettyThingLayout = new javax.swing.GroupLayout(prettyThing);
         prettyThing.setLayout(prettyThingLayout);
@@ -234,7 +238,12 @@ public class Home extends JFrame {
 
         mainPanel.add(prettyThing, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 180, -1));
 
-        runDataTable.setModel(new javax.swing.table.DefaultTableModel(
+        JRecentDisplayLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JRecentDisplayLabel.setForeground(new java.awt.Color(96, 83, 150));
+        JRecentDisplayLabel.setText("Recent Runs");
+
+        jTable2.setForeground(new java.awt.Color(96, 83, 150));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -242,36 +251,47 @@ public class Home extends JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Date", "Distance Covered", "Calories Burnt", "Average Inclination"
             }
         ));
-
-        recentTitleLabel.setText("Your Recent Runs");
+        jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout recentPanelLayout = new javax.swing.GroupLayout(recentPanel);
         recentPanel.setLayout(recentPanelLayout);
         recentPanelLayout.setHorizontalGroup(
             recentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recentPanelLayout.createSequentialGroup()
-                .addGap(0, 1, Short.MAX_VALUE)
-                .addComponent(runDataTable, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
-            .addGroup(recentPanelLayout.createSequentialGroup()
-                .addGap(221, 221, 221)
-                .addComponent(recentTitleLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(recentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(recentPanelLayout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(JRecentDisplayLabel))
+                    .addGroup(recentPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         recentPanelLayout.setVerticalGroup(
             recentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recentPanelLayout.createSequentialGroup()
-                .addGap(0, 16, Short.MAX_VALUE)
-                .addComponent(recentTitleLabel)
+                .addContainerGap()
+                .addComponent(JRecentDisplayLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(runDataTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 31, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mainPanel.add(recentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 520, 140));
+        mainPanel.add(recentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 540, 150));
+
+        jImportButton.setBackground(new java.awt.Color(96, 83, 150));
+        jImportButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jImportButton.setForeground(new java.awt.Color(255, 255, 255));
+        jImportButton.setText("Import Data");
+        jImportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jImportButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(jImportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, -1, -1));
 
         getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 780, 530));
 
@@ -331,6 +351,10 @@ public class Home extends JFrame {
         this.dispose();   
     }//GEN-LAST:event_JRunLabelMouseClicked
 
+    private void jImportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jImportButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jImportButtonActionPerformed
+
     int xx ,xy;
     
        
@@ -387,6 +411,7 @@ public class Home extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JDailyLabel;
+    private javax.swing.JLabel JRecentDisplayLabel;
     private javax.swing.JLabel JRunLabel;
     private javax.swing.JLabel averageIncliLabel;
     private javax.swing.JLabel btn_close;
@@ -398,12 +423,13 @@ public class Home extends JFrame {
     private javax.swing.JLabel jFriendsLabel;
     private javax.swing.JLabel jFriendsLabel1;
     private javax.swing.JLabel jIconLabel;
+    private javax.swing.JButton jImportButton;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel prettyThing;
     private javax.swing.JPanel recentPanel;
-    private javax.swing.JLabel recentTitleLabel;
-    private javax.swing.JTable runDataTable;
     private javax.swing.JPanel sidebarPanel;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JLabel timeUnit;
