@@ -25,7 +25,6 @@ public class JRunFrame extends JFrame {
         title = new javax.swing.JLabel();
         returnLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        runTable = new javax.swing.JTable();
         jFileChooser1 = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,31 +64,34 @@ public class JRunFrame extends JFrame {
         jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        runTable.setBackground(new java.awt.Color(247, 247, 247));
-        runTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        runTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Allan", "", "2hrs", ""},
-                {"Brian", "", "1hr", ""},
-                {"Romeo", "", "3 Days", ""},
-                {"Alex", "", "10 hrs", "$50 per hr"}
-            },
-            new String [] {
-                "Date", "Distance Covered", "Caloried Burnt", "Inclination"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        ClassData[] data = Singleton.loadedProfile.getRunDatas();
+        Object[][] tableData = {
+                {"Empty!","Empty!","Empty!","Empty!"},
+                {"Empty!","Empty!","Empty!","Empty!"}
+        };
+
+        if (Singleton.loadedProfile.getRunDatas() != null) {
+            tableData = new Object[4][data.length];
+            for (int i = 0; i < data.length; i++) {
+                tableData[0][i] = data[i].getDate();
+                tableData[0][i] = data[i].getDistance();
+                tableData[0][i] = data[i].getDuration();
+                tableData[0][i] = data[i].getDistance();
             }
-        });
+        }
+
+        String[] columnNames = {"Date", "Distance covered", "Duration", "Inclination"};
+
+        runTable = new JTable(tableData, columnNames);
         runTable.setGridColor(new java.awt.Color(247, 247, 247));
         runTable.setRowHeight(20);
         runTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
+        runTable.setBackground(new java.awt.Color(247, 247, 247));
+        runTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
         jScrollPane1.setViewportView(runTable);
+
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
