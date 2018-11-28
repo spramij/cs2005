@@ -5,7 +5,11 @@
  */
 package activitytracker;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -29,119 +33,117 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JHeaderPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        JmainPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        JReturnLabel = new javax.swing.JLabel();
+        topPanel = new javax.swing.JPanel();
+        title = new javax.swing.JLabel();
+        mainPanel = new javax.swing.JPanel();
+        backTo = new javax.swing.JLabel();
+        challengeTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JHeaderPanel.setBackground(new java.awt.Color(96, 83, 150));
+        topPanel.setBackground(new java.awt.Color(96, 83, 150));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel1.setText("DAILY CHALLENGES");
+        title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        title.setForeground(new java.awt.Color(240, 240, 240));
+        title.setText("DAILY CHALLENGES");
 
-        javax.swing.GroupLayout JHeaderPanelLayout = new javax.swing.GroupLayout(JHeaderPanel);
-        JHeaderPanel.setLayout(JHeaderPanelLayout);
-        JHeaderPanelLayout.setHorizontalGroup(
-            JHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JHeaderPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
+        topPanel.setLayout(topPanelLayout);
+        topPanelLayout.setHorizontalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        JHeaderPanelLayout.setVerticalGroup(
-            JHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JHeaderPanelLayout.createSequentialGroup()
+        topPanelLayout.setVerticalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        backTo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        backTo.setForeground(new java.awt.Color(96, 83, 150));
+        backTo.setText("Return to Main Menu");
+        backTo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backToMouseClicked(evt);
+            }
+        });
+
+        challengeTable.setBackground(new java.awt.Color(247, 247, 247));
+        challengeTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        challengeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {"dummy1", null},
+                {"dummy2", null},
+                {"dummy3", null}
             },
             new String [] {
-                "Daily Challenges", "Completed"
+                "Objective", "Achieved ?"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
+        ));
+        challengeTable.setGridColor(new java.awt.Color(247, 247, 247));
+        challengeTable.setRowHeight(20);
+        challengeTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("Daily Challenges");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("Completed");
-        }
-
-        JReturnLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        JReturnLabel.setForeground(new java.awt.Color(96, 83, 150));
-        JReturnLabel.setText("Return to Main Menu");
-        JReturnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JReturnLabelMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout JmainPanelLayout = new javax.swing.GroupLayout(JmainPanel);
-        JmainPanel.setLayout(JmainPanelLayout);
-        JmainPanelLayout.setHorizontalGroup(
-            JmainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JmainPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addGap(0, 490, Short.MAX_VALUE)
+                .addComponent(backTo, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(challengeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-        JmainPanelLayout.setVerticalGroup(
-            JmainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JmainPanelLayout.createSequentialGroup()
-                .addComponent(JReturnLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addComponent(backTo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(159, 159, 159))
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(challengeTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JHeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(topPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JmainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(JHeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JmainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JReturnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JReturnLabelMouseClicked
+    private void backToMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToMouseClicked
         Home h = new Home();
         h.setVisible(true);
         h.pack();
         h.setLocationRelativeTo(null);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }//GEN-LAST:event_JReturnLabelMouseClicked
+    }//GEN-LAST:event_backToMouseClicked
 
     /**
      * @param args the command line arguments
@@ -153,20 +155,20 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDailyChallengesFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JRunFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDailyChallengesFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JRunFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDailyChallengesFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDailyChallengesFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JRunFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JRunFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -179,11 +181,10 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JHeaderPanel;
-    private javax.swing.JLabel JReturnLabel;
-    private javax.swing.JPanel JmainPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel backTo;
+    private javax.swing.JTable challengeTable;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel title;
+    private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }
