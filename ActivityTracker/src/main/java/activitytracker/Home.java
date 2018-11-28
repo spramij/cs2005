@@ -23,11 +23,12 @@ public class Home extends JFrame {
     private void initComponents() {
 
         sidebarPanel = new javax.swing.JPanel();
-        icon = new javax.swing.JPanel();
         JDailyLabel = new javax.swing.JLabel();
         jFriendsLabel = new javax.swing.JLabel();
         jFriendsLabel1 = new javax.swing.JLabel();
         JRunLabel = new javax.swing.JLabel();
+        iconPanel = new javax.swing.JPanel();
+        jIconLabel = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         contentPanel = new javax.swing.JPanel();
@@ -55,19 +56,6 @@ public class Home extends JFrame {
 
         sidebarPanel.setBackground(new java.awt.Color(255, 255, 255));
         sidebarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout iconLayout = new javax.swing.GroupLayout(icon);
-        icon.setLayout(iconLayout);
-        iconLayout.setHorizontalGroup(
-            iconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
-        );
-        iconLayout.setVerticalGroup(
-            iconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
-
-        sidebarPanel.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 190, 160));
 
         JDailyLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JDailyLabel.setForeground(new java.awt.Color(96, 83, 150));
@@ -108,6 +96,24 @@ public class Home extends JFrame {
             }
         });
         sidebarPanel.add(JRunLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
+
+        jIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/index.png"))); // NOI18N
+        jIconLabel.setText("jLabel1");
+
+        javax.swing.GroupLayout iconPanelLayout = new javax.swing.GroupLayout(iconPanel);
+        iconPanel.setLayout(iconPanelLayout);
+        iconPanelLayout.setHorizontalGroup(
+            iconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 190, Short.MAX_VALUE)
+        );
+        iconPanelLayout.setVerticalGroup(
+            iconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iconPanelLayout.createSequentialGroup()
+                .addComponent(jIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        sidebarPanel.add(iconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 190, 140));
 
         getContentPane().add(sidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 490));
 
@@ -402,11 +408,12 @@ public class Home extends JFrame {
     private javax.swing.JPanel contentPanel;
     private javax.swing.JLabel distLabel;
     private javax.swing.JLabel distUnit;
-    private javax.swing.JPanel icon;
+    private javax.swing.JPanel iconPanel;
     private javax.swing.JLabel incliLabel;
     private javax.swing.JLabel incliUnit;
     private javax.swing.JLabel jFriendsLabel;
     private javax.swing.JLabel jFriendsLabel1;
+    private javax.swing.JLabel jIconLabel;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel prettyThing;
