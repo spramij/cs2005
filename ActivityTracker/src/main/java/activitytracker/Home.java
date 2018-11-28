@@ -654,7 +654,7 @@ public class Home extends JFrame {
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jRunLabelMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jRunLabelMouseClicked
-        runJFrame runfr = new runJFrame();
+        JRunFrame runfr = new JRunFrame();
         runfr.setVisible(true);
         runfr.pack();
         runfr.setLocationRelativeTo(null);
