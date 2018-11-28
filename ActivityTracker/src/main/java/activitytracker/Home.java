@@ -1,5 +1,5 @@
 
-import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Home extends JFrame {
@@ -70,14 +70,14 @@ public class Home extends JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Button1.setBackground(new Color(255, 255, 255));
-        Button1.addMouseListener(new event.MouseAdapter() {
-            public void mouseClicked(event.MouseEvent evt) {
+        Button1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 Button1MouseClicked(evt);
             }
-            public void mouseEntered(event.MouseEvent evt) {
+            public void mouseEntered(MouseEvent evt) {
                 Button1MouseEntered(evt);
             }
-            public void mouseExited(event.MouseEvent evt) {
+            public void mouseExited(MouseEvent evt) {
                 Button1MouseExited(evt);
             }
         });
@@ -112,14 +112,14 @@ public class Home extends JFrame {
         jPanel1.add(Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
 
         Button2.setBackground(new Color(255, 255, 255));
-        Button2.addMouseListener(new event.MouseAdapter() {
-            public void mouseClicked(event.MouseEvent evt) {
+        Button2.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 Button2MouseClicked(evt);
             }
-            public void mouseEntered(event.MouseEvent evt) {
+            public void mouseEntered(MouseEvent evt) {
                 Button2MouseEntered(evt);
             }
-            public void mouseExited(event.MouseEvent evt) {
+            public void mouseExited(MouseEvent evt) {
                 Button2MouseExited(evt);
             }
         });
@@ -154,14 +154,14 @@ public class Home extends JFrame {
         jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, -1));
 
         Button3.setBackground(new Color(255, 255, 255));
-        Button3.addMouseListener(new event.MouseAdapter() {
-            public void mouseClicked(event.MouseEvent evt) {
+        Button3.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 Button3MouseClicked(evt);
             }
-            public void mouseEntered(event.MouseEvent evt) {
+            public void mouseEntered(MouseEvent evt) {
                 Button3MouseEntered(evt);
             }
-            public void mouseExited(event.MouseEvent evt) {
+            public void mouseExited(MouseEvent evt) {
                 Button3MouseExited(evt);
             }
         });
@@ -196,14 +196,14 @@ public class Home extends JFrame {
         jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 279, 232, -1));
 
         Button4.setBackground(new Color(255, 255, 255));
-        Button4.addMouseListener(new event.MouseAdapter() {
-            public void mouseClicked(event.MouseEvent evt) {
+        Button4.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 Button4MouseClicked(evt);
             }
-            public void mouseEntered(event.MouseEvent evt) {
+            public void mouseEntered(MouseEvent evt) {
                 Button4MouseEntered(evt);
             }
-            public void mouseExited(event.MouseEvent evt) {
+            public void mouseExited(MouseEvent evt) {
                 Button4MouseExited(evt);
             }
         });
@@ -313,8 +313,8 @@ public class Home extends JFrame {
         jRunLabel.setFont(new Font("Segoe UI", 1, 12)); // NOI18N
         jRunLabel.setForeground(new Color(181, 77, 180));
         jRunLabel.setText("Runs");
-        jRunLabel.addMouseListener(new event.MouseAdapter() {
-            public void mouseClicked(event.MouseEvent evt) {
+        jRunLabel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 jRunLabelMouseClicked(evt);
             }
         });
@@ -323,13 +323,13 @@ public class Home extends JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 530));
 
         jPanel2.setBackground(new Color(247, 247, 247));
-        jPanel2.addMouseMotionListener(new event.MouseMotionAdapter() {
-            public void mouseDragged(event.MouseEvent evt) {
+        jPanel2.addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent evt) {
                 jPanel2MouseDragged(evt);
             }
         });
-        jPanel2.addMouseListener(new event.MouseAdapter() {
-            public void mousePressed(event.MouseEvent evt) {
+        jPanel2.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
                 jPanel2MousePressed(evt);
             }
         });
@@ -465,8 +465,8 @@ public class Home extends JFrame {
         btn_close.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
         btn_close.setForeground(new Color(255, 255, 255));
         btn_close.setText("X");
-        btn_close.addMouseListener(new event.MouseAdapter() {
-            public void mouseClicked(event.MouseEvent evt) {
+        btn_close.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 btn_closeMouseClicked(evt);
             }
         });
@@ -525,12 +525,12 @@ public class Home extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_closeMouseClicked(event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
+    private void btn_closeMouseClicked(MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btn_closeMouseClicked
 
-    private void Button1MouseClicked(event.MouseEvent evt) {//GEN-FIRST:event_Button1MouseClicked
+    private void Button1MouseClicked(MouseEvent evt) {//GEN-FIRST:event_Button1MouseClicked
         // TODO add your handling code here:
         onClick(Button1);
         onLeaveClick(Button2);
@@ -545,7 +545,7 @@ public class Home extends JFrame {
         
     }//GEN-LAST:event_Button1MouseClicked
 
-    private void Button2MouseClicked(event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
+    private void Button2MouseClicked(MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
         // TODO add your handling code here:
         onClick(Button2);
         onLeaveClick(Button1);
@@ -559,7 +559,7 @@ public class Home extends JFrame {
         Indicator4.setOpaque(false);
     }//GEN-LAST:event_Button2MouseClicked
 
-    private void Button3MouseClicked(event.MouseEvent evt) {//GEN-FIRST:event_Button3MouseClicked
+    private void Button3MouseClicked(MouseEvent evt) {//GEN-FIRST:event_Button3MouseClicked
         // TODO add your handling code here:
         onClick(Button3);
         onLeaveClick(Button2);
@@ -573,7 +573,7 @@ public class Home extends JFrame {
         Indicator4.setOpaque(false);
     }//GEN-LAST:event_Button3MouseClicked
 
-    private void Button4MouseClicked(event.MouseEvent evt) {//GEN-FIRST:event_Button4MouseClicked
+    private void Button4MouseClicked(MouseEvent evt) {//GEN-FIRST:event_Button4MouseClicked
         // TODO add your handling code here:
         onClick(Button4);
          onLeaveClick(Button2);
@@ -586,56 +586,56 @@ public class Home extends JFrame {
         Indicator4.setOpaque(true);
     }//GEN-LAST:event_Button4MouseClicked
 
-    private void Button1MouseEntered(event.MouseEvent evt) {//GEN-FIRST:event_Button1MouseEntered
+    private void Button1MouseEntered(MouseEvent evt) {//GEN-FIRST:event_Button1MouseEntered
         // TODO add your handling code here:
  
     }//GEN-LAST:event_Button1MouseEntered
 
-    private void Button2MouseEntered(event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseEntered
+    private void Button2MouseEntered(MouseEvent evt) {//GEN-FIRST:event_Button2MouseEntered
         // TODO add your handling code here:
          
     }//GEN-LAST:event_Button2MouseEntered
 
-    private void Button3MouseEntered(event.MouseEvent evt) {//GEN-FIRST:event_Button3MouseEntered
+    private void Button3MouseEntered(MouseEvent evt) {//GEN-FIRST:event_Button3MouseEntered
         // TODO add your handling code here:
      
     }//GEN-LAST:event_Button3MouseEntered
 
-    private void Button4MouseEntered(event.MouseEvent evt) {//GEN-FIRST:event_Button4MouseEntered
+    private void Button4MouseEntered(MouseEvent evt) {//GEN-FIRST:event_Button4MouseEntered
         // TODO add your handling code here:]
          
     }//GEN-LAST:event_Button4MouseEntered
 
-    private void Button1MouseExited(event.MouseEvent evt) {//GEN-FIRST:event_Button1MouseExited
+    private void Button1MouseExited(MouseEvent evt) {//GEN-FIRST:event_Button1MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_Button1MouseExited
 
-    private void Button2MouseExited(event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseExited
+    private void Button2MouseExited(MouseEvent evt) {//GEN-FIRST:event_Button2MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_Button2MouseExited
 
-    private void Button3MouseExited(event.MouseEvent evt) {//GEN-FIRST:event_Button3MouseExited
+    private void Button3MouseExited(MouseEvent evt) {//GEN-FIRST:event_Button3MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_Button3MouseExited
 
-    private void Button4MouseExited(event.MouseEvent evt) {//GEN-FIRST:event_Button4MouseExited
+    private void Button4MouseExited(MouseEvent evt) {//GEN-FIRST:event_Button4MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_Button4MouseExited
 
-    private void jPanel2MousePressed(event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+    private void jPanel2MousePressed(MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         // TODO add your handling code here:
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
 
-    private void jPanel2MouseDragged(event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+    private void jPanel2MouseDragged(MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
         // TODO add your handling code here:
          int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel2MouseDragged
 
-    private void jRunLabelMouseClicked(event.MouseEvent evt) {//GEN-FIRST:event_jRunLabelMouseClicked
+    private void jRunLabelMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jRunLabelMouseClicked
         runJFrame runfr = new runJFrame();
         runfr.setVisible(true);
         runfr.pack();
