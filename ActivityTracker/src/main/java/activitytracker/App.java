@@ -1,9 +1,6 @@
 package activitytracker;
 
-/**
- * Hello world!
- *
- */
+
 public class App {
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
