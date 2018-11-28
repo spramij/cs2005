@@ -2,6 +2,7 @@ package activitytracker;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
 
 public class Home extends JFrame {
@@ -243,6 +244,7 @@ public class Home extends JFrame {
         JRecentDisplayLabel.setText("Recent Runs");
 
         jTable2.setForeground(new java.awt.Color(96, 83, 150));
+        CsvImporter importer = new CsvImporter("");
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -268,7 +270,7 @@ public class Home extends JFrame {
                     .addGroup(recentPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         recentPanelLayout.setVerticalGroup(
             recentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,8 +278,7 @@ public class Home extends JFrame {
                 .addContainerGap()
                 .addComponent(JRecentDisplayLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
         );
 
         mainPanel.add(recentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 540, 150));
@@ -352,7 +353,10 @@ public class Home extends JFrame {
     }//GEN-LAST:event_JRunLabelMouseClicked
 
     private void jImportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jImportButtonActionPerformed
-        // TODO add your handling code here:
+       JFileChooser chooser = new JFileChooser();
+       chooser.showOpenDialog(this);
+       File f = chooser.getSelectedFile();
+       String filename = f.getAbsolutePath();   
     }//GEN-LAST:event_jImportButtonActionPerformed
 
     int xx ,xy;
