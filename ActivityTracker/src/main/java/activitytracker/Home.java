@@ -26,7 +26,8 @@ public class Home extends JFrame {
         icon = new javax.swing.JPanel();
         JDailyLabel = new javax.swing.JLabel();
         jFriendsLabel = new javax.swing.JLabel();
-        jRunLabel = new javax.swing.JLabel();
+        jFriendsLabel1 = new javax.swing.JLabel();
+        JRunLabel = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         contentPanel = new javax.swing.JPanel();
@@ -88,17 +89,27 @@ public class Home extends JFrame {
         });
         sidebarPanel.add(jFriendsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, 24));
 
-        jRunLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jRunLabel.setForeground(new java.awt.Color(181, 77, 180));
-        jRunLabel.setText("Runs");
-        jRunLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        jFriendsLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jFriendsLabel1.setForeground(new java.awt.Color(96, 83, 150));
+        jFriendsLabel1.setText("Friends");
+        jFriendsLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRunLabelMouseClicked(evt);
+                jFriendsLabel1MouseClicked(evt);
             }
         });
-        sidebarPanel.add(jRunLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, 24));
+        sidebarPanel.add(jFriendsLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, 24));
 
-        getContentPane().add(sidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 470));
+        JRunLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        JRunLabel.setForeground(new java.awt.Color(96, 83, 150));
+        JRunLabel.setText("Detailed Run Statistics");
+        JRunLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JRunLabelMouseClicked(evt);
+            }
+        });
+        sidebarPanel.add(JRunLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
+
+        getContentPane().add(sidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 490));
 
         mainPanel.setBackground(new java.awt.Color(247, 247, 247));
         mainPanel.setPreferredSize(new java.awt.Dimension(780, 200));
@@ -294,23 +305,40 @@ public class Home extends JFrame {
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_mainPanelMouseDragged
 
-    private void jRunLabelMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jRunLabelMouseClicked
-        JRunFrame runfr = new JRunFrame();
-        runfr.setVisible(true);
-        runfr.pack();
-        runfr.setLocationRelativeTo(null);
-        runfr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       this.dispose();
- 
-    }//GEN-LAST:event_jRunLabelMouseClicked
-
+    //MouseListener for friends panel
     private void jFriendsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFriendsLabelMouseClicked
-        // TODO add your handling code here:
+        JFriendsFrame friendframe = new JFriendsFrame();
+        friendframe.setVisible(true);
+        friendframe.pack();
+        friendframe.setLocationRelativeTo(null);
+        friendframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();        
     }//GEN-LAST:event_jFriendsLabelMouseClicked
 
+    //MouseListener for daily challenges
     private void JDailyLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JDailyLabelMouseClicked
-        // TODO add your handling code here:
+        JDailyChallengesFrame dailyFrame = new JDailyChallengesFrame();
+        dailyFrame.setVisible(true);
+        dailyFrame.pack();
+        dailyFrame.setLocationRelativeTo(null);
+        dailyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();        
     }//GEN-LAST:event_JDailyLabelMouseClicked
+
+    //Cant delete use VSCODE!
+    private void jFriendsLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFriendsLabel1MouseClicked
+     
+    }//GEN-LAST:event_jFriendsLabel1MouseClicked
+
+    //MouseListener to go to run panel
+    private void JRunLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JRunLabelMouseClicked
+        JRunFrame runframe = new JRunFrame();
+        runframe.setVisible(true);
+        runframe.pack();
+        runframe.setLocationRelativeTo(null);
+        runframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();   
+    }//GEN-LAST:event_JRunLabelMouseClicked
 
     int xx ,xy;
     
@@ -368,6 +396,7 @@ public class Home extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JDailyLabel;
+    private javax.swing.JLabel JRunLabel;
     private javax.swing.JLabel averageIncliLabel;
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel contentPanel;
@@ -377,8 +406,8 @@ public class Home extends JFrame {
     private javax.swing.JLabel incliLabel;
     private javax.swing.JLabel incliUnit;
     private javax.swing.JLabel jFriendsLabel;
+    private javax.swing.JLabel jFriendsLabel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JLabel jRunLabel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel prettyThing;
     private javax.swing.JPanel recentPanel;

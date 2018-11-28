@@ -23,7 +23,7 @@ public class JRunFrame extends JFrame {
         mainPanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        backTo = new javax.swing.JLabel();
+        returnLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         runTable = new javax.swing.JTable();
 
@@ -51,10 +51,15 @@ public class JRunFrame extends JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        backTo.setBackground(new java.awt.Color(96, 83, 150));
-        backTo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        backTo.setForeground(new java.awt.Color(96, 83, 150));
-        backTo.setText("Return to Main Menu");
+        returnLabel.setBackground(new java.awt.Color(96, 83, 150));
+        returnLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        returnLabel.setForeground(new java.awt.Color(96, 83, 150));
+        returnLabel.setText("Return to Main Menu");
+        returnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnLabelMouseClicked(evt);
+            }
+        });
 
         jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -95,7 +100,7 @@ public class JRunFrame extends JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(backTo))
+                        .addComponent(returnLabel))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -104,7 +109,7 @@ public class JRunFrame extends JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backTo)
+                .addComponent(returnLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -123,6 +128,15 @@ public class JRunFrame extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void returnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnLabelMouseClicked
+        Home h = new Home();
+        h.setVisible(true);
+        h.pack();
+        h.setLocationRelativeTo(null);
+        h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_returnLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -161,9 +175,9 @@ public class JRunFrame extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel backTo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel returnLabel;
     private javax.swing.JTable runTable;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
