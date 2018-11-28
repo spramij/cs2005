@@ -1,5 +1,7 @@
+package activitytracker; 
 
 import java.awt.event.*;
+import java.awt.*;
 import javax.swing.*;
 
 public class Home extends JFrame {

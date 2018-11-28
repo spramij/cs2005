@@ -1,3 +1,5 @@
+package activitytracker; 
+
 import javax.swing.*;
 
 public class runJFrame extends JFrame {
