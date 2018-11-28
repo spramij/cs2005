@@ -31,8 +31,8 @@ public class JFriendsFrame extends JFrame {
 
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        JReturnLabel = new javax.swing.JLabel();
         JMainPanel = new javax.swing.JPanel();
+        returnLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JHoldingPanel = new javax.swing.JPanel();
         JFriendPanel = new javax.swing.JPanel();
@@ -53,15 +53,6 @@ public class JFriendsFrame extends JFrame {
         title.setForeground(new java.awt.Color(240, 240, 240));
         title.setText("Friends");
 
-        JReturnLabel.setBackground(new java.awt.Color(96, 83, 150));
-        JReturnLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        JReturnLabel.setForeground(new java.awt.Color(255, 255, 255));
-        JReturnLabel.setText("Return to Main Menu");
-        JReturnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JReturnLabelMouseClicked(evt);
-            }
-        });
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
@@ -69,21 +60,27 @@ public class JFriendsFrame extends JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addContainerGap(594, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
                 .addGap(0, 13, Short.MAX_VALUE)
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         JMainPanel.setBackground(java.awt.SystemColor.activeCaption);
         JMainPanel.setForeground(java.awt.SystemColor.activeCaption);
+
+        returnLabel.setBackground(new java.awt.Color(96, 83, 150));
+        returnLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        returnLabel.setForeground(new java.awt.Color(96, 83, 150));
+        returnLabel.setText("Return to Main Menu");
+        returnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnLabelMouseClicked(evt);
+            }
+        });
 
         friendName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         friendName.setText("Friend 1");
@@ -103,32 +100,32 @@ public class JFriendsFrame extends JFrame {
 
         friendPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png"))); // NOI18N
 
-//        javax.swing.GroupLayout JFriendPanelLayout = new javax.swing.GroupLayout(JFriendPanel);
-//        JFriendPanel.setLayout(JFriendPanelLayout);
-//        JFriendPanelLayout.setHorizontalGroup(
-//            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(JFriendPanelLayout.createSequentialGroup()
-//                .addGroup(JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addGroup(JFriendPanelLayout.createSequentialGroup()
-//                        .addGap(30, 30, 30)
-//                        .addComponent(friendPic))
-//                    .addGroup(JFriendPanelLayout.createSequentialGroup()
-//                        .addGap(59, 59, 59)
-//                        .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-//                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
-//        );
-//        JFriendPanelLayout.setVerticalGroup(
-//            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(JFriendPanelLayout.createSequentialGroup()
-//                .addGap(53, 53, 53)
-//                .addComponent(friendPic)
-//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-//            .addGroup(JFriendPanelLayout.createSequentialGroup()
-//                .addContainerGap()
-//                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-//        );
+        javax.swing.GroupLayout JFriendPanelLayout = new javax.swing.GroupLayout(JFriendPanel);
+        JFriendPanel.setLayout(JFriendPanelLayout);
+        JFriendPanelLayout.setHorizontalGroup(
+            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JFriendPanelLayout.createSequentialGroup()
+                .addGroup(JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JFriendPanelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(friendPic))
+                    .addGroup(JFriendPanelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        JFriendPanelLayout.setVerticalGroup(
+            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JFriendPanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(friendPic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(JFriendPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout JHoldingPanelLayout = new javax.swing.GroupLayout(JHoldingPanel);
         JHoldingPanel.setLayout(JHoldingPanelLayout);
@@ -142,8 +139,9 @@ public class JFriendsFrame extends JFrame {
         JHoldingPanelLayout.setVerticalGroup(
             JHoldingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JHoldingPanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addComponent(JFriendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 729, Short.MAX_VALUE))
+                .addContainerGap(676, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(JHoldingPanel);
@@ -152,11 +150,19 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setLayout(JMainPanelLayout);
         JMainPanelLayout.setHorizontalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JMainPanelLayout.createSequentialGroup()
+                .addContainerGap(534, Short.MAX_VALUE)
+                .addComponent(returnLabel)
+                .addGap(25, 25, 25))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         JMainPanelLayout.setVerticalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
+            .addGroup(JMainPanelLayout.createSequentialGroup()
+                .addComponent(returnLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE)
+                .addGap(73, 73, 73))
         );
 
         JSidePanel.setBackground(new java.awt.Color(0, 102, 102));
@@ -185,10 +191,10 @@ public class JFriendsFrame extends JFrame {
             JSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JSidePanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(JSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JViewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RemoveLabel)
-                    .addComponent(AddLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(JSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(RemoveLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AddLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JViewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         JSidePanelLayout.setVerticalGroup(
@@ -227,24 +233,21 @@ public class JFriendsFrame extends JFrame {
                 .addContainerGap())
         );
 
-//        JPanel panel = new JFriendPanel();
-
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JReturnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JReturnLabelMouseClicked
+    private void AddLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddLabelMouseClicked
+       
+    }//GEN-LAST:event_AddLabelMouseClicked
+
+    private void returnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnLabelMouseClicked
         Home h = new Home();
         h.setVisible(true);
         h.pack();
         h.setLocationRelativeTo(null);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }//GEN-LAST:event_JReturnLabelMouseClicked
-
-    private void AddLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddLabelMouseClicked
-       
-    }//GEN-LAST:event_AddLabelMouseClicked
+    }//GEN-LAST:event_returnLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -290,12 +293,11 @@ public class JFriendsFrame extends JFrame {
     }
 
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddLabel;
     private javax.swing.JPanel JFriendPanel;
     private javax.swing.JPanel JHoldingPanel;
     private javax.swing.JPanel JMainPanel;
-    private javax.swing.JLabel JReturnLabel;
     private javax.swing.JPanel JSidePanel;
     private javax.swing.JLabel JViewLabel;
     private javax.swing.JLabel RemoveLabel;
@@ -304,6 +306,7 @@ public class JFriendsFrame extends JFrame {
     private javax.swing.JTable friendRuns;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel returnLabel;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables

@@ -36,7 +36,7 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
-        backTo = new javax.swing.JLabel();
+        returnLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,12 +65,13 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
 
         mainPanel.setForeground(new java.awt.Color(240, 240, 240));
 
-        backTo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        backTo.setForeground(new java.awt.Color(96, 83, 150));
-        backTo.setText("Return to Main Menu");
-        backTo.addMouseListener(new java.awt.event.MouseAdapter() {
+        returnLabel.setBackground(new java.awt.Color(96, 83, 150));
+        returnLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        returnLabel.setForeground(new java.awt.Color(96, 83, 150));
+        returnLabel.setText("Return to Main Menu");
+        returnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backToMouseClicked(evt);
+                returnLabelMouseClicked(evt);
             }
         });
 
@@ -79,14 +80,14 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backTo))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(returnLabel))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(backTo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 435, Short.MAX_VALUE))
+                .addComponent(returnLabel)
+                .addGap(0, 461, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,14 +112,14 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backToMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToMouseClicked
+    private void returnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnLabelMouseClicked
         Home h = new Home();
         h.setVisible(true);
         h.pack();
         h.setLocationRelativeTo(null);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }//GEN-LAST:event_backToMouseClicked
+    }//GEN-LAST:event_returnLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -156,8 +157,8 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel backTo;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel returnLabel;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
