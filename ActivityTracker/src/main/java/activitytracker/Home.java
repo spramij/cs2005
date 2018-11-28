@@ -49,7 +49,7 @@ public class Home extends JFrame {
         recentPanel = new javax.swing.JPanel();
         JRecentDisplayLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+//        recentRunsTable = new javax.swing.JTable();
         jImportButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -245,19 +245,28 @@ public class Home extends JFrame {
         JRecentDisplayLabel.setForeground(new java.awt.Color(96, 83, 150));
         JRecentDisplayLabel.setText("Recent Runs");
 
-        jTable2.setForeground(new java.awt.Color(96, 83, 150));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Date", "Distance Covered", "Calories Burnt", "Average Inclination"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+
+        ClassData[] data = Singleton.loadedProfile.getRunDatas();
+
+        Object[][] tableData = {
+                {"Empty!","Empty!","Empty!","Empty!"},
+                {"Empty!","Empty!","Empty!","Empty!"}};
+
+        if (data != null) {
+            tableData = new Object[3][4];
+            for (int i = 0; i < 3; i++) {
+                tableData[i][0] = data[i].getDate();
+                tableData[i][1] = data[i].getDistance();
+                tableData[i][2] = data[i].getDuration();
+                tableData[i][3] = data[i].getAltitude();}
+        }
+
+        String[] columnNames = {"Date", "Distance covered", "Duration", "Inclination"};
+
+        recentRunsTable = new JTable(tableData, columnNames);
+        recentRunsTable.setForeground(new java.awt.Color(96, 83, 150));
+
+        jScrollPane2.setViewportView(recentRunsTable);
 
         javax.swing.GroupLayout recentPanelLayout = new javax.swing.GroupLayout(recentPanel);
         recentPanel.setLayout(recentPanelLayout);
@@ -430,7 +439,7 @@ public class Home extends JFrame {
     private javax.swing.JButton jImportButton;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable recentRunsTable;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel prettyThing;
     private javax.swing.JPanel recentPanel;
