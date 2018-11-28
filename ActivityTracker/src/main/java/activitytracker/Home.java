@@ -1,9 +1,11 @@
-package activitytracker; 
+package activitytracker;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import javax.swing.*;
+
+import activitytracker.data.CsvImporter;
 
 public class Home extends JFrame {
 
@@ -244,7 +246,6 @@ public class Home extends JFrame {
         JRecentDisplayLabel.setText("Recent Runs");
 
         jTable2.setForeground(new java.awt.Color(96, 83, 150));
-        CsvImporter importer = new CsvImporter("");
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -312,9 +313,9 @@ public class Home extends JFrame {
 
     private void mainPanelMouseDragged(MouseEvent evt) {//GEN-FIRST:event_mainPanelMouseDragged
         // TODO add your handling code here:
-         int x = evt.getXOnScreen();
+        int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
+        this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_mainPanelMouseDragged
 
     //MouseListener for friends panel
@@ -324,7 +325,7 @@ public class Home extends JFrame {
         friendframe.pack();
         friendframe.setLocationRelativeTo(null);
         friendframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();        
+        this.dispose();
     }//GEN-LAST:event_jFriendsLabelMouseClicked
 
     //MouseListener for daily challenges
@@ -334,12 +335,12 @@ public class Home extends JFrame {
         dailyFrame.pack();
         dailyFrame.setLocationRelativeTo(null);
         dailyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();        
+        this.dispose();
     }//GEN-LAST:event_JDailyLabelMouseClicked
 
     //Cant delete use VSCODE!
     private void jFriendsLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFriendsLabel1MouseClicked
-     
+
     }//GEN-LAST:event_jFriendsLabel1MouseClicked
 
     //MouseListener to go to run panel
@@ -349,34 +350,33 @@ public class Home extends JFrame {
         runframe.pack();
         runframe.setLocationRelativeTo(null);
         runframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();   
+        this.dispose();
     }//GEN-LAST:event_JRunLabelMouseClicked
 
     private void jImportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jImportButtonActionPerformed
-       JFileChooser chooser = new JFileChooser();
-       chooser.showOpenDialog(this);
-       File f = chooser.getSelectedFile();
-       String filename = f.getAbsolutePath();   
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(this);
+        File csvFile = chooser.getSelectedFile();
+        if (csvFile == null)
+            return;
+
+        ClassData[] dataSet = CsvImporter.Import(csvFile);
+
+        Singleton.loadedProfile.setRunDatas(dataSet);
     }//GEN-LAST:event_jImportButtonActionPerformed
 
-    int xx ,xy;
-    
-       
+    int xx, xy;
+
     //bad idea
-    
-    
-    private void onClick(JPanel panel)
-    {
+
+    private void onClick(JPanel panel) {
         panel.setBackground(new Color(205, 136, 205));
     }
-    
-     private void onLeaveClick(JPanel panel)
-    {
+
+    private void onLeaveClick(JPanel panel) {
         panel.setBackground(Color.white);
     }
-    
-     
-     
+
     /**
      * @param args the command line arguments
      */

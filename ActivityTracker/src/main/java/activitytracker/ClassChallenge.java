@@ -1,5 +1,8 @@
 package activitytracker;
 
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ClassChallenge {
@@ -12,7 +15,9 @@ public class ClassChallenge {
     @JsonProperty("chall3")
     public String challenge3;
 
-    private boolean isCompleted;
+    // @JsonProperty("map")
+    @JsonIgnore
+    private Map<String, Boolean> map;
 
     public ClassChallenge() {
         challenge1 = null;
@@ -26,12 +31,14 @@ public class ClassChallenge {
         this.challenge3 = chall3;
     }
 
-    public boolean getIsCompleted() {
-        return this.isCompleted;
-    }
-
-    public void setIsCompleted(boolean bool) {
-        this.isCompleted = bool;
+    public void setComplete(int index, Boolean value) {
+        if (index == 1) {
+            map.put(challenge1, value);
+        } else if (index == 2) {
+            map.put(challenge2, value);
+        } else if (index == 3) {
+            map.put(challenge3, value);
+        }
     }
 
     @Override

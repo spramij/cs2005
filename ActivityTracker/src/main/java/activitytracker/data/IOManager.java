@@ -58,6 +58,11 @@ public class IOManager {
                 folder.mkdir();
             }
 
+            File profileFile = Paths.get(folder.toString(), profile.getUserName() + ".profile").toFile();
+
+            if (!profileFile.exists())
+                profileFile.createNewFile();
+
             OutputStream outStream = new FileOutputStream(
                     Paths.get(folder.toString(), profile.getUserName() + ".profile").toFile());
 
