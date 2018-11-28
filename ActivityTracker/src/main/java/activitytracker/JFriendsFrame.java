@@ -31,8 +31,8 @@ public class JFriendsFrame extends JFrame {
 
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        JMainPanel = new javax.swing.JPanel();
         JReturnLabel = new javax.swing.JLabel();
+        JMainPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JHoldingPanel = new javax.swing.JPanel();
         JFriendPanel = new javax.swing.JPanel();
@@ -58,6 +58,16 @@ public class JFriendsFrame extends JFrame {
         title.setForeground(new java.awt.Color(240, 240, 240));
         title.setText("Friends");
 
+        JReturnLabel.setBackground(new java.awt.Color(96, 83, 150));
+        JReturnLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        JReturnLabel.setForeground(new java.awt.Color(255, 255, 255));
+        JReturnLabel.setText("Return to Main Menu");
+        JReturnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JReturnLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
@@ -65,27 +75,21 @@ public class JFriendsFrame extends JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
+                .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
                 .addGap(0, 13, Short.MAX_VALUE)
-                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         JMainPanel.setBackground(java.awt.SystemColor.activeCaption);
         JMainPanel.setForeground(java.awt.SystemColor.activeCaption);
-
-        JReturnLabel.setBackground(new java.awt.Color(96, 83, 150));
-        JReturnLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        JReturnLabel.setForeground(new java.awt.Color(96, 83, 150));
-        JReturnLabel.setText("Return to Main Menu");
-        JReturnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JReturnLabelMouseClicked(evt);
-            }
-        });
 
         JFriendLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         JFriendLabel1.setText("Friend 1");
@@ -213,22 +217,11 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setLayout(JMainPanelLayout);
         JMainPanelLayout.setHorizontalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JMainPanelLayout.createSequentialGroup()
-                .addContainerGap(501, Short.MAX_VALUE)
-                .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(JMainPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         JMainPanelLayout.setVerticalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JMainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         JSidePanel.setBackground(new java.awt.Color(0, 102, 102));
@@ -237,6 +230,11 @@ public class JFriendsFrame extends JFrame {
         AddLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         AddLabel.setForeground(new java.awt.Color(240, 240, 240));
         AddLabel.setText("Add Friends");
+        AddLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddLabelMouseClicked(evt);
+            }
+        });
 
         RemoveLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RemoveLabel.setForeground(new java.awt.Color(240, 240, 240));
@@ -279,7 +277,7 @@ public class JFriendsFrame extends JFrame {
                 .addComponent(JSidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JMainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(42, 42, 42))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,6 +303,10 @@ public class JFriendsFrame extends JFrame {
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_JReturnLabelMouseClicked
+
+    private void AddLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddLabelMouseClicked
+       
+    }//GEN-LAST:event_AddLabelMouseClicked
 
     /**
      * @param args the command line arguments
