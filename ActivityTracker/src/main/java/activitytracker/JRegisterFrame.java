@@ -22,25 +22,25 @@ public class JRegisterFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        topPanel = new javax.swing.JPanel();
         jLabelClose = new javax.swing.JLabel();
-        JRegisterLabel = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
         JUsernameLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        inputUsername = new javax.swing.JTextField();
         jButtonRegister = new javax.swing.JButton();
         JButtonCancel = new javax.swing.JButton();
-        JLabelLogin = new javax.swing.JLabel();
+        switchToLogin = new javax.swing.JLabel();
         JFirstNameLabel = new javax.swing.JLabel();
-        JFirstNameField = new javax.swing.JTextField();
+        inputFirstName = new javax.swing.JTextField();
         JLastNameLabel = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        inputLastName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(248, 148, 6));
+        topPanel.setBackground(new java.awt.Color(248, 148, 6));
 
         jLabelClose.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
@@ -52,9 +52,9 @@ public class JRegisterFrame extends JFrame {
             }
         });
 
-        JRegisterLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        JRegisterLabel.setForeground(new java.awt.Color(255, 255, 255));
-        JRegisterLabel.setText("Register");
+        title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setText("Register");
 
         jLabelMin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,46 +66,46 @@ public class JRegisterFrame extends JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
+        topPanel.setLayout(topPanelLayout);
+        topPanelLayout.setHorizontalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
                 .addContainerGap(365, Short.MAX_VALUE)
                 .addComponent(jLabelMin)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose)
                 .addGap(21, 21, 21))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(topPanelLayout.createSequentialGroup()
                     .addGap(29, 29, 29)
-                    .addComponent(JRegisterLabel)
+                    .addComponent(title)
                     .addContainerGap(302, Short.MAX_VALUE)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        topPanelLayout.setVerticalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelMin, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(jLabelClose))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(topPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(JRegisterLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
-        jPanel2.setBackground(new java.awt.Color(44, 62, 80));
+        mainPanel.setBackground(new java.awt.Color(44, 62, 80));
 
         JUsernameLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         JUsernameLabel.setForeground(new java.awt.Color(236, 240, 241));
         JUsernameLabel.setText("Username:");
 
-        jTextField1.setBackground(new java.awt.Color(108, 122, 137));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(228, 241, 254));
+        inputUsername.setBackground(new java.awt.Color(108, 122, 137));
+        inputUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        inputUsername.setForeground(new java.awt.Color(228, 241, 254));
 
         jButtonRegister.setBackground(new java.awt.Color(34, 167, 240));
         jButtonRegister.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -122,13 +122,13 @@ public class JRegisterFrame extends JFrame {
         JButtonCancel.setForeground(new java.awt.Color(255, 255, 255));
         JButtonCancel.setText("Cancel");
 
-        JLabelLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
-        JLabelLogin.setText("click here to login");
-        JLabelLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JLabelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+        switchToLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        switchToLogin.setForeground(new java.awt.Color(255, 255, 255));
+        switchToLogin.setText("click here to login");
+        switchToLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        switchToLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JLabelLoginMouseClicked(evt);
+                switchToLoginMouseClicked(evt);
             }
         });
 
@@ -136,71 +136,71 @@ public class JRegisterFrame extends JFrame {
         JFirstNameLabel.setForeground(new java.awt.Color(236, 240, 241));
         JFirstNameLabel.setText("First Name:");
 
-        JFirstNameField.setBackground(new java.awt.Color(108, 122, 137));
-        JFirstNameField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JFirstNameField.setForeground(new java.awt.Color(228, 241, 254));
+        inputFirstName.setBackground(new java.awt.Color(108, 122, 137));
+        inputFirstName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        inputFirstName.setForeground(new java.awt.Color(228, 241, 254));
 
         JLastNameLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         JLastNameLabel.setForeground(new java.awt.Color(236, 240, 241));
         JLastNameLabel.setText("Last Name:");
 
-        jTextField3.setBackground(new java.awt.Color(108, 122, 137));
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(228, 241, 254));
+        inputLastName.setBackground(new java.awt.Color(108, 122, 137));
+        inputLastName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        inputLastName.setForeground(new java.awt.Color(228, 241, 254));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(JButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addComponent(JLastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(inputLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addComponent(JFirstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JFirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(inputFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(JUsernameLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(146, 146, 146)
-                        .addComponent(JLabelLogin)))
+                        .addComponent(switchToLogin)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JFirstNameLabel)
-                    .addComponent(JFirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLastNameLabel)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JUsernameLabel)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JLabelLogin)
+                .addComponent(switchToLogin)
                 .addGap(30, 30, 30))
         );
 
@@ -208,15 +208,15 @@ public class JRegisterFrame extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -234,14 +234,14 @@ public class JRegisterFrame extends JFrame {
 
     }//GEN-LAST:event_jLabelMinMouseClicked
 
-    private void JLabelLoginMouseClicked(MouseEvent evt) {//GEN-FIRST:event_JLabelLoginMouseClicked
+    private void switchToLoginMouseClicked(MouseEvent evt) {//GEN-FIRST:event_switchToLoginMouseClicked
         JLoginFrame lgf = new JLoginFrame();
         lgf.setVisible(true);
         lgf.pack();
         lgf.setLocationRelativeTo(null);
         lgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }//GEN-LAST:event_JLabelLoginMouseClicked
+    }//GEN-LAST:event_switchToLoginMouseClicked
 
     private void jButtonRegisterActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
          JOptionPane.showMessageDialog(null, "You have successfully Registered");
@@ -286,18 +286,18 @@ public class JRegisterFrame extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonCancel;
-    private javax.swing.JTextField JFirstNameField;
     private javax.swing.JLabel JFirstNameLabel;
-    private javax.swing.JLabel JLabelLogin;
     private javax.swing.JLabel JLastNameLabel;
-    private javax.swing.JLabel JRegisterLabel;
     private javax.swing.JLabel JUsernameLabel;
+    private javax.swing.JTextField inputFirstName;
+    private javax.swing.JTextField inputLastName;
+    private javax.swing.JTextField inputUsername;
     private javax.swing.JButton jButtonRegister;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel switchToLogin;
+    private javax.swing.JLabel title;
+    private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }
