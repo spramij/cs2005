@@ -1,16 +1,24 @@
 package activitytracker;
 
-import java.util.*;
-
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ClassChallenge {
-    String challenge1;
-    String challenge2;
-    String challenge3;
+    @JsonProperty("chall1")
+    public String challenge1;
 
-    List<String> taskList;
+    @JsonProperty("chall2")
+    public String challenge2;
+
+    @JsonProperty("chall3")
+    public String challenge3;
+
+    private boolean isCompleted;
+
+    public ClassChallenge() {
+        challenge1 = null;
+        challenge2 = null;
+        challenge3 = null;
+    }
 
     public ClassChallenge(String chall1, String chall2, String chall3) {
         this.challenge1 = chall1;
@@ -18,27 +26,16 @@ public class ClassChallenge {
         this.challenge3 = chall3;
     }
 
-    public ClassChallenge(String[] tasks) {
-        setChallenge(tasks);
+    public boolean getIsCompleted() {
+        return this.isCompleted;
     }
 
-    @JsonGetter("challanges")
-    public String[] getChallenges() {
-        return taskList.toArray(new String[taskList.size()]);
-    }
-
-    @JsonSetter("challanges")
-    public void setChallenge(String[] tasks) {
-        taskList = new ArrayList<String>();
-
-        for (int i = 0; i < tasks.length; i++) {
-            this.taskList.add(tasks[i]);
-        }
+    public void setIsCompleted(boolean bool) {
+        this.isCompleted = bool;
     }
 
     @Override
     public String toString() {
-        return "Your challenges are this week are:\n" + this.challenge1 + "\n" + this.challenge2 + "\n"
-        + this.challenge3;
+        return "Your challenges this week are:\n" + this.challenge1 + "\n" + this.challenge2 + "\n" + this.challenge3;
     }
 }

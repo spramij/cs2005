@@ -2,15 +2,19 @@ package activitytracker;
 
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
+
+import activitytracker.data.RunManager;
 
 public class ClassProfile {
     private String userName;
     private String firstName;
     private String lastName;
-    private String password;
-    private List<ClassData> runData;
+    private RunManager runManager;
     private boolean shareMyData;
     private List<String> friendsList;
     private ClassChallenge myChallenges;
@@ -19,19 +23,17 @@ public class ClassProfile {
         this.userName = userName;
     }
 
-    public ClassProfile(String userName, String firstName, String lastName, String password, ClassData[] runData, boolean privacy,
-            String[] friends, ClassChallenge challenges) {
+    @JsonCreator
+    public ClassProfile(@JsonProperty("user_name") String userName, @JsonProperty("first_name") String firstName,
+            @JsonProperty("last_name") String lastName, @JsonProperty("run_data") ClassData[] runData,
+            @JsonProperty("share") boolean privacy, @JsonProperty("friends") String[] friends,
+            @JsonProperty("challenges") ClassChallenge challenges) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.password = password;
-        this.runData = new ArrayList<ClassData>();
+        this.runManager = new RunManager();
 
-        if (runData != null) {
-            for (ClassData data : runData) {
-                this.runData.add(data);
-            }
-        }
+        this.runManager.setRunDatas(runData);
 
         this.shareMyData = privacy;
 
@@ -43,16 +45,10 @@ public class ClassProfile {
             }
         }
 
-        this.myChallenges = challenges;
-    }
-
-    // constructor method
-    public ClassProfile(String inName, List<ClassData> inRuns, Boolean inPrivacy, List<String> friends, String[] challenges) {
-        this.userName = inName;
-        this.runData = inRuns;
-        this.shareMyData = inPrivacy;
-        this.friendsList = friends;
-        this.myChallenges = new ClassChallenge(challenges[0], challenges[1], challenges[2]);
+        if (challenges != null)
+            this.myChallenges = challenges;
+        else
+            this.myChallenges = new ClassChallenge();
     }
 
     @Override
@@ -61,7 +57,9 @@ public class ClassProfile {
         strBuilder.append("Name: " + this.userName + "\n");
         strBuilder.append("Runs:\n");
         System.out.println("Name: " + this.userName + "\nYou have been on the following runs: ");
-        for (ClassData x : this.runData) {
+
+        ClassData[] runDatas = this.runManager.getRunDatas();
+        for (ClassData x : runDatas) {
             strBuilder.append("\t" + x.toString());
         }
         strBuilder.append("Share: " + this.getPrivacy() + "\n");
@@ -71,28 +69,19 @@ public class ClassProfile {
     }
 
     // individual get methods for a Profile object
-    @JsonGetter("name")
+    @JsonGetter("user_name")
     public String getUserName() {
         return this.userName;
     }
 
-    public String getPassword() {
-        return this.password;
+    @JsonGetter("first_name")
+    public String getFirstName() {
+        return firstName;
     }
 
-    @JsonGetter("runs")
-    public ClassData[] getRunData() {
-        ClassData[] runDataSet = new ClassData[this.runData.size()];
-
-        return this.runData.toArray(runDataSet);
-    }
-
-    public List<ClassData> getAllRunsList() {
-        return this.runData;
-    }
-
-    public List<String> getAllFriendsList() {
-        return this.friendsList;
+    @JsonGetter("last_name")
+    public String getLastName() {
+        return lastName;
     }
 
     @JsonGetter("share")
@@ -100,35 +89,43 @@ public class ClassProfile {
         return this.shareMyData;
     }
 
-    @JsonGetter("challanges")
-    public void getChallenge() {
-        this.myChallenges.getChallenges();
-    }
-
     @JsonGetter("friends")
     public String[] getFriends() {
-        String[] friends = new String[this.friendsList.size()];
+        if (this.friendsList.size() == 0)
+            return null;
+        else
+            return this.friendsList.toArray(new String[this.friendsList.size()]);
+    }
 
-        for (int i = 0; i < friends.length; i++) {
-            friends[i] = friendsList.get(i);
-        }
+    @JsonGetter("challenges")
+    public ClassChallenge getChallenge() {
+        return this.myChallenges;
+    }
 
-        return friends;
+    @JsonGetter("run_data")
+    public ClassData[] getRunDatas() {
+        ClassData[] runDatas = this.runManager.getRunDatas();
+
+        if (runDatas.length == 0)
+            return null;
+        else
+            return runDatas;
     }
 
     // individual set method for Profile objects
-    @JsonSetter("name")
+    @JsonSetter(value = "user_name", nulls = Nulls.DEFAULT)
     public void setName(String newName) {
         this.userName = newName;
     }
 
-    @JsonSetter("runs")
-    public void setRuns(ClassData[] newRuns) {
-        this.runData.clear();
+    @JsonSetter("first_name")
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-        for (ClassData data : newRuns) {
-            runData.add(data);
-        }
+    @JsonSetter("last_name")
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @JsonSetter("share")
@@ -136,7 +133,7 @@ public class ClassProfile {
         this.shareMyData = newPrivacy;
     }
 
-    @JsonSetter("friends")
+    @JsonSetter(value = "friends", nulls = Nulls.DEFAULT)
     public void setFriendsList(String[] newFriendsList) {
         this.friendsList.clear();
 
@@ -145,10 +142,25 @@ public class ClassProfile {
         }
     }
 
+    @JsonSetter(value = "run_data", nulls = Nulls.DEFAULT)
+    public void setRunDatas(ClassData[] runDatas) {
+        this.runManager = new RunManager(runDatas);
+    }
+
+    @JsonSetter(value = "challenges", nulls = Nulls.DEFAULT)
+    public void setChallange(ClassChallenge challenge) {
+        this.myChallenges = challenge;
+    }
+
+    public List<String> getAllFriendsList() {
+        return this.friendsList;
+    }
+
     // return the total distance ran by the Profile user
     public double getAllRunDistance() {
         double totalDist = 0;
-        for (ClassData runs : this.runData) {
+        ClassData[] runDatas = this.runManager.getRunDatas();
+        for (ClassData runs : runDatas) {
             totalDist += runs.getDistance();
         }
         return totalDist;
@@ -157,7 +169,8 @@ public class ClassProfile {
     // return the total time ran by the Profile user
     public double getAllTimeRan() {
         double totalTime = 0;
-        for (ClassData runs : this.runData) {
+        ClassData[] runDatas = this.runManager.getRunDatas();
+        for (ClassData runs : runDatas) {
             totalTime += runs.getDuration();
         }
         return totalTime;
@@ -167,7 +180,8 @@ public class ClassProfile {
     public double getAverageInclination() {
         double averageIncli = 0;
         int numRuns = 0;
-        for (ClassData runs : this.runData) {
+        ClassData[] runDatas = this.runManager.getRunDatas();
+        for (ClassData runs : runDatas) {
             averageIncli += runs.getAltitude();
             numRuns++;
         }
@@ -177,12 +191,7 @@ public class ClassProfile {
 
     // return the entire array of run data
     public ClassData[] getAllRuns() {
-        return this.runData.toArray(new ClassData[this.runData.size()]);
-    }
-
-    // uses the method implemented in the Challenge class
-    public void setMyChallenges(String chall1, String chall2, String chall3) {
-        this.myChallenges.setChallenge(new String[] { chall1, chall2, chall3 });
+        return this.runManager.getRunDatas();
     }
 
     public void addFriend(ClassProfile newFriend) {
