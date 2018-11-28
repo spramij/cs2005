@@ -3,6 +3,7 @@ package activitytracker;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.text.NumberFormat;
 import javax.swing.*;
 
 import activitytracker.data.CsvImporter;
@@ -131,7 +132,7 @@ public class Home extends JFrame {
 
         distUnit.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         distUnit.setForeground(new java.awt.Color(96, 83, 150));
-        distUnit.setText("km");
+        distUnit.setText("m");
 
         jPanel11.setBackground(new java.awt.Color(232, 201, 232));
 
@@ -146,11 +147,34 @@ public class Home extends JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        totalDistLabel.setText("//to-do");
+        ClassData[] data = Singleton.loadedProfile.getRunDatas();
+        double totalDist = 0;
+        double totalTime = 0;
+        double averageIncli = 0;
 
-        totalTimeLabel.setText("//to-do");
+        totalDistLabel.setText("0");
+        totalTimeLabel.setText("0");
+        averageIncliLabel.setText("0");
 
-        averageIncliLabel.setText("//to-do");
+        if (data!= null) {
+            for (ClassData run : data) {
+                totalDist += run.getDistance();
+                totalTime += run.getDuration();
+                averageIncli += run.getAltitude();
+            }
+
+            averageIncli /= data.length;
+
+            String totalDistStr = NumberFormat.getInstance().format(totalDist);
+            String averageIncliStr = NumberFormat.getInstance().format(averageIncli);
+            int hours = (int) totalTime / 3600;
+            double remainder = (double) totalTime - hours * 3600;
+            int mins = (int) remainder / 60;
+
+            totalDistLabel.setText(totalDistStr);
+            totalTimeLabel.setText(String.valueOf(hours) + "h " + String.valueOf(mins) + "m");
+            averageIncliLabel.setText(averageIncliStr);
+        }
 
         timeUnit.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         timeUnit.setForeground(new java.awt.Color(96, 83, 150));
@@ -246,7 +270,6 @@ public class Home extends JFrame {
         JRecentDisplayLabel.setText("Recent Runs");
 
 
-        ClassData[] data = Singleton.loadedProfile.getRunDatas();
 
         Object[][] tableData = {
                 {"Empty!","Empty!","Empty!","Empty!"},
@@ -431,7 +454,6 @@ public class Home extends JFrame {
     private javax.swing.JPanel contentPanel;
     private javax.swing.JLabel distLabel;
     private javax.swing.JLabel distUnit;
-    private javax.swing.JLabel incliLabel;
     private javax.swing.JLabel incliUnit;
     private javax.swing.JLabel jFriendsLabel;
     private javax.swing.JLabel jFriendsLabel1;
@@ -447,6 +469,7 @@ public class Home extends JFrame {
     private javax.swing.JLabel timeLabel;
     private javax.swing.JLabel timeUnit;
     private javax.swing.JLabel title;
+    private javax.swing.JLabel incliLabel;
     private javax.swing.JLabel totalDistLabel;
     private javax.swing.JLabel totalTimeLabel;
     // End of variables declaration//GEN-END:variables

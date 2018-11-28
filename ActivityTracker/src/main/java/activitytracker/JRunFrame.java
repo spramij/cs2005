@@ -70,15 +70,6 @@ public class JRunFrame extends JFrame {
                 {"Empty!","Empty!","Empty!","Empty!"}
         };
 
-//        if (Singleton.loadedProfile.getRunDatas() != null) {
-//            tableData = new Object[4][data.length];
-//            for (int i = 0; i < data.length; i++) {
-//                tableData[0][i] = data[i].getDate();
-//                tableData[0][i] = data[i].getDistance();
-//                tableData[0][i] = data[i].getDuration();
-//                tableData[0][i] = data[i].getDistance();
-//            }
-//        }
         if (data != null) {
             tableData = new Object[data.length][4];
             for (int i = 0; i < data.length; i++) {
