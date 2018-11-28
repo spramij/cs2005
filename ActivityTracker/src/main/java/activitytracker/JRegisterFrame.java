@@ -244,7 +244,11 @@ public class JRegisterFrame extends JFrame {
     }//GEN-LAST:event_switchToLoginMouseClicked
 
     private void jButtonRegisterActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-         JOptionPane.showMessageDialog(null, "You have successfully Registered");
+        ClassProfile profile = new ClassProfile(inputUsername.getText(), inputFirstName.getText(),
+                inputLastName.getText(), null, false, null, null);
+        
+        Singleton.dataManager.saveProfile(profile);
+        JOptionPane.showMessageDialog(null, "You have successfully Registered");
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     /**
@@ -281,7 +285,6 @@ public class JRegisterFrame extends JFrame {
                 new JRegisterFrame().setVisible(true);
             }
         });
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

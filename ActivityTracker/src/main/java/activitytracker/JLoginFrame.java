@@ -1,5 +1,4 @@
-package activitytracker; 
-
+package activitytracker;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -186,16 +185,16 @@ public class JLoginFrame extends JFrame {
 
     // Close the window when the exit button clicked
     private void jLabelCloseMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-       
+
         System.exit(0);
-        
+
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     // Minimize the window when min icon clicked
     private void jLabelMinMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-        
+
         this.setState(JFrame.ICONIFIED);
-        
+
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     //MouseEvent to register
@@ -205,17 +204,27 @@ public class JLoginFrame extends JFrame {
         rgf.pack();
         rgf.setLocationRelativeTo(null);
         rgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_switchToRegisterMouseClicked
 
     //ButtonListener to go the mainFrame
     private void JLoginButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_JLoginButtonActionPerformed
-        Home h = new Home();
-        h.setVisible(true);
-        h.pack();
-        h.setLocationRelativeTo(null);
-        h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        ClassProfile profile = Singleton.dataManager.loadProfile(inputUsername.getText());
+
+        if (profile == null) {
+            // Profile doesn't exist
+            JOptionPane.showMessageDialog(null, "Invalid profile");
+            return;
+        }
+        else {
+            Singleton.loadedProfile = profile;
+            Home h = new Home();
+            h.setVisible(true);
+            h.pack();
+            h.setLocationRelativeTo(null);
+            h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
 
     }//GEN-LAST:event_JLoginButtonActionPerformed
 

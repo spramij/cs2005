@@ -1,8 +1,8 @@
 package activitytracker;
 
-import activitytracker.data.DataManager;
+import activitytracker.data.IOManager;
 
 public final class Singleton {
     public static ClassProfile loadedProfile;
-    public static DataManager dataManager = new DataManager("resources");
+    public static IOManager dataManager = new IOManager();
 }

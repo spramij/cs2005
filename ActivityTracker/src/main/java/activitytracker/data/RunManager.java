@@ -51,16 +51,14 @@ public class RunManager {
     }
 
     @JsonSetter(value = "run_data", nulls = Nulls.SKIP)
-    /**
-     * Assigns run data to the instance
-     * 
-     * @param dataSet Array of Data to store in RunManager instance
-     */
     public void setRunDatas(ClassData[] dataSet) {
-        runDatas.clear();
-
-        for (ClassData data : dataSet) {
-            runDatas.add(data);
+        if (dataSet == null)
+            runDatas = new ArrayList<ClassData>();
+        else {
+            runDatas.clear();
+            for (ClassData data : dataSet) {
+                runDatas.add(data);
+            }
         }
     }
 }
