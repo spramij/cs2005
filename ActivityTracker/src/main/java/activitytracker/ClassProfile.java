@@ -5,30 +5,30 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class Profile {
+public class ClassProfile {
     private String userName;
     private String firstName;
     private String lastName;
     private String password;
-    private List<Data> runData;
+    private List<ClassData> runData;
     private boolean shareMyData;
     private List<String> friendsList;
-    private Challenge myChallenges;
+    private ClassChallenge myChallenges;
 
-    public Profile(String userName) {
+    public ClassProfile(String userName) {
         this.userName = userName;
     }
 
-    public Profile(String userName, String firstName, String lastName, String password, Data[] runData, boolean privacy,
-            String[] friends, Challenge challenges) {
+    public ClassProfile(String userName, String firstName, String lastName, String password, ClassData[] runData, boolean privacy,
+            String[] friends, ClassChallenge challenges) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.runData = new ArrayList<Data>();
+        this.runData = new ArrayList<ClassData>();
 
         if (runData != null) {
-            for (Data data : runData) {
+            for (ClassData data : runData) {
                 this.runData.add(data);
             }
         }
@@ -47,12 +47,12 @@ public class Profile {
     }
 
     // constructor method
-    public Profile(String inName, List<Data> inRuns, Boolean inPrivacy, List<String> friends, String[] challenges) {
+    public ClassProfile(String inName, List<ClassData> inRuns, Boolean inPrivacy, List<String> friends, String[] challenges) {
         this.userName = inName;
         this.runData = inRuns;
         this.shareMyData = inPrivacy;
         this.friendsList = friends;
-        this.myChallenges = new Challenge(challenges[0], challenges[1], challenges[2]);
+        this.myChallenges = new ClassChallenge(challenges[0], challenges[1], challenges[2]);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Profile {
         strBuilder.append("Name: " + this.userName + "\n");
         strBuilder.append("Runs:\n");
         System.out.println("Name: " + this.userName + "\nYou have been on the following runs: ");
-        for (Data x : this.runData) {
+        for (ClassData x : this.runData) {
             strBuilder.append("\t" + x.toString());
         }
         strBuilder.append("Share: " + this.getPrivacy() + "\n");
@@ -81,13 +81,13 @@ public class Profile {
     }
 
     @JsonGetter("runs")
-    public Data[] getRunData() {
-        Data[] runDataSet = new Data[this.runData.size()];
+    public ClassData[] getRunData() {
+        ClassData[] runDataSet = new ClassData[this.runData.size()];
 
         return this.runData.toArray(runDataSet);
     }
 
-    public List<Data> getAllRunsList() {
+    public List<ClassData> getAllRunsList() {
         return this.runData;
     }
 
@@ -123,10 +123,10 @@ public class Profile {
     }
 
     @JsonSetter("runs")
-    public void setRuns(Data[] newRuns) {
+    public void setRuns(ClassData[] newRuns) {
         this.runData.clear();
 
-        for (Data data : newRuns) {
+        for (ClassData data : newRuns) {
             runData.add(data);
         }
     }
@@ -148,7 +148,7 @@ public class Profile {
     // return the total distance ran by the Profile user
     public double getAllRunDistance() {
         double totalDist = 0;
-        for (Data runs : this.runData) {
+        for (ClassData runs : this.runData) {
             totalDist += runs.getDistance();
         }
         return totalDist;
@@ -157,7 +157,7 @@ public class Profile {
     // return the total time ran by the Profile user
     public double getAllTimeRan() {
         double totalTime = 0;
-        for (Data runs : this.runData) {
+        for (ClassData runs : this.runData) {
             totalTime += runs.getDuration();
         }
         return totalTime;
@@ -167,7 +167,7 @@ public class Profile {
     public double getAverageInclination() {
         double averageIncli = 0;
         int numRuns = 0;
-        for (Data runs : this.runData) {
+        for (ClassData runs : this.runData) {
             averageIncli += runs.getAltitude();
             numRuns++;
         }
@@ -176,8 +176,8 @@ public class Profile {
     }
 
     // return the entire array of run data
-    public Data[] getAllRuns() {
-        return this.runData.toArray(new Data[this.runData.size()]);
+    public ClassData[] getAllRuns() {
+        return this.runData.toArray(new ClassData[this.runData.size()]);
     }
 
     // uses the method implemented in the Challenge class
@@ -185,7 +185,7 @@ public class Profile {
         this.myChallenges.setChallenge(new String[] { chall1, chall2, chall3 });
     }
 
-    public void addFriend(Profile newFriend) {
+    public void addFriend(ClassProfile newFriend) {
         // fix
 
         // this.friendsList.add(newFriend);

@@ -855,7 +855,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="List&lt;Data&gt; runData = currentProfile.getAllRuns();"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="List&lt;activitytracker.ClassData&gt; runData = currentProfile.getAllRuns();"/>
               </AuxValues>
             </Component>
           </SubComponents>

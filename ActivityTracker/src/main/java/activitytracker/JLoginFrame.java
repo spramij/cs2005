@@ -4,12 +4,12 @@ package activitytracker;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class LoginForm extends JFrame {
+public class JLoginFrame extends JFrame {
 
     /**
      * Creates new form LoginForm
      */
-    public LoginForm() {
+    public JLoginFrame() {
         initComponents();
         this.setLocationRelativeTo(null);// center form in the screen
     }
@@ -219,7 +219,7 @@ public class LoginForm extends JFrame {
 
     //MouseEvent to register
     private void jLabelRegisterMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jLabelRegisterMouseClicked
-        RegisterForm rgf = new RegisterForm();
+        JRegisterFrame rgf = new JRegisterFrame();
         rgf.setVisible(true);
         rgf.pack();
         rgf.setLocationRelativeTo(null);
@@ -255,20 +255,21 @@ public class LoginForm extends JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginForm().setVisible(true);
+                new JLoginFrame().setVisible(true);
             }
         });
     }

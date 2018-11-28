@@ -5,20 +5,20 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class Challenge {
+public class ClassChallenge {
     String challenge1;
     String challenge2;
     String challenge3;
 
     List<String> taskList;
 
-    public Challenge(String chall1, String chall2, String chall3) {
+    public ClassChallenge(String chall1, String chall2, String chall3) {
         this.challenge1 = chall1;
         this.challenge2 = chall2;
         this.challenge3 = chall3;
     }
 
-    public Challenge(String[] tasks) {
+    public ClassChallenge(String[] tasks) {
         setChallenge(tasks);
     }
 

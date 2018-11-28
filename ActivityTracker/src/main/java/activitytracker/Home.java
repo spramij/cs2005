@@ -493,7 +493,7 @@ public class Home extends JFrame {
         jScrollPane1.setBackground(new Color(247, 247, 247));
         jScrollPane1.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        Data[] runData = Singleton.loadedProfile.getAllRuns();
+        ClassData[] runData = Singleton.loadedProfile.getAllRuns();
         jTable1.setBackground(new Color(247, 247, 247));
         jTable1.setFont(new Font("Segoe UI", 0, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

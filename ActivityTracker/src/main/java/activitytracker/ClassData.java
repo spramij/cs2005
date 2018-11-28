@@ -1,6 +1,6 @@
 package activitytracker; 
 
-public class Data {
+public class ClassData {
     private String name;
     private int distance;
     private int duration;
@@ -8,7 +8,7 @@ public class Data {
     private String date;
 
     // constructor method
-    public Data(int duration, int distance, float altitude, String date) {
+    public ClassData(int duration, int distance, float altitude, String date) {
         this.duration = duration;
         this.distance = distance;
         this.altitude = altitude;

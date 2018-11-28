@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import activitytracker.Profile;
+import activitytracker.ClassProfile;
 
 /**
  * Class to manage saving and loading of data
@@ -48,7 +48,7 @@ public class DataManager {
      * Save profile as CSV
      * @param profile Profile instance that is to be saved to file
      */
-    public void saveProfile(Profile profile) {
+    public void saveProfile(ClassProfile profile) {
         try {
             OutputStream outStream = new FileOutputStream(Paths.get(folderPath, profile.getUserName() + ".profile").toFile());
 
@@ -65,13 +65,13 @@ public class DataManager {
      * @param userName Username of the profile to load
      * @return Profile instance of the username provided
      */
-    public Profile loadProfile(String userName) {
-        Profile profile;
+    public ClassProfile loadProfile(String userName) {
+        ClassProfile profile;
 
         try {
             String profileJson = new String(Files.readAllBytes(Paths.get(folderPath, userName + ".profile")));
 
-            profile = mapper.readValue(profileJson, Profile.class);
+            profile = mapper.readValue(profileJson, ClassProfile.class);
         } catch (Exception e) {
             System.err.println("Encountered error " + userName + " profile csv file: " + e.toString());
             profile = null;
