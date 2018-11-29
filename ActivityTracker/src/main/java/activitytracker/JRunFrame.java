@@ -43,7 +43,7 @@ public class JRunFrame extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        validateDate.setText("Filter");
+		validateDate.setText("Filter");
         validateDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 try {
@@ -68,16 +68,19 @@ public class JRunFrame extends JFrame {
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
-        topPanelLayout.setHorizontalGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(topPanelLayout.createSequentialGroup().addContainerGap()
-                        .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-        topPanelLayout.setVerticalGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(topPanelLayout.createSequentialGroup()
-                        .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        topPanelLayout.setHorizontalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(382, Short.MAX_VALUE))
+        );
+        topPanelLayout.setVerticalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topPanelLayout.createSequentialGroup()
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         returnLabel.setBackground(new java.awt.Color(96, 83, 150));
         returnLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -88,11 +91,10 @@ public class JRunFrame extends JFrame {
                 returnLabelMouseClicked(evt);
             }
         });
-
-        jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
+		jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        ClassData[] data = Singleton.loadedProfile.getRunDatas();
+		ClassData[] data = Singleton.loadedProfile.getRunDatas();
 
         if (data != null) {
             Object[][] tableData = new Object[data.length][4];
@@ -101,21 +103,20 @@ public class JRunFrame extends JFrame {
                 tableData[i][1] = data[i].getDistance();
                 tableData[i][2] = data[i].getDuration();
                 tableData[i][3] = data[i].getAltitude();
-            }
+			}
             makeTable(tableData);
         } else {
             makeTable(null);
         }
-
+        
+        
         jScrollPane1.setViewportView(runTable);
-        packup();
-    }
-
-    private void packup() {
-
+		packup();
+	}
+	private void packup() {
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(mainPanelLayout
+         mainPanelLayout.setHorizontalGroup(mainPanelLayout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(topPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
                         Short.MAX_VALUE)
@@ -159,13 +160,14 @@ public class JRunFrame extends JFrame {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                        .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE));
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -289,15 +291,15 @@ public class JRunFrame extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField endDate;
-    private javax.swing.JScrollPane jScrollPane1;
+	private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel returnLabel;
     private javax.swing.JTable runTable;
-    private javax.swing.JFormattedTextField startDate;
+	private javax.swing.JFormattedTextField startDate;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JButton validateDate;
+	private javax.swing.JButton validateDate;
     private Object[][] dataForTable;
-    DateFormat dateParser;
-    // End of variables declaration//GEN-END:variables
+    DateFormat dateParser; 
+	// End of variables declaration//GEN-END:variables
 }
