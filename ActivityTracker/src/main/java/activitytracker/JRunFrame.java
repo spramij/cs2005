@@ -23,8 +23,11 @@ public class JRunFrame extends JFrame {
         mainPanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
+        startLabel = new javax.swing.JLabel();
         returnLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        validateLabel = new javax.swing.JLabel();
+        endLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,7 +44,7 @@ public class JRunFrame extends JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -49,6 +52,13 @@ public class JRunFrame extends JFrame {
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        startLabel.setText("jLabel1");
+        startLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                startLabelMouseClicked(evt);
+            }
+        });
 
         returnLabel.setBackground(new java.awt.Color(96, 83, 150));
         returnLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -62,7 +72,6 @@ public class JRunFrame extends JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
 
         ClassData[] data = Singleton.loadedProfile.getRunDatas();
         Object[][] tableData = {
@@ -83,13 +92,25 @@ public class JRunFrame extends JFrame {
 
         runTable = new JTable(tableData, columnNames);
         runTable.setGridColor(new java.awt.Color(247, 247, 247));
+		runTable.setBackground(new java.awt.Color(247, 247, 247));
+        runTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         runTable.setRowHeight(20);
         runTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
-        runTable.setBackground(new java.awt.Color(247, 247, 247));
-        runTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-
         jScrollPane1.setViewportView(runTable);
 
+        validateLabel.setText("jLabel1");
+        validateLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                validateLabelMouseClicked(evt);
+            }
+        });
+
+        endLabel.setText("jLabel1");
+        endLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                endLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -99,11 +120,15 @@ public class JRunFrame extends JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(returnLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(endLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(validateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                        .addComponent(returnLabel))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
@@ -111,21 +136,28 @@ public class JRunFrame extends JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(returnLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(returnLabel)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(startLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(endLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(validateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                .addGap(410, 410, 410))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -139,6 +171,18 @@ public class JRunFrame extends JFrame {
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_returnLabelMouseClicked
+
+    private void startLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_startLabelMouseClicked
+
+    private void endLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_endLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_endLabelMouseClicked
+
+    private void validateLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validateLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_validateLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -177,11 +221,14 @@ public class JRunFrame extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel endLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel returnLabel;
     private javax.swing.JTable runTable;
+    private javax.swing.JLabel startLabel;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
+    private javax.swing.JLabel validateLabel;
     // End of variables declaration//GEN-END:variables
 }
