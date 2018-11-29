@@ -7,6 +7,8 @@ package activitytracker;
  */
 import javax.swing.*;
 import java.awt.*;
+import java.util.ListIterator;
+
 /**
  *
  * @author zahin
@@ -303,13 +305,14 @@ public class JFriendsFrame extends JFrame {
         };
 
         if (data != null) {
+            int ite = data.length-1;
             tableData = new Object[data.length][4];
             for (int i = 0; i < data.length; i++) {
-                tableData[i][0] = data[i].getDate();
-                tableData[i][1] = data[i].getDistance();
-                tableData[i][2] = data[i].getDuration();
-                tableData[i][3] = data[i].getAltitude();
-            }
+                tableData[i][0] = data[ite].getDate();
+                tableData[i][1] = data[ite].getDistance();
+                tableData[i][2] = data[ite].getDuration();
+                tableData[i][3] = data[ite].getAltitude();
+                ite--;}
         }
 
         String[] columnNames = {"Date", "Distance covered", "Duration", "Inclination"};
