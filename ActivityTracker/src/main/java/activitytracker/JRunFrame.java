@@ -1,5 +1,9 @@
 package activitytracker;
 
+import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
+import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
+import net.sourceforge.jdatepicker.impl.UtilDateModel;
+
 import java.awt.event.ActionEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -34,8 +38,8 @@ public class JRunFrame extends JFrame {
         dateParser = new SimpleDateFormat("dd-MM-yyyy");
         mainPanel = new javax.swing.JPanel();
         validateDate = new javax.swing.JButton();
-        endDate = new javax.swing.JFormattedTextField(dateParser);
-        startDate = new javax.swing.JFormattedTextField(dateParser);
+        endDate = new JDatePickerImpl(endDatePanel);
+        startDate = new JDatePickerImpl(startDatePanel);
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         returnLabel = new javax.swing.JLabel();
@@ -53,12 +57,6 @@ public class JRunFrame extends JFrame {
                 }
             }
         });
-
-        endDate.setColumns(10);
-        endDate.setText("dd-MM-yyyy");
-
-        startDate.setColumns(10);
-        startDate.setText("dd-MM-yyyy");
 
         topPanel.setBackground(new java.awt.Color(96, 83, 150));
 
@@ -215,42 +213,38 @@ public class JRunFrame extends JFrame {
     }
 
     private void onValidateClick(ActionEvent evt) throws ParseException {//GEN-FIRST:event_validateDateMouseClicked
-        String startDateStr = startDate.getText();
-        String endDateStr = endDate.getText();
+        Date startDateDate = (Date) startDate.getModel().getValue();
+        Date endDateDate = (Date) endDate.getModel().getValue();
 
         // Calendar today = Calendar.getInstance();
         LocalDate today = LocalDate.now();
-
-        if (startDateStr.isEmpty() && endDateStr.isEmpty()) {
+        if (startDateDate == null && endDateDate == null) {
             makeTable(null);
         }
-        if (startDateStr.isEmpty()) {
-            Date endDate = dateParser.parse(endDateStr);
 
+        if (startDateDate == null) {
+            Date endDate = endDateDate;
             ClassData[] filteredRunData = Singleton.loadedProfile
                     .getRunDatas(Singleton.loadedProfile.getRunManger().getStartDate(), endDate);
             Object[][] runsData = returnAs2DArray(filteredRunData);
             makeTable(runsData);
         }
-
-        else if (endDateStr.isEmpty()) {
-            Date startDate = dateParser.parse(startDateStr);
+        else if (startDateDate == null) {
+            Date startDate = startDateDate;
 
             ClassData[] filteredRunData = Singleton.loadedProfile.getRunDatas(startDate, new Date(today.getYear(), today.getMonthValue(), today.getDayOfYear()));
             Object[][] runsData = returnAs2DArray(filteredRunData);
             makeTable(runsData);
         } else {
-            Date startDate = dateParser.parse(startDateStr);
-            Date endDate = dateParser.parse(endDateStr);
+            Date startDate = startDateDate;
+            Date endDate = endDateDate;
 
             ClassData[] filteredRunData = Singleton.loadedProfile.getRunDatas(startDate, endDate);
             Object[][] runsData = returnAs2DArray(filteredRunData);
             makeTable(runsData);
         }
         jScrollPane1.setViewportView(runTable);
-
         packup();
-
     }//GEN-LAST:event_validateDateMouseClicked
 
     /**
@@ -290,16 +284,21 @@ public class JRunFrame extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField endDate;
 	private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel returnLabel;
     private javax.swing.JTable runTable;
-	private javax.swing.JFormattedTextField startDate;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
 	private javax.swing.JButton validateDate;
     private Object[][] dataForTable;
-    DateFormat dateParser; 
+    DateFormat dateParser;
+    private JDatePickerImpl endDate;
+    private JDatePickerImpl startDate;
+
+    UtilDateModel startDateModel = new UtilDateModel();
+    JDatePanelImpl startDatePanel = new JDatePanelImpl(startDateModel);
+    UtilDateModel endDateModel = new UtilDateModel();
+    JDatePanelImpl endDatePanel = new JDatePanelImpl(endDateModel);
 	// End of variables declaration//GEN-END:variables
 }
