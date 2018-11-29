@@ -12,7 +12,7 @@
 
 This program was built using Java, and uses Maven to manage dependencies. 
 
-After cloning, make sure to load the `pom.xlm` file, most IDEs recognize the file as having to do with Maven dependencies.
+After cloning, make sure to load the `pom.xml` file, most IDEs recognize the file as having to do with Maven dependencies.
 
 Run App.java, create your profile, and you're good to go! 
 
