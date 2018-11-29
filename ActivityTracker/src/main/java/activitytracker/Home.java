@@ -397,6 +397,7 @@ public class Home extends JFrame {
         ClassData[] dataSet = CsvImporter.Import(csvFile);
 
         Singleton.loadedProfile.setRunDatas(dataSet);
+        JOptionPane.showMessageDialog(null, "You data has been imported!");
         this.dispose();
         Home h = new Home();
         h.setVisible(true);

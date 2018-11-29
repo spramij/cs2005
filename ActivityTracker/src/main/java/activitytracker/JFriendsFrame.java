@@ -7,7 +7,6 @@ package activitytracker;
  */
 import javax.swing.*;
 import java.awt.*;
-import java.util.ListIterator;
 
 /**
  *

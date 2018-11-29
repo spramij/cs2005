@@ -1,7 +1,11 @@
 package activitytracker; 
 
+import java.awt.event.MouseEvent;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.*;
 
 public class JRunFrame extends JFrame {
@@ -22,10 +26,10 @@ public class JRunFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        df = new SimpleDateFormat("dd-MM-yyyy");
         mainPanel = new javax.swing.JPanel();
         validateDate = new javax.swing.JButton();
         endDate = new javax.swing.JFormattedTextField(df);
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         startDate = new javax.swing.JFormattedTextField(df);
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
@@ -37,7 +41,11 @@ public class JRunFrame extends JFrame {
         validateDate.setText("OK!");
         validateDate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                validateDateMouseClicked(evt);
+                try {
+                    validateDateMouseClicked(evt);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -56,17 +64,17 @@ public class JRunFrame extends JFrame {
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
-            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(topPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
-            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topPanelLayout.createSequentialGroup()
-                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(topPanelLayout.createSequentialGroup()
+                                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         returnLabel.setBackground(new java.awt.Color(96, 83, 150));
@@ -82,31 +90,25 @@ public class JRunFrame extends JFrame {
         jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-		ClassData[] data = Singleton.loadedProfile.getRunDatas();
-        Object[][] tableData = {
-                {"Empty!","Empty!","Empty!","Empty!"},
-                {"Empty!","Empty!","Empty!","Empty!"}
-        };
+        ClassData[] data = Singleton.loadedProfile.getRunDatas();
 
         if (data != null) {
-            tableData = new Object[data.length][4];
+            Object[][] tableData = new Object[data.length][4];
             for (int i = 0; i < data.length; i++) {
                 tableData[i][0] = data[i].getDate();
                 tableData[i][1] = data[i].getDistance();
                 tableData[i][2] = data[i].getDuration();
-                tableData[i][3] = data[i].getAltitude();}
+                tableData[i][3] = data[i].getAltitude();
+            }
+            makeTable(tableData);
+        } else {
+            makeTable(null);
         }
 
-        String[] columnNames = {"Date", "Distance covered", "Duration", "Inclination"};
-
-        runTable = new JTable(tableData, columnNames);
-        runTable.setGridColor(new java.awt.Color(247, 247, 247));
-		runTable.setBackground(new java.awt.Color(247, 247, 247));
-        runTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        runTable.setRowHeight(20);
-        runTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
         jScrollPane1.setViewportView(runTable);
-
+        packup();
+    }
+    private void packup() {
 		
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -168,8 +170,90 @@ public class JRunFrame extends JFrame {
         this.dispose();
     }//GEN-LAST:event_returnLabelMouseClicked
 
-    private void validateDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validateDateMouseClicked
-        // TODO add your handling code here:
+    private void makeTable(Object[][] inputData) {
+        String[] columnNames = {"Date", "Distance covered", "Duration", "Inclination"};
+
+
+        if (inputData == null) {
+            dataForTable = new Object[][]{
+                    {"Empty!", "Empty!", "Empty!", "Empty!"},
+                    {"Empty!", "Empty!", "Empty!", "Empty!"}
+            }; }
+
+        else { dataForTable = inputData; }
+
+
+        runTable = new JTable(dataForTable, columnNames);
+        runTable.setGridColor(new java.awt.Color(247, 247, 247));
+        runTable.setBackground(new java.awt.Color(247, 247, 247));
+        runTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        runTable.setRowHeight(20);
+        runTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
+
+    }
+    private Object[][] returnAs2DArray(ArrayList<ClassData> input) {
+
+        Object[][] important = new Object[input.size()][4];
+        for (int i=0;i<input.size();i++) {
+            for (ClassData run:input) {
+                important[i][0] = input.get(i).getDate();
+                important[i][1] = input.get(i).getDistance();
+                important[i][2] = input.get(i).getDuration();
+                important[i][3] = input.get(i).getAltitude();
+            }
+        }
+        return important;
+    }
+
+
+    private void validateDateMouseClicked(MouseEvent evt) throws ParseException {//GEN-FIRST:event_validateDateMouseClicked
+        String startDateStr = startDate.getText();
+        String endDateStr = endDate.getText();
+
+        ArrayList<ClassData> keptRuns = new ArrayList<ClassData>();
+        ClassData[] runs = Singleton.loadedProfile.getRunDatas();
+        if (startDateStr.isEmpty() && endDateStr.isEmpty()) {
+            makeTable(null);
+        }
+        if (startDateStr.isEmpty()) {
+            Date endDateDate = df.parse(endDateStr);
+            for (ClassData run : runs) {
+                Date runDate = df.parse(run.getDate());
+                if (runDate.before(endDateDate)) {
+                    keptRuns.add(run);
+                }
+            }
+            Object[][] runsData = returnAs2DArray(keptRuns);
+            makeTable(runsData);
+        }
+
+        else if (endDateStr.isEmpty()) {
+            Date startDateDate = df.parse(startDateStr);
+            for (ClassData run:runs) {
+                Date runDate = df.parse(run.getDate());
+                if (runDate.after(startDateDate)) {
+                    keptRuns.add(run);
+                }
+            }
+            Object[][] runsData = returnAs2DArray(keptRuns);
+            makeTable(runsData);
+        }
+        else {
+            Date startDateDate = df.parse(startDateStr);
+            Date endDateDate = df.parse(endDateStr);
+            for (ClassData run:runs) {
+                Date runDate = df.parse(run.getDate());
+                if (runDate.after(startDateDate) && runDate.before(endDateDate)) {
+                    keptRuns.add(run);
+                }
+            }
+            Object[][] runsData = returnAs2DArray(keptRuns);
+            makeTable(runsData);
+        }
+        jScrollPane1.setViewportView(runTable);
+
+        packup();
+
     }//GEN-LAST:event_validateDateMouseClicked
 
     /**
@@ -218,5 +302,7 @@ public class JRunFrame extends JFrame {
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
     private javax.swing.JButton validateDate;
+    private Object[][] dataForTable;
+    DateFormat df;
     // End of variables declaration//GEN-END:variables
 }
