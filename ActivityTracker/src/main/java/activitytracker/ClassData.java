@@ -4,7 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.Nulls;
 
@@ -17,7 +19,21 @@ public class ClassData {
     private SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 
     // constructor method
-    public ClassData(int duration, int distance, float altitude, Date date) {
+    @JsonCreator
+    public ClassData(@JsonProperty("duration") int duration, @JsonProperty("distance") int distance,
+            @JsonProperty("altitude") float altitude, @JsonProperty("date") String date) {
+        this.duration = duration;
+        this.distance = distance;
+        this.altitude = altitude;
+        try {
+            this.date = formatter.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public ClassData(int duration ,int distance, float altitude, Date date)
+    {
         this.duration = duration;
         this.distance = distance;
         this.altitude = altitude;
@@ -39,9 +55,14 @@ public class ClassData {
         return this.altitude;
     }
 
+    public Date getDate() {
+        return this.date;
+        // return this.formatter.format(this.date);
+    }
+
     @JsonGetter("date")
-    public String getDate() {
-        return this.formatter.format(this.date);
+    public String getFormattedDate() {
+        return formatter.format(date);
     }
 
     @JsonSetter(value = "distance", nulls = Nulls.SKIP)

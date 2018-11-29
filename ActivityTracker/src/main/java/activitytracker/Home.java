@@ -279,7 +279,7 @@ public class Home extends JFrame {
             int ite = data.length-1;
             tableData = new Object[3][4];
             for (int i = 0; i < 3; i++) {
-                tableData[i][0] = data[ite].getDate();
+                tableData[i][0] = data[ite].getFormattedDate();
                 tableData[i][1] = data[ite].getDistance();
                 tableData[i][2] = data[ite].getDuration();
                 tableData[i][3] = data[ite].getAltitude();
@@ -396,7 +396,8 @@ public class Home extends JFrame {
 
         ClassData[] dataSet = CsvImporter.Import(csvFile);
 
-        Singleton.loadedProfile.setRunDatas(dataSet);
+        Singleton.loadedProfile.addRunDatas(dataSet);
+        Singleton.dataManager.saveProfile(Singleton.loadedProfile);
         JOptionPane.showMessageDialog(null, "You data has been imported!");
         this.dispose();
         Home h = new Home();

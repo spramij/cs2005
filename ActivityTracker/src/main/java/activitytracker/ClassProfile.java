@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.Nulls;
@@ -149,15 +150,22 @@ public class ClassProfile {
         this.runManager = new RunManager(runDatas);
     }
 
+    @JsonIgnore
+    public void addRunDatas(ClassData[] dataSet) {
+        this.runManager.addRunDatas(dataSet);
+    }
+
     @JsonSetter(value = "challenges", nulls = Nulls.DEFAULT)
     public void setChallange(ClassChallenge challenge) {
         this.myChallenges = challenge;
     }
 
-//    public List<String> getAllFriendsList() {
-//        return this.friendsList;
-//    }
+    @JsonIgnore
+    public ClassData[] getRunDatas(Date from, Date to) {
+        return this.runManager.getRunDatas(from, to);
+    }
 
+    @JsonIgnore
     // return the total distance ran by the Profile user
     public double getAllRunDistance() {
         double totalDist = 0;
@@ -168,6 +176,7 @@ public class ClassProfile {
         return totalDist;
     }
 
+    @JsonIgnore
     // return the total time ran by the Profile user
     public double getAllTimeRan() {
         double totalTime = 0;
@@ -178,6 +187,7 @@ public class ClassProfile {
         return totalTime;
     }
 
+    @JsonIgnore
     // return the average inclination of runs
     public double getAverageInclination() {
         double averageIncli = 0;
@@ -191,15 +201,19 @@ public class ClassProfile {
         return averageIncli;
     }
 
+    @JsonIgnore
     // return the entire array of run data
     public ClassData[] getAllRuns() {
         return this.runManager.getRunDatas();
     }
 
+    @JsonIgnore
     public void addFriend(String newFriend) {
         this.friendsList.add(newFriend);
         JOptionPane.showMessageDialog(null, "You have added your friend!");
     }
+
+    @JsonIgnore
     public void removeFriend(String oldFriend) {
         this.friendsList.remove(oldFriend);
         JOptionPane.showMessageDialog(null, "You just lost a friend!");

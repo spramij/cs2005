@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.Nulls;
 
@@ -47,7 +48,17 @@ public class RunManager {
      * @return All the run data within given date frame
      */
     public ClassData[] getRunDatas(Date from, Date to) {
-        return null;
+        List<ClassData> returnData = new ArrayList<ClassData>();
+
+        for (ClassData data : this.runDatas) {
+            Date date = data.getDate();
+
+            if ((date.before(to) || date.equals(to)) && (date.after(from) || date.equals(from))) {
+                returnData.add(data);
+            }
+        }
+
+        return returnData.toArray(new ClassData[returnData.size()]);
     }
 
     @JsonSetter(value = "run_data", nulls = Nulls.SKIP)
@@ -59,6 +70,13 @@ public class RunManager {
             for (ClassData data : dataSet) {
                 runDatas.add(data);
             }
+        }
+    }
+
+    @JsonIgnore
+    public void addRunDatas(ClassData[] dataSet) {
+        for (ClassData data : dataSet) {
+            this.runDatas.add(data);
         }
     }
 }
