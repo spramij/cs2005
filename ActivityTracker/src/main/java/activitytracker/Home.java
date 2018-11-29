@@ -284,7 +284,7 @@ public class Home extends JFrame {
                 ite--;}
         }
 
-        String[] columnNames = {"Date", "Distance covered", "Duration", "Inclination"};
+        String[] columnNames = {"Date", "Distance Covered (meter)", "Duration (seconds)", "Inclination (meters)"};
 
         recentRunsTable = new JTable(tableData, columnNames);
         recentRunsTable.setForeground(new java.awt.Color(96, 83, 150));

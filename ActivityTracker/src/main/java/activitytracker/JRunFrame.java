@@ -177,7 +177,7 @@ public class JRunFrame extends JFrame {
     }//GEN-LAST:event_returnLabelMouseClicked
 
     private void makeTable(Object[][] inputData) {
-        String[] columnNames = { "Date", "Distance covered", "Duration", "Inclination" };
+        String[] columnNames = { "Date", "Distance Covered (meter)", "Duration (second)", "Inclination (meter)" };
 
         if (inputData == null) {
             dataForTable = new Object[][] { { "Empty!", "Empty!", "Empty!", "Empty!" },
