@@ -1,5 +1,7 @@
 package activitytracker; 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.*;
 
 public class JRunFrame extends JFrame {
@@ -21,15 +23,29 @@ public class JRunFrame extends JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
+        validateDate = new javax.swing.JButton();
+        endDate = new javax.swing.JFormattedTextField(df);
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        startDate = new javax.swing.JFormattedTextField(df);
         topPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        startLabel = new javax.swing.JLabel();
         returnLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        validateLabel = new javax.swing.JLabel();
-        endLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        validateDate.setText("OK!");
+        validateDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                validateDateMouseClicked(evt);
+            }
+        });
+
+        endDate.setColumns(10);
+        endDate.setText("dd/MM/yyyy");
+
+        startDate.setColumns(10);
+        startDate.setText("dd/MM/yyyy");
 
         topPanel.setBackground(new java.awt.Color(96, 83, 150));
 
@@ -53,13 +69,6 @@ public class JRunFrame extends JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        startLabel.setText("jLabel1");
-        startLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                startLabelMouseClicked(evt);
-            }
-        });
-
         returnLabel.setBackground(new java.awt.Color(96, 83, 150));
         returnLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         returnLabel.setForeground(new java.awt.Color(96, 83, 150));
@@ -73,7 +82,7 @@ public class JRunFrame extends JFrame {
         jScrollPane1.setBackground(new java.awt.Color(247, 247, 247));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        ClassData[] data = Singleton.loadedProfile.getRunDatas();
+		ClassData[] data = Singleton.loadedProfile.getRunDatas();
         Object[][] tableData = {
                 {"Empty!","Empty!","Empty!","Empty!"},
                 {"Empty!","Empty!","Empty!","Empty!"}
@@ -98,20 +107,7 @@ public class JRunFrame extends JFrame {
         runTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
         jScrollPane1.setViewportView(runTable);
 
-        validateLabel.setText("jLabel1");
-        validateLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                validateLabelMouseClicked(evt);
-            }
-        });
-
-        endLabel.setText("jLabel1");
-        endLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                endLabelMouseClicked(evt);
-            }
-        });
-
+		
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -121,14 +117,14 @@ public class JRunFrame extends JFrame {
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(startDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(endLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(validateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                        .addComponent(endDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(validateDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(returnLabel))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE))
                 .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
@@ -139,9 +135,9 @@ public class JRunFrame extends JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(returnLabel)
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(startLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(endLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(validateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(startDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(endDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(validateDate)))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(410, 410, 410))
@@ -172,17 +168,9 @@ public class JRunFrame extends JFrame {
         this.dispose();
     }//GEN-LAST:event_returnLabelMouseClicked
 
-    private void startLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startLabelMouseClicked
+    private void validateDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validateDateMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_startLabelMouseClicked
-
-    private void endLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_endLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_endLabelMouseClicked
-
-    private void validateLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validateLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_validateLabelMouseClicked
+    }//GEN-LAST:event_validateDateMouseClicked
 
     /**
      * @param args the command line arguments
@@ -221,14 +209,14 @@ public class JRunFrame extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel endLabel;
+    private javax.swing.JFormattedTextField endDate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel returnLabel;
     private javax.swing.JTable runTable;
-    private javax.swing.JLabel startLabel;
+    private javax.swing.JFormattedTextField startDate;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JLabel validateLabel;
+    private javax.swing.JButton validateDate;
     // End of variables declaration//GEN-END:variables
 }
