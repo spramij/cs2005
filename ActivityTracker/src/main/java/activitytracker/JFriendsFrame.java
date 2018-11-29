@@ -212,6 +212,7 @@ public class JFriendsFrame extends JFrame {
         }
         else {
             Singleton.loadedProfile.addFriend(friendName);
+            Singleton.dataManager.saveProfile(Singleton.loadedProfile);
             this.dispose();
             JFriendsFrame fr = new JFriendsFrame();
             fr.setVisible(true);
@@ -240,6 +241,7 @@ public class JFriendsFrame extends JFrame {
         }
         else {
             Singleton.loadedProfile.removeFriend(friendName);
+            Singleton.dataManager.saveProfile(Singleton.loadedProfile);
             this.dispose();
             JFriendsFrame fr = new JFriendsFrame();
             fr.setVisible(true);
@@ -307,7 +309,7 @@ public class JFriendsFrame extends JFrame {
             int ite = data.length-1;
             tableData = new Object[data.length][4];
             for (int i = 0; i < data.length; i++) {
-                tableData[i][0] = data[ite].getDate();
+                tableData[i][0] = data[ite].getFormattedDate();
                 tableData[i][1] = data[ite].getDistance();
                 tableData[i][2] = data[ite].getDuration();
                 tableData[i][3] = data[ite].getAltitude();

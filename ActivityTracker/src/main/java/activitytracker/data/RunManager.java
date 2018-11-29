@@ -1,5 +1,6 @@
 package activitytracker.data;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -78,5 +79,18 @@ public class RunManager {
         for (ClassData data : dataSet) {
             this.runDatas.add(data);
         }
+    }
+
+    public Time getTotalTime() {
+        int totalTime = 0;
+
+        for (ClassData data : this.runDatas) {
+            totalTime += data.getDuration();
+        }
+        int hours = (int) totalTime / 3600;
+        double remainder = (double) totalTime - hours * 3600;
+        int mins = (int) remainder / 60;
+
+        return new Time(hours, mins, 0);
     }
 }

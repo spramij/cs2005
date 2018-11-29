@@ -166,6 +166,11 @@ public class ClassProfile {
     }
 
     @JsonIgnore
+    public RunManager getRunManger() {
+        return this.runManager;
+    }
+
+    @JsonIgnore
     // return the total distance ran by the Profile user
     public double getAllRunDistance() {
         double totalDist = 0;

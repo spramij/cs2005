@@ -90,7 +90,7 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
         challenge1Label.setForeground(new java.awt.Color(96, 83, 150));
         challenge1Label.setText("Run 5 km");
 
-        jProgressBar1.setValue(40);
+        jProgressBar1.setValue((int) ((Singleton.loadedProfile.getAllRunDistance() / 5000f) * 100));
 
         javax.swing.GroupLayout Challenge1PanelLayout = new javax.swing.GroupLayout(Challenge1Panel);
         Challenge1Panel.setLayout(Challenge1PanelLayout);
@@ -133,7 +133,7 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
         challenge1Label2.setForeground(new java.awt.Color(96, 83, 150));
         challenge1Label2.setText("Complete 500 steps");
 
-        jProgressBar2.setValue(80);
+        jProgressBar2.setValue((int) ((Singleton.loadedProfile.getRunManger().getTotalTime().getMinutes() / 30f) * 100));
 
         javax.swing.GroupLayout Challenge1Panel2Layout = new javax.swing.GroupLayout(Challenge1Panel2);
         Challenge1Panel2.setLayout(Challenge1Panel2Layout);
@@ -163,7 +163,8 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
         challenge1Label1.setForeground(new java.awt.Color(96, 83, 150));
         challenge1Label1.setText("Burn 5000 Calories");
 
-        jProgressBar3.setValue(80);
+        // jProgressBar3.setValue(80);
+        jProgressBar3.setValue((int) ((Singleton.loadedProfile.getAverageInclination() / 2f) * 100f));
 
         javax.swing.GroupLayout Challenge1Panel1Layout = new javax.swing.GroupLayout(Challenge1Panel1);
         Challenge1Panel1.setLayout(Challenge1Panel1Layout);

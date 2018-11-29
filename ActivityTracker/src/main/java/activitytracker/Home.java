@@ -269,8 +269,6 @@ public class Home extends JFrame {
         JRecentDisplayLabel.setForeground(new java.awt.Color(96, 83, 150));
         JRecentDisplayLabel.setText("Recent Runs");
 
-
-
         Object[][] tableData = {
                 {"Empty!","Empty!","Empty!","Empty!"},
                 {"Empty!","Empty!","Empty!","Empty!"}};
