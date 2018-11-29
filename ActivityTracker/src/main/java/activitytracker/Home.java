@@ -395,6 +395,12 @@ public class Home extends JFrame {
         ClassData[] dataSet = CsvImporter.Import(csvFile);
 
         Singleton.loadedProfile.setRunDatas(dataSet);
+        this.dispose();
+        Home h = new Home();
+        h.setVisible(true);
+        h.pack();
+        h.setLocationRelativeTo(null);
+        h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }//GEN-LAST:event_jImportButtonActionPerformed
 
     int xx, xy;

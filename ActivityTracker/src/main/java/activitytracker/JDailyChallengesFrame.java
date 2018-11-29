@@ -79,7 +79,7 @@ public class JDailyChallengesFrame extends javax.swing.JFrame {
         backTo.setText("Return to Main Menu");
         backTo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backToMouseClicked(evt);
+                returnLabelMouseClicked(evt);
             }
         });
 
