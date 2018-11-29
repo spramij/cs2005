@@ -4,10 +4,13 @@ import java.awt.event.ActionEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Date;
-import javax.swing.*;
+
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class JRunFrame extends JFrame {
 
@@ -212,6 +215,10 @@ public class JRunFrame extends JFrame {
     private void onValidateClick(ActionEvent evt) throws ParseException {//GEN-FIRST:event_validateDateMouseClicked
         String startDateStr = startDate.getText();
         String endDateStr = endDate.getText();
+
+        // Calendar today = Calendar.getInstance();
+        LocalDate today = LocalDate.now();
+
         if (startDateStr.isEmpty() && endDateStr.isEmpty()) {
             makeTable(null);
         }
@@ -219,7 +226,7 @@ public class JRunFrame extends JFrame {
             Date endDate = dateParser.parse(endDateStr);
 
             ClassData[] filteredRunData = Singleton.loadedProfile
-                    .getRunDatas(endDate, endDate);
+                    .getRunDatas(Singleton.loadedProfile.getRunManger().getStartDate(), endDate);
             Object[][] runsData = returnAs2DArray(filteredRunData);
             makeTable(runsData);
         }
@@ -227,7 +234,7 @@ public class JRunFrame extends JFrame {
         else if (endDateStr.isEmpty()) {
             Date startDate = dateParser.parse(startDateStr);
 
-            ClassData[] filteredRunData = Singleton.loadedProfile.getRunDatas(startDate, startDate);
+            ClassData[] filteredRunData = Singleton.loadedProfile.getRunDatas(startDate, new Date(today.getYear(), today.getMonthValue(), today.getDayOfYear()));
             Object[][] runsData = returnAs2DArray(filteredRunData);
             makeTable(runsData);
         } else {

@@ -75,12 +75,25 @@ public class RunManager {
     }
 
     @JsonIgnore
+    public Date getStartDate() {
+        Date startDate = new Date();
+
+        for (ClassData data : this.runDatas) {
+            if (startDate.after(data.getDate()))
+                startDate = data.getDate();
+        }
+
+        return startDate;
+    }
+
+    @JsonIgnore
     public void addRunDatas(ClassData[] dataSet) {
         for (ClassData data : dataSet) {
             this.runDatas.add(data);
         }
     }
 
+    @JsonIgnore
     public Time getTotalTime() {
         int totalTime = 0;
 
