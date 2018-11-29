@@ -287,11 +287,12 @@ public class JFriendsFrame extends JFrame {
 
 
     public JPanel JFriendPanel(String username) {
+        ClassProfile friendProfile = Singleton.dataManager.loadProfile(username);
+
         JPanel friendPanel = new JPanel();
-        JLabel friendName = new JLabel(username);
+        JLabel friendName = new JLabel(friendProfile.getFirstName());
         friendName.setFont(new java.awt.Font("Tahoma", 1, 14));
 
-        ClassProfile friendProfile = Singleton.dataManager.loadProfile(username);
         JLabel friendPic = new JLabel();
         friendPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png")));
 
