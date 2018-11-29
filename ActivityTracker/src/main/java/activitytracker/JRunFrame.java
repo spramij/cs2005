@@ -188,7 +188,32 @@ public class JRunFrame extends JFrame {
         }
 
         else {
+            Object[][] dataTable = new Object[inputData.length+1][4];
+            double avgDist= 0;
+            double avgTime = 0;
+            double avgAlt = 0;
+
+            for (int row = 0; row<=inputData.length-1; row++) {
+                for (int col = 0; col<4; col++) {
+                    dataTable[row][col] = inputData[row][col];
+                }
+                avgDist += (int) inputData[row][1];
+                System.out.println(inputData[row][1]);
+                avgTime += (int) inputData[row][2];
+                avgAlt += (float) inputData[row][3];
+            }
+            avgDist = Math.round(avgDist / (float)inputData.length);
+            avgTime = Math.round(avgTime / (float)inputData.length);
+            avgAlt = Math.round(avgAlt / (float)inputData.length);
             dataForTable = inputData;
+            String avgDateStr = "Average: " + avgDist;
+            String avgTimeStr = "Average: " + avgTime;
+            String avgAltStr = "Average: " + avgAlt;
+            dataTable[inputData.length][1] = (Object) avgDateStr;
+            dataTable[inputData.length][2] = (Object) avgTimeStr;
+            dataTable[inputData.length][3] = (Object) avgAltStr;
+
+            dataForTable = dataTable;
         }
 
         runTable = new JTable(dataForTable, columnNames);
@@ -197,7 +222,6 @@ public class JRunFrame extends JFrame {
         runTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         runTable.setRowHeight(20);
         runTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
-
     }
 
     private Object[][] returnAs2DArray(ClassData[] input) {
