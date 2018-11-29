@@ -36,15 +36,10 @@ public class JFriendsFrame extends JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         JHoldingPanel = new javax.swing.JPanel();
         JFriendPanel = new javax.swing.JPanel();
-        JFriendLabel1 = new javax.swing.JLabel();
+        friendName = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTableF1 = new javax.swing.JTable();
-        JFriendIconLabel = new javax.swing.JLabel();
-        JFriendPanel2 = new javax.swing.JPanel();
-        JFriendLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        JTableF2 = new javax.swing.JTable();
-        JFriendIconLabel1 = new javax.swing.JLabel();
+        friendRuns = new javax.swing.JTable();
+        friendPic = new javax.swing.JLabel();
         JSidePanel = new javax.swing.JPanel();
         AddLabel = new javax.swing.JLabel();
         RemoveLabel = new javax.swing.JLabel();
@@ -75,7 +70,7 @@ public class JFriendsFrame extends JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -91,10 +86,10 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setBackground(java.awt.SystemColor.activeCaption);
         JMainPanel.setForeground(java.awt.SystemColor.activeCaption);
 
-        JFriendLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        JFriendLabel1.setText("Friend 1");
+        friendName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        friendName.setText("Friend 1");
 
-        JTableF1.setModel(new javax.swing.table.DefaultTableModel(
+        friendRuns.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -105,9 +100,9 @@ public class JFriendsFrame extends JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(JTableF1);
+        jScrollPane1.setViewportView(friendRuns);
 
-        JFriendIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png"))); // NOI18N
+        friendPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png"))); // NOI18N
 
         javax.swing.GroupLayout JFriendPanelLayout = new javax.swing.GroupLayout(JFriendPanel);
         JFriendPanel.setLayout(JFriendPanelLayout);
@@ -117,78 +112,23 @@ public class JFriendsFrame extends JFrame {
                 .addGroup(JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JFriendPanelLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(JFriendIconLabel))
+                        .addComponent(friendPic))
                     .addGroup(JFriendPanelLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(JFriendLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JFriendPanelLayout.setVerticalGroup(
             JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JFriendPanelLayout.createSequentialGroup()
-                .addGroup(JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JFriendPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(JFriendPanelLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(JFriendIconLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JFriendLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 18, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-
-        JFriendLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        JFriendLabel2.setText("Friend 1");
-
-        JTableF2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(JTableF2);
-
-        JFriendIconLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png"))); // NOI18N
-
-        javax.swing.GroupLayout JFriendPanel2Layout = new javax.swing.GroupLayout(JFriendPanel2);
-        JFriendPanel2.setLayout(JFriendPanel2Layout);
-        JFriendPanel2Layout.setHorizontalGroup(
-            JFriendPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JFriendPanel2Layout.createSequentialGroup()
-                .addGroup(JFriendPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JFriendPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(JFriendIconLabel1))
-                    .addGroup(JFriendPanel2Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(JFriendLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        JFriendPanel2Layout.setVerticalGroup(
-            JFriendPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JFriendPanel2Layout.createSequentialGroup()
-                .addGroup(JFriendPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JFriendPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(JFriendPanel2Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(JFriendIconLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JFriendLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 18, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(53, 53, 53)
+                .addComponent(friendPic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(JFriendPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout JHoldingPanelLayout = new javax.swing.GroupLayout(JHoldingPanel);
@@ -197,18 +137,14 @@ public class JFriendsFrame extends JFrame {
             JHoldingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JHoldingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JHoldingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JFriendPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JFriendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 425, Short.MAX_VALUE))
+                .addComponent(JFriendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(386, Short.MAX_VALUE))
         );
         JHoldingPanelLayout.setVerticalGroup(
             JHoldingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JHoldingPanelLayout.createSequentialGroup()
                 .addComponent(JFriendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JFriendPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 71, Short.MAX_VALUE))
+                .addGap(0, 729, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(JHoldingPanel);
@@ -217,11 +153,11 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setLayout(JMainPanelLayout);
         JMainPanelLayout.setHorizontalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         JMainPanelLayout.setVerticalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
         );
 
         JSidePanel.setBackground(new java.awt.Color(0, 102, 102));
@@ -345,23 +281,18 @@ public class JFriendsFrame extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddLabel;
-    private javax.swing.JLabel JFriendIconLabel;
-    private javax.swing.JLabel JFriendIconLabel1;
-    private javax.swing.JLabel JFriendLabel1;
-    private javax.swing.JLabel JFriendLabel2;
     private javax.swing.JPanel JFriendPanel;
-    private javax.swing.JPanel JFriendPanel2;
     private javax.swing.JPanel JHoldingPanel;
     private javax.swing.JPanel JMainPanel;
     private javax.swing.JLabel JReturnLabel;
     private javax.swing.JPanel JSidePanel;
-    private javax.swing.JTable JTableF1;
-    private javax.swing.JTable JTableF2;
     private javax.swing.JLabel JViewLabel;
     private javax.swing.JLabel RemoveLabel;
+    private javax.swing.JLabel friendName;
+    private javax.swing.JLabel friendPic;
+    private javax.swing.JTable friendRuns;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
