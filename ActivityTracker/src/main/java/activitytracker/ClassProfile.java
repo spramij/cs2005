@@ -152,9 +152,9 @@ public class ClassProfile {
         this.myChallenges = challenge;
     }
 
-    public List<String> getAllFriendsList() {
-        return this.friendsList;
-    }
+//    public List<String> getAllFriendsList() {
+//        return this.friendsList;
+//    }
 
     // return the total distance ran by the Profile user
     public double getAllRunDistance() {

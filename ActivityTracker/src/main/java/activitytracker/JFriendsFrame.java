@@ -36,10 +36,6 @@ public class JFriendsFrame extends JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         JHoldingPanel = new javax.swing.JPanel();
         JFriendPanel = new javax.swing.JPanel();
-        friendName = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        friendRuns = new javax.swing.JTable();
-        friendPic = new javax.swing.JLabel();
         JSidePanel = new javax.swing.JPanel();
         AddLabel = new javax.swing.JLabel();
         RemoveLabel = new javax.swing.JLabel();
@@ -59,7 +55,7 @@ public class JFriendsFrame extends JFrame {
         JReturnLabel.setText("Return to Main Menu");
         JReturnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JReturnLabelMouseClicked(evt);
+                returnLabelMouseClicked(evt);
             }
         });
 
@@ -86,49 +82,26 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setBackground(java.awt.SystemColor.activeCaption);
         JMainPanel.setForeground(java.awt.SystemColor.activeCaption);
 
-        friendName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        friendName.setText("Friend 1");
+        String[] friendsList = Singleton.loadedProfile.getFriends();
+        JPanel allFriends = new JPanel();
 
-        friendRuns.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        if (friendsList != null) {
+            allFriends = new JPanel();
+            JPanel eachFriend;
+            for (String friendName:friendsList){
+                eachFriend= JFriendPanel(friendName);
+                allFriends.add(eachFriend);
             }
-        ));
-        jScrollPane1.setViewportView(friendRuns);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "You do not have any friends~");
+        }
 
-        friendPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png"))); // NOI18N
+        JMainPanel.add(allFriends);
 
-        javax.swing.GroupLayout JFriendPanelLayout = new javax.swing.GroupLayout(JFriendPanel);
-        JFriendPanel.setLayout(JFriendPanelLayout);
-        JFriendPanelLayout.setHorizontalGroup(
-            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JFriendPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(friendPic)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(JFriendPanelLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        JFriendPanelLayout.setVerticalGroup(
-            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JFriendPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(friendPic)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+
+
+
 
         javax.swing.GroupLayout JHoldingPanelLayout = new javax.swing.GroupLayout(JHoldingPanel);
         JHoldingPanel.setLayout(JHoldingPanelLayout);
@@ -280,13 +253,59 @@ public class JFriendsFrame extends JFrame {
         });
     }
 
-    public class JFriendPanel extends JPanel {
-        JPanel friendPanel;
-        public JFriendPanel() {
-            friendPanel = this;
 
+
+    public JPanel JFriendPanel(String username) {
+        JPanel friendPanel = new JPanel();
+        JLabel friendName = new JLabel(username);
+        friendName.setFont(new java.awt.Font("Tahoma", 1, 14));
+
+        ClassProfile friendProfile = Singleton.dataManager.loadProfile(username);
+        JLabel friendPic = new JLabel();
+        friendPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png")));
+
+        ClassData[] data = friendProfile.getRunDatas();
+        Object[][] tableData = {
+                {"Empty!", "Empty!", "Empty!", "Empty!"},
+                {"Empty!", "Empty!", "Empty!", "Empty!"}
+        };
+
+        if (data != null) {
+            tableData = new Object[data.length][4];
+            for (int i = 0; i < data.length; i++) {
+                tableData[i][0] = data[i].getDate();
+                tableData[i][1] = data[i].getDistance();
+                tableData[i][2] = data[i].getDuration();
+                tableData[i][3] = data[i].getAltitude();
+            }
         }
+
+        String[] columnNames = {"Date", "Distance covered", "Duration", "Inclination"};
+
+        JTable friendTable = new JTable(tableData, columnNames);
+        friendTable.setGridColor(new java.awt.Color(247, 247, 247));
+        friendTable.setRowHeight(20);
+        friendTable.setSelectionBackground(new java.awt.Color(96, 83, 150));
+        friendTable.setBackground(new java.awt.Color(247, 247, 247));
+        friendTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+        JScrollPane scrollpane = new JScrollPane(friendTable);
+        scrollpane.setViewportView(friendTable);
+
+        JPanel leftSide = new JPanel();
+        leftSide.setLayout(new BorderLayout());
+        leftSide.add(friendPic, BorderLayout.NORTH);
+        leftSide.add(friendName, BorderLayout.SOUTH);
+
+        JPanel rightside = new JPanel();
+        rightside.add(scrollpane);
+
+        friendPanel.add(leftSide);
+        friendPanel.add(rightside);
+
+        return friendPanel;
     }
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -298,10 +317,6 @@ public class JFriendsFrame extends JFrame {
     private javax.swing.JPanel JSidePanel;
     private javax.swing.JLabel JViewLabel;
     private javax.swing.JLabel RemoveLabel;
-    private javax.swing.JLabel friendName;
-    private javax.swing.JLabel friendPic;
-    private javax.swing.JTable friendRuns;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
