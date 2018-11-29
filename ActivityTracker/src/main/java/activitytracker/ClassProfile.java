@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.Nulls;
 
 import activitytracker.data.RunManager;
 
+import javax.swing.*;
+
 public class ClassProfile {
     private String userName;
     private String firstName;
@@ -196,7 +198,10 @@ public class ClassProfile {
 
     public void addFriend(String newFriend) {
         this.friendsList.add(newFriend);
-//        JOPtionPane.showMessageDialog(null, "You have added your friend!");
-        System.out.println("Friends added");
+        JOptionPane.showMessageDialog(null, "You have added your friend!");
+    }
+    public void removeFriend(String oldFriend) {
+        this.friendsList.remove(oldFriend);
+        JOptionPane.showMessageDialog(null, "You just lost a friend!");
     }
 }

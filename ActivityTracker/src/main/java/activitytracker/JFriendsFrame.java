@@ -36,10 +36,6 @@ public class JFriendsFrame extends JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         JHoldingPanel = new javax.swing.JPanel();
         JFriendPanel = new javax.swing.JPanel();
-        friendName = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        friendRuns = new javax.swing.JTable();
-        friendPic = new javax.swing.JLabel();
         JSidePanel = new javax.swing.JPanel();
         AddLabel = new javax.swing.JLabel();
         RemoveLabel = new javax.swing.JLabel();
@@ -59,7 +55,7 @@ public class JFriendsFrame extends JFrame {
         JReturnLabel.setText("Return to Main Menu");
         JReturnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JReturnLabelMouseClicked(evt);
+                returnLabelMouseClicked(evt);
             }
         });
 
@@ -86,50 +82,29 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setBackground(java.awt.SystemColor.activeCaption);
         JMainPanel.setForeground(java.awt.SystemColor.activeCaption);
 
-        friendName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        friendName.setText("Friend 1");
 
-        friendRuns.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        String[] friendsList = Singleton.loadedProfile.getFriends();
+        JPanel allFriends = new JPanel();
+
+        if (friendsList != null) {
+            allFriends.setLayout(new BoxLayout(allFriends, BoxLayout.Y_AXIS));
+            JPanel eachFriend;
+            for (String friendName:friendsList){
+                eachFriend= JFriendPanel(friendName);
+                allFriends.add(eachFriend);
             }
-        ));
-        jScrollPane1.setViewportView(friendRuns);
+            JScrollPane scrollFriend = new JScrollPane(allFriends);
+            scrollFriend.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            scrollFriend.setPreferredSize(new Dimension(1000,750));
+            scrollFriend.setBounds(50, 30, 300, 50);
 
-        friendPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png"))); // NOI18N
+            JMainPanel.add(scrollFriend);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "You do not have any friends!");
+        }
 
-        javax.swing.GroupLayout JFriendPanelLayout = new javax.swing.GroupLayout(JFriendPanel);
-        JFriendPanel.setLayout(JFriendPanelLayout);
-        JFriendPanelLayout.setHorizontalGroup(
-            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JFriendPanelLayout.createSequentialGroup()
-                .addGroup(JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JFriendPanelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(friendPic))
-                    .addGroup(JFriendPanelLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        JFriendPanelLayout.setVerticalGroup(
-            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JFriendPanelLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(friendPic)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(JFriendPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+
 
         javax.swing.GroupLayout JHoldingPanelLayout = new javax.swing.GroupLayout(JHoldingPanel);
         JHoldingPanel.setLayout(JHoldingPanelLayout);
@@ -148,17 +123,6 @@ public class JFriendsFrame extends JFrame {
         );
 
         jScrollPane2.setViewportView(JHoldingPanel);
-
-        javax.swing.GroupLayout JMainPanelLayout = new javax.swing.GroupLayout(JMainPanel);
-        JMainPanel.setLayout(JMainPanelLayout);
-        JMainPanelLayout.setHorizontalGroup(
-            JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
-        );
-        JMainPanelLayout.setVerticalGroup(
-            JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
-        );
 
         JSidePanel.setBackground(new java.awt.Color(0, 102, 102));
         JSidePanel.setForeground(new java.awt.Color(0, 102, 102));
@@ -237,7 +201,7 @@ public class JFriendsFrame extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddLabelMouseClicked
-        String friendName = showInputDialog(null, "Enter the your friend's username: ");
+        String friendName = JOptionPane.showInputDialog(null, "Enter the your friend's username: ");
         ClassProfile friendProfile = Singleton.dataManager.loadProfile(friendName);
 
         if (friendProfile == null) {
@@ -247,7 +211,11 @@ public class JFriendsFrame extends JFrame {
         }
         else {
             Singleton.loadedProfile.addFriend(friendName);
+            this.dispose();
+            JFriendsFrame fr = new JFriendsFrame();
+            fr.setVisible(true);
         }
+
 
     }//GEN-LAST:event_AddLabelMouseClicked
 
@@ -261,7 +229,24 @@ public class JFriendsFrame extends JFrame {
     }//GEN-LAST:event_returnLabelMouseClicked
 
     private void RemoveLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveLabelMouseClicked
-        // TODO add your handling code here:
+        String friendName = JOptionPane.showInputDialog(null, "Enter the your friend's username: ");
+        ClassProfile friendProfile = Singleton.dataManager.loadProfile(friendName);
+
+        if (friendProfile == null) {
+            // Profile doesn't exist
+            JOptionPane.showMessageDialog(null, "There are no records of this username!");
+            return;
+        }
+        else {
+            Singleton.loadedProfile.removeFriend(friendName);
+            this.dispose();
+            JFriendsFrame fr = new JFriendsFrame();
+            fr.setVisible(true);
+        }
+
+
+
+
     }//GEN-LAST:event_RemoveLabelMouseClicked
 
     /**
@@ -363,10 +348,6 @@ public class JFriendsFrame extends JFrame {
     private javax.swing.JPanel JSidePanel;
     private javax.swing.JLabel JViewLabel;
     private javax.swing.JLabel RemoveLabel;
-    private javax.swing.JLabel friendName;
-    private javax.swing.JLabel friendPic;
-    private javax.swing.JTable friendRuns;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
