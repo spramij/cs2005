@@ -16,7 +16,7 @@ public class ClassProfile {
     private String lastName;
     private RunManager runManager;
     private boolean shareMyData;
-    private List<String> friendsList;
+    private ArrayList<String> friendsList;
     private ClassChallenge myChallenges;
 
     public ClassProfile(String userName) {
@@ -194,13 +194,9 @@ public class ClassProfile {
         return this.runManager.getRunDatas();
     }
 
-    public void addFriend(ClassProfile newFriend) {
-        // fix
-
-        // this.friendsList.add(newFriend);
-        // System.out.println("You have successfully added " + newFriend.getName() + "
-        // as your friend!");
-
-        this.friendsList.add(newFriend.getUserName());
+    public void addFriend(String newFriend) {
+        this.friendsList.add(newFriend);
+//        JOPtionPane.showMessageDialog(null, "You have added your friend!");
+        System.out.println("Friends added");
     }
 }

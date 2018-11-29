@@ -36,6 +36,10 @@ public class JFriendsFrame extends JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         JHoldingPanel = new javax.swing.JPanel();
         JFriendPanel = new javax.swing.JPanel();
+        friendName = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        friendRuns = new javax.swing.JTable();
+        friendPic = new javax.swing.JLabel();
         JSidePanel = new javax.swing.JPanel();
         AddLabel = new javax.swing.JLabel();
         RemoveLabel = new javax.swing.JLabel();
@@ -55,7 +59,7 @@ public class JFriendsFrame extends JFrame {
         JReturnLabel.setText("Return to Main Menu");
         JReturnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                returnLabelMouseClicked(evt);
+                JReturnLabelMouseClicked(evt);
             }
         });
 
@@ -66,7 +70,7 @@ public class JFriendsFrame extends JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JReturnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -82,26 +86,50 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setBackground(java.awt.SystemColor.activeCaption);
         JMainPanel.setForeground(java.awt.SystemColor.activeCaption);
 
-        String[] friendsList = Singleton.loadedProfile.getFriends();
-        JPanel allFriends = new JPanel();
+        friendName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        friendName.setText("Friend 1");
 
-        if (friendsList != null) {
-            allFriends = new JPanel();
-            JPanel eachFriend;
-            for (String friendName:friendsList){
-                eachFriend= JFriendPanel(friendName);
-                allFriends.add(eachFriend);
+        friendRuns.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "You do not have any friends~");
-        }
+        ));
+        jScrollPane1.setViewportView(friendRuns);
 
-        JMainPanel.add(allFriends);
+        friendPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/activitytracker/Images/user.png"))); // NOI18N
 
-
-
-
+        javax.swing.GroupLayout JFriendPanelLayout = new javax.swing.GroupLayout(JFriendPanel);
+        JFriendPanel.setLayout(JFriendPanelLayout);
+        JFriendPanelLayout.setHorizontalGroup(
+            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JFriendPanelLayout.createSequentialGroup()
+                .addGroup(JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JFriendPanelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(friendPic))
+                    .addGroup(JFriendPanelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        JFriendPanelLayout.setVerticalGroup(
+            JFriendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JFriendPanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(friendPic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(friendName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(JFriendPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout JHoldingPanelLayout = new javax.swing.GroupLayout(JHoldingPanel);
         JHoldingPanel.setLayout(JHoldingPanelLayout);
@@ -125,13 +153,11 @@ public class JFriendsFrame extends JFrame {
         JMainPanel.setLayout(JMainPanelLayout);
         JMainPanelLayout.setHorizontalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         JMainPanelLayout.setVerticalGroup(
             JMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JMainPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
         );
 
         JSidePanel.setBackground(new java.awt.Color(0, 102, 102));
@@ -149,6 +175,11 @@ public class JFriendsFrame extends JFrame {
         RemoveLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RemoveLabel.setForeground(new java.awt.Color(240, 240, 240));
         RemoveLabel.setText("Remove Friends");
+        RemoveLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RemoveLabelMouseClicked(evt);
+            }
+        });
 
         JViewLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JViewLabel.setForeground(new java.awt.Color(240, 240, 240));
@@ -160,10 +191,10 @@ public class JFriendsFrame extends JFrame {
             JSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JSidePanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(JSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(RemoveLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AddLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JViewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(JSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JViewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RemoveLabel)
+                    .addComponent(AddLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         JSidePanelLayout.setVerticalGroup(
@@ -206,7 +237,18 @@ public class JFriendsFrame extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddLabelMouseClicked
-       
+        String friendName = showInputDialog(null, "Enter the your friend's username: ");
+        ClassProfile friendProfile = Singleton.dataManager.loadProfile(friendName);
+
+        if (friendProfile == null) {
+            // Profile doesn't exist
+            JOptionPane.showMessageDialog(null, "There are no records of this username!");
+            return;
+        }
+        else {
+            Singleton.loadedProfile.addFriend(friendName);
+        }
+
     }//GEN-LAST:event_AddLabelMouseClicked
 
     private void returnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnLabelMouseClicked
@@ -217,6 +259,10 @@ public class JFriendsFrame extends JFrame {
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_returnLabelMouseClicked
+
+    private void RemoveLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -317,6 +363,10 @@ public class JFriendsFrame extends JFrame {
     private javax.swing.JPanel JSidePanel;
     private javax.swing.JLabel JViewLabel;
     private javax.swing.JLabel RemoveLabel;
+    private javax.swing.JLabel friendName;
+    private javax.swing.JLabel friendPic;
+    private javax.swing.JTable friendRuns;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel title;
     private javax.swing.JPanel topPanel;
