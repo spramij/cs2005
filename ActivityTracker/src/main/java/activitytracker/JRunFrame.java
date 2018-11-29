@@ -154,7 +154,7 @@ public class JRunFrame extends JFrame {
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(validateDate)))
-                        .addGap(18, 18, Short.MAX_VALUE).addComponent(jScrollPane1,
+                        .addGap(50, 50, 50).addComponent(jScrollPane1,
                                 javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(410, 410, 410)));
 
