@@ -64,6 +64,13 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.jdatepicker/jdatepicker -->
+        <dependency>
+            <groupId>net.sourceforge.jdatepicker</groupId>
+            <artifactId>jdatepicker</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -99,6 +106,23 @@
                     <version>2.8.2</version>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>1.4</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <shadedArtifactAttached>true</shadedArtifactAttached> <!-- Make the shaded artifact not the main one -->
+                        <shadedClassifierName>shaded</shadedClassifierName> <!-- set the suffix to the shaded jar -->
+                    </configuration>
+                </plugin>
+                <plugin>
                     <groupId>com.akathist.maven.plugins.launch4j</groupId>
                     <artifactId>launch4j-maven-plugin</artifactId>
                     <version>1.5.2</version>
@@ -111,15 +135,15 @@
                             </goals>
                             <configuration>
                                 <headerType>gui</headerType>
-                                <outfile>target/Project.exe</outfile>
-                                <jar>target/${project.artifactId}-${project.version}.jar</jar>
+                                <outfile>target/ActivityTracker.exe</outfile>
+                                <jar>target/ActivityTrakcer-1.0-SNAPSHOT.jar</jar>
                                 <!-- if <dontWrapJar>true</dontWrapJar> change to this conf <jar>${project.artifactId}-${project.version}.jar</jar> -->
                                 <dontWrapJar>false</dontWrapJar>
                                 <errTitle>Error in launch4j plugin</errTitle>
                                 <classPath>
-                                    <mainClass>path.Main</mainClass>
+                                    <mainClass>activitytracker.App</mainClass>
                                 </classPath>
-                                <icon>Project.ico</icon>
+                                <icon>target/classes/activitytracker/Images/index.png</icon>
                                 <jre>
                                     <minVersion>1.5.0</minVersion>
                                     <maxVersion>1.6.0</maxVersion>
@@ -131,12 +155,12 @@
                                     <txtFileVersion>1.0.0.0</txtFileVersion>
                                     <fileDescription>des</fileDescription>
                                     <copyright>Copyright (c) 2014 </copyright>
-                                    <companyName>comp</companyName>
+                                    <companyName>YoloBois</companyName>
                                     <productVersion>3.0.0.0</productVersion>
                                     <txtProductVersion>${project.version}</txtProductVersion>
-                                    <productName>Project</productName>
-                                    <internalName>Project</internalName>
-                                    <originalFilename>Project.exe</originalFilename>
+                                    <productName>ActivityTracker</productName>
+                                    <internalName>ActivityTracker</internalName>
+                                    <originalFilename>ActivityTracker.exe</originalFilename>
                                 </versionInfo>
                             </configuration>
                         </execution>
